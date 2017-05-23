@@ -1,13 +1,40 @@
-# Spring Boot Heroku demo
+# java-getting-started
 
-[![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+A barebones Java app, which can easily be deployed to Heroku.
 
-This is a small demo application for showing how to run a [Spring Boot](http://projects.spring.io/spring-boot/)
-application on [Heroku](http://heroku.com). For more information see the Dev Center article on 
-[Deploying Spring Boot Applications to Heroku](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku).
+This application supports the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## License
+## Running Locally
 
-Code is under the [Apache Licence v2](https://www.apache.org/licenses/LICENSE-2.0.txt).
+Make sure you have Java and Maven installed.  Also, install the [Heroku CLI](https://cli.heroku.com/).
+
+```sh
+$ git clone https://github.com/heroku/java-getting-started.git
+$ cd java-getting-started
+$ mvn install
+$ heroku local:start
+```
+
+Your app should now be running on [localhost:5000](http://localhost:5000/).
+
+If you're going to use a database, ensure you have a local `.env` file that reads something like this:
+
+```
+DATABASE_URL=postgres://localhost:5432/java_database_name
+```
+
+## Deploying to Heroku
+
+```sh
+$ heroku create
+$ git push heroku master
+$ heroku open
+```
+
+## Documentation
+
+For more information about using Java on Heroku, see these Dev Center articles:
+
+- [Java on Heroku](https://devcenter.heroku.com/categories/java)
