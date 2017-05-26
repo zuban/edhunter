@@ -26,7 +26,7 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
         <Container className={style.jumbCont}>
           <div className="row">
             <Jumbotron className={style.jumbotronImage}>
-              <h1 className="display-3">Очное обучение программированию</h1>
+              <h1 className="display-3">Подготовка студентов к собеседованиям</h1>
               <p className="lead">Мы команда профессионалов, подготовим тебя к собеседованиям в ведущие компании</p>
               <hr className="my-2" />
               <p>Курсы Java, Javascript, DevOps</p>
@@ -56,7 +56,7 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
 
             </div>
             <div className="col-md-3 webinar-promo-cta" style={{ marginTop: '12px' }}>
-              <a href="http://hashi.co/2pTfR4h">REGISTER NOW</a>
+              <a href="http://hashi.co/2pTfR4h">ПОПРОБОВАТЬ</a>
             </div>
           </div>
 
@@ -71,7 +71,7 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
             <div
               style={{ margin: '0 auto' }}
             >
-              <h2>Flexible training for modern teams</h2>
+              <h2>Наши партнеры: </h2>
               <p
                 style={{
                   color: '#717f86',
@@ -79,9 +79,9 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
                   fontSize: '18px',
                   fontWeight: 'lighter',
                 }}
-              >You need a robust learning tool that will equip your team with the skills needed to move forward and
-                tackle future projects. Treehouse for Business provides top-rated technical training using interactive,
-                expert-created content, and guided curriculums.</p>
+              >Ведущие IT компании в России. Банки, поисковые системы, интеграторы.
+                Мы подготовим тебя для собеседования в любую из них.
+                Подберем курсы, которые будут интересны тебе. </p>
             </div>
           </div>
           <Row style={{ marginTop: '20px' }}>
