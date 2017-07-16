@@ -9,6 +9,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Provider as ReduxProvider } from 'react-redux';
 
 const ContextType = {
   // Enables critical path CSS rendering
@@ -16,6 +17,9 @@ const ContextType = {
   insertCss: PropTypes.func.isRequired,
   // Universal HTTP client
   fetch: PropTypes.func.isRequired,
+  // Integrate Redux
+  // http://redux.js.org/docs/basics/UsageWithReact.html
+  ...ReduxProvider.childContextTypes,
 };
 
 /**
@@ -41,7 +45,6 @@ const ContextType = {
  *   );
  */
 class App extends React.PureComponent {
-
   static propTypes = {
     context: PropTypes.shape(ContextType).isRequired,
     children: PropTypes.element.isRequired,
@@ -58,7 +61,6 @@ class App extends React.PureComponent {
     // please do that inside the Layout component.
     return React.Children.only(this.props.children);
   }
-
 }
 
 export default App;
