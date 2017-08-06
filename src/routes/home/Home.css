@@ -14,7 +14,7 @@
 }
 
 .work {
-  color: var(--text-color)
+  color: var(--text-color);
 }
 
 .newsItem {
@@ -97,6 +97,7 @@
 .missionUl {
   list-style-type: none;
 }
+
 .missionUlFirst {
   list-style-type: none;
   margin-top: 12px;
@@ -110,6 +111,7 @@
 .headerPadding {
   padding: 5rem;
 }
+
 .textParagraph {
   color: var(--paragraph-text);
 }
@@ -130,6 +132,7 @@
 .bulbPadding {
   padding: 2rem;
 }
+
 .textGrey {
   color: var(--paragraph-text);
 }
@@ -205,6 +208,7 @@
   text-align: center;
   padding-top: 12rem;
 }
+
 .secondBlock {
   height: 500px;
   background: #202020 url(./second.png)  no-repeat right center;
@@ -212,6 +216,7 @@
   text-align: center;
   padding-top: 12rem;
 }
+
 .thirdBlock {
   height: 500px;
   background: #202020 url(./third.png)  no-repeat right center;
@@ -240,6 +245,7 @@
   background: #202020 url(./contact.png)  no-repeat right center;
   background-size: cover;
   text-align: center;
+
   /*color: var(--white-text-color);*/
   color: var(--paragraph-text);
 }
@@ -251,6 +257,7 @@
   text-align: left;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
 }
+
 .contactForm {
   background: white;
   padding-top: 5rem;
@@ -289,7 +296,7 @@
   }
 
   .processBlock{
-      display: none;
+    display: none;
   }
 
   .helpBlock {
@@ -302,6 +309,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
+
   .priceRow {
     padding: 0;
   }

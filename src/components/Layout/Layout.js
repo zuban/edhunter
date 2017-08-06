@@ -18,9 +18,8 @@ import Header from '../Header';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
 import bootstrapCss from 'bootstrap/dist/css/bootstrap.css';
+
 class Layout extends React.Component {
-
-
   static propTypes = {
     children: PropTypes.node.isRequired,
   };
@@ -28,7 +27,7 @@ class Layout extends React.Component {
   render() {
     return (
       <div>
-        <Header profile={this.props.profile}/>
+        <Header profile={this.props.profile} />
         {this.props.children}
         <Feedback />
         <Footer />

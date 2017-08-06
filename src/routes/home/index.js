@@ -23,7 +23,7 @@ async function action({ fetch }) {
     title: 'EdHunter - образование',
     component: (
       <Layout profile={data}>
-        <Home/>
+        <Home />
       </Layout>
     ),
   };

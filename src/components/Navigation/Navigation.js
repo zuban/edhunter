@@ -15,6 +15,7 @@ import Link from '../Link';
 
 class Navigation extends React.Component {
   render() {
+    const name = this.props.profile.me ? this.props.profile.me.name : null;
     return (
       <div className={s.root} role="navigation">
         <Link className={s.link} to="/about">
@@ -35,19 +36,20 @@ class Navigation extends React.Component {
         <Link className={s.link} to="/contact">
           Контакты
         </Link>
-        {
-          this.props.profile.me.name ? <Link className={s.link} to="/">
-              {this.props.profile.me.name }
+        {name
+          ? <Link className={s.link} to="/">
+              {name}
             </Link>
-            : <span>  <span className={s.spacer}> | </span>
-        <Link className={s.link} to="/login">
-          Войти
-        </Link>
-        <span className={s.spacer}>или</span>
-        <Link className={cx(s.link, s.highlight)} to="/register">
-          Регистрация
-        </Link></span>
-        }
+          : <span>
+              {' '}<span className={s.spacer}> | </span>
+              <Link className={s.link} to="/login">
+                Войти
+              </Link>
+              <span className={s.spacer}>или</span>
+              <Link className={cx(s.link, s.highlight)} to="/register">
+                Регистрация
+              </Link>
+            </span>}
       </div>
     );
   }

@@ -19,6 +19,7 @@
   width: 270px;
   font-size: 14pt;
 }
+
 .secondary {
   background: transparent;
   border-color: var(--white-text-color);

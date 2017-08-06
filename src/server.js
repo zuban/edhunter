@@ -90,7 +90,7 @@ app.get(
   }),
   (req, res) => {
     const expiresIn = 60 * 60 * 24 * 180; // 180 days
-    console.log(`user: ${JSON.stringify(req.user)}`)
+    console.log(`user: ${JSON.stringify(req.user)}`);
     const token = jwt.sign(req.user, config.auth.jwt.secret, { expiresIn });
     res.cookie('id_token', token, { maxAge: 1000 * expiresIn, httpOnly: true });
     res.redirect('/');
@@ -117,7 +117,7 @@ app.post('/login', (req, res, next) => {
       req.flash('errors', info);
       return res.redirect('/login');
     }
-    req.logIn(user, (err) => {
+    req.logIn(user, err => {
       if (err) {
         return next(err);
       }
@@ -126,8 +126,6 @@ app.post('/login', (req, res, next) => {
     });
   })(req, res, next);
 });
-
-
 
 //
 // Register API middleware
@@ -154,7 +152,7 @@ app.get('*', async (req, res, next) => {
       baseUrl: config.api.serverUrl,
       cookie: req.headers.cookie,
     });
-    console.log(`user: ${JSON.stringify(req.user)}`)
+    console.log(`user: ${JSON.stringify(req.user)}`);
     const initialState = {
       user: req.user || null,
     };

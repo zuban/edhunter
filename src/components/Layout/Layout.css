@@ -55,7 +55,7 @@ a {
  */
 
 hr {
-  border-color: #007FFF;
+  border-color: #007fff;
   max-width: 120px;
   border-width: 3px;
   margin-top: 25px;
@@ -183,5 +183,5 @@ textarea {
 }
 
 p {
-  font-size: 14pt
+  font-size: 14pt;
 }

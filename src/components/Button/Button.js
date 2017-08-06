@@ -10,7 +10,8 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Button.css';
-import {Button as BootstrapButton} from 'reactstrap'
+import { Button as BootstrapButton } from 'reactstrap';
+
 class Button extends React.Component {
   render() {
     return (

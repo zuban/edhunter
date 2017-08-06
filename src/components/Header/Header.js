@@ -14,16 +14,16 @@ import Link from '../Link';
 import Navigation from '../Navigation';
 import logo from './logo.png';
 // import logoUrl2x from './logo-small@2x.png';
-import {Container, Row, Col} from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import { Button } from 'reactstrap';
 
 class Header extends React.Component {
   render() {
-    console.log(this.props.profile)
+    console.log(this.props.profile);
     return (
       <Container className={s.maxWidth}>
         <div className={s.container}>
-          <Navigation profile={this.props.profile}/>
+          <Navigation profile={this.props.profile} />
           <Link className={s.brand} to="/">
             <img
               src={logo}
