@@ -35,6 +35,42 @@ const UserProfile = Model.define('UserProfile', {
   website: {
     type: DataType.STRING(255),
   },
+
+  type: {
+    type: DataType.STRING(100),
+  },
+
+  phone: {
+    type: DataType.STRING(100),
+  },
+
+  about: {
+    type: DataType.STRING(255),
+  },
+
+  name: {
+    type: DataType.STRING(255),
+  },
+
+  course: {
+    type: DataType.STRING(255),
+  },
+
+  company: {
+    type: DataType.STRING(255),
+  },
+
+  contactPerson: {
+    type: DataType.STRING(255),
+  },
+
+  requirements: {
+    type: DataType.STRING(255),
+  },
+
+  university: {
+    type: DataType.STRING(255),
+  },
 });
 
 export default UserProfile;

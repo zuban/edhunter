@@ -6,7 +6,6 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE.txt file in the root directory of this source tree.
  */
-
 :root {
   /*
    * Typography
@@ -18,7 +17,11 @@
    * Layout
    * ======================================================================== */
 
-  --max-content-width: 1000px;
+  --max-content-width: 1200px;
+  --white-text-color: #f4f5f9;
+  --button-primary-color: #3d95b6;
+  --paragraph-text: #999999;
+  --text-color: rgb(106, 106, 106);
 
   /*
    * Media queries breakpoints
@@ -28,4 +31,12 @@
   --screen-sm-min: 768px;  /* Small screen / tablet */
   --screen-md-min: 992px;  /* Medium screen / desktop */
   --screen-lg-min: 1200px; /* Large screen / wide desktop */
+}
+
+.text-primary {
+  color: var(--button-primary-color) !important;
+}
+
+.text-paragraph {
+  color: var(--paragraph-text);
 }

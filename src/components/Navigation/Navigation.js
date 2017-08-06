@@ -18,19 +18,36 @@ class Navigation extends React.Component {
     return (
       <div className={s.root} role="navigation">
         <Link className={s.link} to="/about">
-          About
+          Команда
         </Link>
         <Link className={s.link} to="/contact">
-          Contact
+          Миссия
         </Link>
-        <span className={s.spacer}> | </span>
+        <Link className={s.link} to="/contact">
+          Партнеры
+        </Link>
+        <Link className={s.link} to="/contact">
+          Курсы
+        </Link>
+        <Link className={s.link} to="/contact">
+          Цены
+        </Link>
+        <Link className={s.link} to="/contact">
+          Контакты
+        </Link>
+        {
+          this.props.profile.me.name ? <Link className={s.link} to="/">
+              {this.props.profile.me.name }
+            </Link>
+            : <span>  <span className={s.spacer}> | </span>
         <Link className={s.link} to="/login">
-          Log in
+          Войти
         </Link>
-        <span className={s.spacer}>or</span>
+        <span className={s.spacer}>или</span>
         <Link className={cx(s.link, s.highlight)} to="/register">
-          Sign up
-        </Link>
+          Регистрация
+        </Link></span>
+        }
       </div>
     );
   }

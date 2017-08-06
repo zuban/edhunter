@@ -8,17 +8,22 @@
  */
 
 import UserType from '../types/UserType';
-
+import {User, UserLogin, UserClaim, UserProfile} from '../../data/models';
 const me = {
   type: UserType,
-  resolve({ request }) {
+  async resolve({request}) {
+    const user = await UserProfile.find({
+      userId: request.user.id
+    });
     return (
-      request.user && {
+      {
         id: request.user.id,
         email: request.user.email,
+        name: user.displayName,
       }
     );
-  },
-};
+
+  }
+}
 
 export default me;

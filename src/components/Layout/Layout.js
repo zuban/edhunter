@@ -17,8 +17,10 @@ import s from './Layout.css';
 import Header from '../Header';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
-
+import bootstrapCss from 'bootstrap/dist/css/bootstrap.css';
 class Layout extends React.Component {
+
+
   static propTypes = {
     children: PropTypes.node.isRequired,
   };
@@ -26,7 +28,7 @@ class Layout extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header profile={this.props.profile}/>
         {this.props.children}
         <Feedback />
         <Footer />
@@ -35,4 +37,4 @@ class Layout extends React.Component {
   }
 }
 
-export default withStyles(normalizeCss, s)(Layout);
+export default withStyles(bootstrapCss, s)(Layout);

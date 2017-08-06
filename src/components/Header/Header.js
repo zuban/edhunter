@@ -12,31 +12,29 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.css';
 import Link from '../Link';
 import Navigation from '../Navigation';
-import logoUrl from './logo-small.png';
-import logoUrl2x from './logo-small@2x.png';
+import logo from './logo.png';
+// import logoUrl2x from './logo-small@2x.png';
+import {Container, Row, Col} from 'reactstrap';
+import { Button } from 'reactstrap';
 
 class Header extends React.Component {
   render() {
+    console.log(this.props.profile)
     return (
-      <div className={s.root}>
+      <Container className={s.maxWidth}>
         <div className={s.container}>
-          <Navigation />
+          <Navigation profile={this.props.profile}/>
           <Link className={s.brand} to="/">
             <img
-              src={logoUrl}
-              srcSet={`${logoUrl2x} 2x`}
-              width="38"
-              height="38"
-              alt="React"
+              src={logo}
+              srcSet={`${logo} 2x`}
+              width="150"
+              height="30"
+              alt="EdHunter"
             />
-            <span className={s.brandTxt}>Your Company</span>
           </Link>
-          <div className={s.banner}>
-            <h1 className={s.bannerTitle}>React</h1>
-            <p className={s.bannerDesc}>Complex web apps made easy</p>
-          </div>
         </div>
-      </div>
+      </Container>
     );
   }
 }

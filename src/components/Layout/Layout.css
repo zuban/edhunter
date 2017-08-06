@@ -21,14 +21,11 @@
 
 html {
   color: #222;
-  font-weight: 100;
-  font-size: 1em; /* ~16px; */
-  font-family: var(--font-family-base);
-  line-height: 1.375; /* ~22px */
 }
 
 body {
   margin: 0;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 a {
@@ -58,12 +55,11 @@ a {
  */
 
 hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+  border-color: #007FFF;
+  max-width: 120px;
+  border-width: 3px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 /*
@@ -184,4 +180,8 @@ textarea {
   h3 {
     page-break-after: avoid;
   }
+}
+
+p {
+  font-size: 14pt
 }

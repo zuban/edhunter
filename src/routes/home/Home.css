@@ -6,7 +6,6 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE.txt file in the root directory of this source tree.
  */
-
 @import '../../components/variables.css';
 
 .root {
@@ -14,36 +13,296 @@
   padding-right: 20px;
 }
 
-.container {
-  margin: 0 auto;
-  padding: 0 0 40px;
-  max-width: var(--max-content-width);
+.work {
+  color: var(--text-color)
 }
 
 .newsItem {
   margin: 0 0 2rem;
 }
 
+.paddingContainer {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 .newsTitle {
   font-size: 1.5rem;
 }
 
-.newsDesc {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 1.125rem;
+.arrowDown {
+  text-align: center;
+  position: relative;
+  top: -30px;
+}
+
+.content {
+  position: relative;
+  top: 200px;
+}
+
+.h1Header {
+  font-size: 3.5rem;
+}
+
+.h3Header {
+  font-size: 1.5rem;
+}
+
+.pHeader {
+  font-size: 1.5rem;
+}
+
+.headerImage {
+  background: url(./header.png) no-repeat center bottom;
+  background-size: cover;
+  height: 100vh;
+  transition: margin 0.2s;
+  text-align: center;
+  min-height: 400px;
+  position: relative;
+  margin: 0;
+  color: var(--white-text-color);
+}
+
+.commandPhoto {
+  display: block;
+  margin: 1rem auto;
+}
+
+.commandDesctiption {
+  color: var(--paragraph-text);
+  text-align: center;
+}
+
+.darkSection {
+  background-color: #202020;
+  color: var(--white-text-color);
+}
+
+.missionText {
+  text-align: right;
+  padding: 6rem;
+}
+
+.missionDescription {
+  margin-top: 6rem;
+}
+
+.missionBackground {
+  background: #202020 url(./missionBlock.png)  no-repeat right center;
+  background-size: cover;
+}
+
+.missionUl {
+  list-style-type: none;
+}
+.missionUlFirst {
+  list-style-type: none;
+  margin-top: 12px;
+}
+
+.headerMargin {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.headerPadding {
+  padding: 5rem;
+}
+.textParagraph {
+  color: var(--paragraph-text);
+}
+
+.missionHeader {
+  padding-right: 1rem;
+  border-right: 5px solid #0275d8;
+}
+
+.textBlue {
+  color: var(--button-primary-color);
+}
+
+.blockCenter {
+  margin: 0 auto;
+}
+
+.bulbPadding {
+  padding: 2rem;
+}
+.textGrey {
+  color: var(--paragraph-text);
+}
+
+.textDark {
+  color: var(--text-color);
+}
+
+.helpBlock {
+  background: white;
+  position: absolute;
+  height: 600px;
+  z-index: 1;
+  top: 175px;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.photoHelpBlock {
+  position: relative;
+  height: 700px;
+  background: #202020 url(./macbook.png)  no-repeat right center;
+  background-size: cover;
+}
+
+.homePageContent {
+  background: var(--white-text-color);
+}
+
+.processBlock {
+  height: 608px;
+  background: #202020 url(./process.png)  no-repeat right center;
+  background-size: cover;
+}
+
+.processHeader {
+  color: var(--white-text-color);
+}
+
+.whiteBlock {
+  background: white;
+}
+
+.priceBlock {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background: var(--white-text-color);
+  color: var(--paragraph-text);
+
+}
+
+.priceBlockDuration {
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+  background: var(--paragraph-text);
+  color: var(--white-text-color);
+}
+
+.priceMainBlockDuration {
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+  background: var(--button-primary-color);
+  color: var(--white-text-color);
+}
+
+.priceRow {
+  padding: 5rem;
+}
+
+.firstBlock {
+  height: 500px;
+  background: #202020 url(./first.png)  no-repeat right center;
+  background-size: cover;
+  text-align: center;
+  padding-top: 12rem;
+}
+.secondBlock {
+  height: 500px;
+  background: #202020 url(./second.png)  no-repeat right center;
+  background-size: cover;
+  text-align: center;
+  padding-top: 12rem;
+}
+.thirdBlock {
+  height: 500px;
+  background: #202020 url(./third.png)  no-repeat right center;
+  background-size: cover;
+  text-align: center;
+  padding-top: 12rem;
+}
+
+.foursBlock {
+  height: 500px;
+  background: #202020 url(./fouth.png)  no-repeat right center;
+  background-size: cover;
+  text-align: center;
+  padding-top: 12rem;
+}
+
+.recommendBlock {
+  background: #202020 url(./recomend.png)  no-repeat right center;
+  background-size: cover;
+  text-align: center;
+  color: var(--white-text-color);
+}
+
+.contactBlock {
+  height: 800px;
+  background: #202020 url(./contact.png)  no-repeat right center;
+  background-size: cover;
+  text-align: center;
+  /*color: var(--white-text-color);*/
+  color: var(--paragraph-text);
+}
+
+.contacts {
+  background: white;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  text-align: left;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.contactForm {
+  background: white;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  text-align: left;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+.marginPriceCount {
+  margin-top: 30px;
+}
+
+.priceCount {
+  height: 150px;
+  width: 150px;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid white;
+  background: white;
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--paragraph-text);
+}
+
+@media (max-width: 576px) {
+  .missionText {
+    text-align: right;
+    padding: 0;
   }
 
-  pre {
-    white-space: pre-wrap;
-    font-size: 0.875rem;
+  .h1Header {
+    font-size: 2.5rem;
   }
 
-  img {
-    max-width: 100%;
+  .processBlock{
+      display: none;
+  }
+
+  .helpBlock {
+    height: 750px;
+  }
+
+  .headerPadding {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .priceRow {
+    padding: 0;
   }
 }
