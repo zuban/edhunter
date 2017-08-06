@@ -15,7 +15,8 @@ import Link from '../Link';
 
 class Navigation extends React.Component {
   render() {
-    const name = this.props.profile.me ? this.props.profile.me.name : null;
+    let name = null;
+    this.props.profile ? (this.props.profile.me ? name = this.props.profile.me.name : name = null) : null;
     return (
       <div className={s.root} role="navigation">
         <Link className={s.link} to="/about">
