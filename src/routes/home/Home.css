@@ -129,6 +129,10 @@
   margin: 0 auto;
 }
 
+.textCenter {
+  text-align: center;
+}
+
 .bulbPadding {
   padding: 2rem;
 }
@@ -291,6 +295,28 @@
     padding: 0;
   }
 
+  .headerImage {
+    height: 110vh;
+  }
+
+  .missionRow {
+    padding: 1rem;
+  }
+
+  .missionBackground {
+    display: none;
+  }
+
+  .priceCol {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+  }
+
+  .partnersContainer {
+    padding-top: 3rem;
+    text-align: center;
+  }
+
   .h1Header {
     font-size: 2.5rem;
   }
@@ -301,6 +327,11 @@
 
   .helpBlock {
     height: 750px;
+  }
+
+  .contacts {
+    padding-bottom: 0rem;
+    padding-top: 1rem;
   }
 
   .headerPadding {

@@ -36,13 +36,6 @@ import icon3 from './icon3.png';
 
 class Home extends React.Component {
   static propTypes = {
-    news: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        link: PropTypes.string.isRequired,
-        content: PropTypes.string,
-      }),
-    ).isRequired,
   };
 
   render() {
@@ -171,7 +164,7 @@ class Home extends React.Component {
         </Container>
         <div className={s.darkSection}>
           <Container fluid>
-            <Row>
+            <Row className={s.missionRow}>
               <div className={`col-sm-8 ${s.missionText}`}>
                 <h1 className={s.missionHeader}>НАША МИССИЯ</h1>
                 <p className={s.textParagraph}>
@@ -265,11 +258,7 @@ class Home extends React.Component {
             </Row>
           </Container>
         </div>
-        <Container
-          style={{
-            textAlign: 'center',
-          }}
-        >
+        <Container className={s.partnersContainer}>
           <Row className={s.headerPadding}>
             <h1 className={s.blockCenter}>
               НАШИ ПАРТНЕРЫ В СТАДИИ ПЕРЕГОВОРОВ
@@ -324,7 +313,7 @@ class Home extends React.Component {
           </Container>
           <Container>
             <Row className={s.priceRow}>
-              <div className={`col-sm-6 text-center`}>
+              <div className={`col-sm-6 text-center ${s.priceCol}`}>
                 <div className={s.priceBlockDuration}>
                   <h1>Разовый</h1>
                 </div>
@@ -349,7 +338,7 @@ class Home extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className={`col-sm-6 text-center`}>
+              <div className={`col-sm-6 text-center ${s.priceCol}`}>
                 <div className={s.priceMainBlockDuration}>
                   <h1>Разовый</h1>
                 </div>
@@ -405,7 +394,7 @@ class Home extends React.Component {
         </div>
         <Container>
           <Row className={s.headerPadding}>
-            <h1 className={s.blockCenter}>НАС РЕКОМЕНДУЮТ</h1>
+            <h1 className={s.textCenter}>НАС РЕКОМЕНДУЮТ</h1>
           </Row>
         </Container>
         <div className={s.recommendBlock}>
@@ -434,7 +423,7 @@ class Home extends React.Component {
         </div>
         <Container>
           <Row className={s.headerPadding}>
-            <h1 className={s.blockCenter}>ХОТИТЕ СТАТЬ ПАРТНЕРОМ ПРОЕКТА?</h1>
+            <h1 className={s.textCenter}>ХОТИТЕ СТАТЬ ПАРТНЕРОМ ПРОЕКТА?</h1>
           </Row>
           <Row className="text-center">
             <p>

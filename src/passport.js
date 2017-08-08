@@ -15,8 +15,17 @@
 
 import passport from 'passport';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
+import { Strategy as LocalStrategy } from 'passport-facebook';
+const bcrypt = require('bcrypt-nodejs');
+const crypto = require('crypto');
 import { User, UserLogin, UserClaim, UserProfile } from './data/models';
 import config from './config';
+
+const comparePassword = (candidatePassword, cb) => {
+  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+    cb(err, isMatch);
+  });
+};
 
 /**
  * Sign in with Facebook.
@@ -133,7 +142,26 @@ passport.use(
 
       fooBar().catch(done);
     },
-  ),
+  )
 );
+
+// /**
+//  * Local sign in
+//  */
+// passport.use( new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+//   User.findAll({ email: email.toLowerCase() }, (err, user) => {
+//     if (err) { return done(err); }
+//     if (!user) {
+//       return done(null, false, { msg: `Email ${email} not found.` });
+//     }
+//     user.comparePassword(password, (err, isMatch) => {
+//       if (err) { return done(err); }
+//       if (isMatch) {
+//         return done(null, user);
+//       }
+//       return done(null, false, { msg: 'Invalid email or password.' });
+//     });
+//   });
+// }));
 
 export default passport;

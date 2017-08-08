@@ -9,6 +9,7 @@
 
 import path from 'path';
 import express from 'express';
+import expressValidator from 'express-validator';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import expressJwt, { UnauthorizedError as Jwt401Error } from 'express-jwt';
@@ -48,7 +49,7 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(expressValidator());
 //
 // Authentication
 // -----------------------------------------------------------------------------
@@ -105,8 +106,7 @@ app.post('/login', (req, res, next) => {
   const errors = req.validationErrors();
 
   if (errors) {
-    req.flash('errors', errors);
-    return res.redirect('/login');
+    return req.send({errors});
   }
 
   passport.authenticate('local', (err, user, info) => {
@@ -125,6 +125,11 @@ app.post('/login', (req, res, next) => {
       res.redirect(req.session.returnTo || '/contact');
     });
   })(req, res, next);
+});
+//logout user
+app.post('/logout', (req, res, next) => {
+  res.clearCookie('id_token');
+  res.redirect('/');
 });
 
 //

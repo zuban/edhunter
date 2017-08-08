@@ -14,6 +14,13 @@ import s from './Navigation.css';
 import Link from '../Link';
 
 class Navigation extends React.Component {
+
+  logout() {
+    fetch("/logout", {
+      method: "POST",
+      body: null
+    });
+  }
   render() {
     let name = null;
     this.props.profile ? (this.props.profile.me ? name = this.props.profile.me.name : name = null) : null;
@@ -38,9 +45,12 @@ class Navigation extends React.Component {
           Контакты
         </Link>
         {name
-          ? <Link className={s.link} to="/">
+          ? <span><Link className={s.link} to="/">
               {name}
             </Link>
+             <span className={s.spacer}>или</span>
+              <span className={s.link} onClick={() => this.logout()}>Выйти</span>
+            </span>
           : <span>
               {' '}<span className={s.spacer}> | </span>
               <Link className={s.link} to="/login">
