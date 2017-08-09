@@ -27,7 +27,7 @@ class Layout extends React.Component {
   render() {
     return (
       <div>
-        <Header profile={this.props.profile} />
+        <Header/>
         {this.props.children}
         <Feedback />
         <Footer />

@@ -8,16 +8,18 @@
  */
 
 import React from 'react';
-import Home from './Home';
 import Layout from '../../components/Layout';
+import RegisterCompany from './RegisterCompany';
 
-async function action({ fetch }) {
+const title = 'Log In';
+
+function action() {
   return {
-    chunks: ['home'],
-    title: 'EdHunter - образование',
+    chunks: ['company'],
+    title,
     component: (
       <Layout>
-        <Home />
+        <RegisterCompany title={title} />
       </Layout>
     ),
   };

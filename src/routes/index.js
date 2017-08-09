@@ -28,8 +28,16 @@ const routes = {
       load: () => import(/* webpackChunkName: 'login' */ './login'),
     },
     {
-      path: '/register',
-      load: () => import(/* webpackChunkName: 'register' */ './register'),
+      path: '/register/student',
+      load: () => import(/* webpackChunkName: 'student' */ './student'),
+    },
+    {
+      path: '/register/company',
+      load: () => import(/* webpackChunkName: 'company' */ './company'),
+    },
+    {
+      path: '/register/teacher',
+      load: () => import(/* webpackChunkName: 'teacher' */ './teacher'),
     },
     {
       path: '/about',

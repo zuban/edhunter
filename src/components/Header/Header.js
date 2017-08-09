@@ -13,17 +13,17 @@ import s from './Header.css';
 import Link from '../Link';
 import Navigation from '../Navigation';
 import logo from './logo.png';
-// import logoUrl2x from './logo-small@2x.png';
-import { Container, Row, Col } from 'reactstrap';
-import { Button } from 'reactstrap';
+import {Container} from 'reactstrap';
+import {connect} from 'react-redux'
 
 class Header extends React.Component {
   render() {
+    const {user} = this.props;
     console.log(this.props.profile);
     return (
       <Container className={s.maxWidth}>
         <div className={s.container}>
-          <Navigation profile={this.props.profile} />
+          <Navigation profile={user}/>
           <Link className={s.brand} to="/">
             <img
               src={logo}
@@ -39,4 +39,13 @@ class Header extends React.Component {
   }
 }
 
-export default withStyles(s)(Header);
+const mapStateToProps = (state, ownProps) => {
+  return {
+    user: state.user.name
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(withStyles(s)(Header));

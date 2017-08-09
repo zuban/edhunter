@@ -26,13 +26,40 @@ import errorPageStyle from './routes/error/ErrorPage.css';
 import createFetch from './createFetch';
 import passport from './passport';
 import router from './router';
-import models from './data/models';
-import schema from './data/schema';
+// import models from './data/models';
+// import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import configureStore from './store/configureStore';
 import { setRuntimeVariable } from './actions/runtime';
-import config from './config';
+const compression = require('compression');
+const session = require('express-session');
+const chalk = require('chalk');
+const lusca = require('lusca');
+const dotenv = require('dotenv');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
+const expressStatusMonitor = require('express-status-monitor');
 
+/**
+ * Controllers (route handlers).
+ */
+// const homeController = require('./controllers/home');
+const userController = require('./controllers/user');
+const educationController = require('./controllers/education');
+const apiController = require('./controllers/api');
+const contactController = require('./controllers/contact');
+
+/**
+ * Load environment variables from .env file, where API keys and passwords are configured.
+ */
+dotenv.load({ path: '.env.example' });
+
+/**
+ * API keys and Passport configuration.
+ */
+const passportConfig = require('./config/passport');
+
+import config from './config';
 const app = express();
 
 //
@@ -50,100 +77,99 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(expressValidator());
-//
-// Authentication
-// -----------------------------------------------------------------------------
-app.use(
-  expressJwt({
-    secret: config.auth.jwt.secret,
-    credentialsRequired: false,
-    getToken: req => req.cookies.id_token,
-  }),
-);
-// Error handler for express-jwt
-app.use((err, req, res, next) => {
-  // eslint-disable-line no-unused-vars
-  if (err instanceof Jwt401Error) {
-    console.error('[express-jwt-error]', req.cookies.id_token);
-    // `clearCookie`, otherwise user can't use web-app until cookie expires
-    res.clearCookie('id_token');
-  }
-  next(err);
-});
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret: process.env.SESSION_SECRET,
+  store: new MongoStore({
+    url: process.env.MONGODB_URI || process.env.MONGOLAB_URI,
+    autoReconnect: true,
+    clear_interval: 3600
+  })
+}));
+// //
+// // Authentication
+// // -----------------------------------------------------------------------------
+// app.use(
+//   expressJwt({
+//     secret: config.auth.jwt.secret,
+//     credentialsRequired: false,
+//     getToken: req => req.cookies.id_token,
+//   }),
+// );
+// // Error handler for express-jwt
+// app.use((err, req, res, next) => {
+//   // eslint-disable-line no-unused-vars
+//   if (err instanceof Jwt401Error) {
+//     console.error('[express-jwt-error]', req.cookies.id_token);
+//     // `clearCookie`, otherwise user can't use web-app until cookie expires
+//     res.clearCookie('id_token');
+//   }
+//   next(err);
+// });
 
 app.use(passport.initialize());
+app.use(passport.session());
+
+app.post('/login', userController.postLogin);
+app.get('/logout', userController.logout);
+app.get('/forgot', userController.getForgot);
+app.post('/forgot', userController.postForgot);
+app.get('/reset/:token', userController.getReset);
+app.post('/reset/:token', userController.postReset);
+app.get('/signup', userController.getSignup);
+app.post('/signup', userController.postSignup);
+app.get('/signup-employer', userController.getSignupEmployer);
+app.post('/signup-employer', userController.postSignup);
+app.get('/signup-teacher', userController.getSignupStudent);
+app.post('/signup-teacher', userController.postSignup);
+app.get('/contact', contactController.getContact);
+app.post('/contact', contactController.postContact);
+app.get('/education', educationController.getContact);
+app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
+app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
+app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
+app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
+app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+
+app.post('/api/contact', apiController.contact);
+app.post('/api/landingContact', apiController.landingContact);
+app.post('/api/news', apiController.news);
+app.get('/api/currentUser', apiController.currentUser);
+
+app.get('/success', apiController.success);
 
 if (__DEV__) {
   app.enable('trust proxy');
 }
-app.get(
-  '/login/facebook',
-  passport.authenticate('facebook', {
-    scope: ['email', 'user_location'],
-    session: false,
-  }),
-);
-app.get(
-  '/login/facebook/return',
-  passport.authenticate('facebook', {
-    failureRedirect: '/login',
-    session: false,
-  }),
-  (req, res) => {
-    const expiresIn = 60 * 60 * 24 * 180; // 180 days
-    console.log(`user: ${JSON.stringify(req.user)}`);
-    const token = jwt.sign(req.user, config.auth.jwt.secret, { expiresIn });
-    res.cookie('id_token', token, { maxAge: 1000 * expiresIn, httpOnly: true });
-    res.redirect('/');
-  },
-);
 
-app.post('/login', (req, res, next) => {
-  req.assert('email', 'Email не валидный').isEmail();
-  req.assert('password', 'Пароль не может быть пустым').notEmpty();
-  req.sanitize('email').normalizeEmail({ remove_dots: false });
 
-  const errors = req.validationErrors();
 
-  if (errors) {
-    return req.send({errors});
-  }
-
-  passport.authenticate('local', (err, user, info) => {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      req.flash('errors', info);
-      return res.redirect('/login');
-    }
-    req.logIn(user, err => {
-      if (err) {
-        return next(err);
-      }
-      req.flash('success', { msg: 'Вход совершен. ' });
-      res.redirect(req.session.returnTo || '/contact');
-    });
-  })(req, res, next);
-});
-//logout user
-app.post('/logout', (req, res, next) => {
-  res.clearCookie('id_token');
-  res.redirect('/');
+/**
+ * Connect to MongoDB.
+ */
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
+mongoose.connection.on('error', (err) => {
+  console.error(err);
+  console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
+  process.exit();
 });
 
-//
-// Register API middleware
-// -----------------------------------------------------------------------------
-app.use(
-  '/graphql',
-  expressGraphQL(req => ({
-    schema,
-    graphiql: __DEV__,
-    rootValue: { request: req },
-    pretty: __DEV__,
-  })),
-);
+app.use(expressStatusMonitor());
+app.use(compression());
+// //
+// // Register API middleware
+// // -----------------------------------------------------------------------------
+// app.use(
+//   '/graphql',
+//   expressGraphQL(req => ({
+//     schema,
+//     graphiql: __DEV__,
+//     rootValue: { request: req },
+//     pretty: __DEV__,
+//   })),
+// );
 
 //
 // Register server-side rendering middleware
@@ -153,17 +179,17 @@ app.get('*', async (req, res, next) => {
     const css = new Set();
 
     // Universal HTTP client
-    const fetch = createFetch(nodeFetch, {
-      baseUrl: config.api.serverUrl,
-      cookie: req.headers.cookie,
-    });
+    // const fetch = createFetch(nodeFetch, {
+    //   baseUrl: config.api.serverUrl,
+    //   cookie: req.headers.cookie,
+    // });
     console.log(`user: ${JSON.stringify(req.user)}`);
     const initialState = {
       user: req.user || null,
     };
 
     const store = configureStore(initialState, {
-      fetch,
+      // fetch,
       // I should not use `history` on server.. but how I do redirection? follow universal-router
     });
 
@@ -183,7 +209,7 @@ app.get('*', async (req, res, next) => {
         // eslint-disable-next-line no-underscore-dangle
         styles.forEach(style => css.add(style._getCss()));
       },
-      fetch,
+      // fetch,
       // You can access redux through react-redux connect
       store,
       storeSubscription: null,
@@ -251,7 +277,7 @@ app.use((err, req, res, next) => {
 //
 // Launch the server
 // -----------------------------------------------------------------------------
-const promise = models.sync().catch(err => console.error(err.stack));
+// const promise = models.sync().catch(err => console.error(err.stack));
 if (!module.hot) {
   promise.then(() => {
     app.listen(config.port, () => {

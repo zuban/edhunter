@@ -19,6 +19,6 @@ export default function createHelpers({ fetch, history }) {
   return {
     fetch,
     history,
-    graphqlRequest: createGraphqlRequest(fetch),
+    // graphqlRequest: createGraphqlRequest(fetch),
   };
 }

@@ -22,8 +22,7 @@ class Navigation extends React.Component {
     });
   }
   render() {
-    let name = null;
-    this.props.profile ? (this.props.profile.me ? name = this.props.profile.me.name : name = null) : null;
+    const {profile} = this.props;
     return (
       <div className={s.root} role="navigation">
         <Link className={s.link} to="/about">
@@ -44,9 +43,9 @@ class Navigation extends React.Component {
         <Link className={s.link} to="/contact">
           Контакты
         </Link>
-        {name
+        {profile
           ? <span><Link className={s.link} to="/">
-              {name}
+              {profile}
             </Link>
              <span className={s.spacer}>или</span>
               <span className={s.link} onClick={() => this.logout()}>Выйти</span>
