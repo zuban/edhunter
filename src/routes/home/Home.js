@@ -79,8 +79,7 @@ class Home extends React.Component {
   }
 
   render() {
-    return (
-      <div className={s.homePageContent}>
+    return (<div className={s.homePageContent}>
         <div className={s.headerImage}>
           <section>
             <div className={s.content}>

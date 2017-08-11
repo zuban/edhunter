@@ -193,8 +193,17 @@ app.get('*', async (req, res, next) => {
     console.log(req.user);
     console.log('---------------');
 
+    let name = null;
+    if (req.user) {
+      if (req.user.email)
+        name = req.user.email;
+      if (req.user.contactPerson)
+        name = req.user.contactPerson;
+      if (req.user.name)
+        name = req.user.name;
+    }
     const initialState = {
-      user: req.user ? req.user.name : null,
+      user: name,
     };
 
     const store = configureStore(initialState, {
@@ -287,9 +296,9 @@ app.use((err, req, res, next) => {
 // Launch the server
 // -----------------------------------------------------------------------------
 if (!module.hot) {
-    app.listen(config.port, () => {
-      console.info(`The server is running at http://localhost:${config.port}/`);
-    });
+  app.listen(config.port, () => {
+    console.info(`The server is running at http://localhost:${config.port}/`);
+  });
 }
 
 //
