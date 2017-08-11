@@ -37,7 +37,7 @@ exports.postLogin = (req, res, next) => {
       return next(err);
     }
     if (!user) {
-      return res.send({errors: 'Пользователя с таким email не существует'});
+      return res.status(500).send({errors: 'Пользователя с таким email не существует'});
     }
     req.logIn(user, (err) => {
       if (err) {
