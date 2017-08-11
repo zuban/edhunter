@@ -8,31 +8,27 @@
  */
 
 import React from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Feedback.css';
+// import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import {Container, Row, Col, Form, FormGroup, Label, Input} from 'reactstrap';
 
 class Feedback extends React.Component {
   render() {
-    return (
-      <div className={s.root}>
-        <div className={s.container}>
-          <a
-            className={s.link}
-            href="https://gitter.im/kriasoft/react-starter-kit"
-          >
-            Ask a question
-          </a>
-          <span className={s.spacer}>|</span>
-          <a
-            className={s.link}
-            href="https://github.com/kriasoft/react-starter-kit/issues/new"
-          >
-            Report an issue
-          </a>
-        </div>
-      </div>
-    );
+    return null
   }
 }
 
-export default withStyles(s)(Feedback);
+export default Feedback;
+
+
+{/*<Container>*/}
+  {/*<Row >*/}
+    {/*<Form>*/}
+      {/*<FormGroup row>*/}
+        {/*<Label for="email" sm={6}>ПОДПИШИСЬ НА ОБНОВЛЕНИЯ</Label>*/}
+        {/*<Col sm={6}>*/}
+          {/*<Input type="email" name="email" id="email" placeholder="Введите свой email"/>*/}
+        {/*</Col>*/}
+      {/*</FormGroup>*/}
+    {/*</Form>*/}
+  {/*</Row>*/}
+{/*</Container>*/}

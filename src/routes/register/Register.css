@@ -10,12 +10,25 @@
 @import '../../components/variables.css';
 
 .root {
-  padding-left: 20px;
-  padding-right: 20px;
+  background-color: #fff;
+  background: url(../../assets/java.png) top center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  color: var(--white-text-color);
+  min-height: 100vh;
 }
 
 .container {
+  padding-top: 15rem;
+  padding-bottom: 15rem;
+}
+
+.registerRow {
   margin: 0 auto;
-  padding: 0 0 40px;
-  max-width: var(--max-content-width);
+}
+
+h1 {
+  margin-bottom: 3rem;
 }

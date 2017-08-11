@@ -10,8 +10,8 @@
 @import '../variables.css';
 
 .root {
-  background: #333;
-  color: #fff;
+  background: var(--text-color);
+  color: var(--white-text-color);
 }
 
 .container {

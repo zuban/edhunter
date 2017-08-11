@@ -14,7 +14,7 @@
   background-attachment: fixed;
   background-size: cover;
   position: relative;
-  text-align: center;
+  text-align: left;
   color: var(--white-text-color);
   min-height: 100vh;
 }
@@ -24,9 +24,9 @@
   padding-bottom: 15rem;
 }
 
-.loginRow {
-  margin: 0 auto;
+.registerRow {
   max-width: 500px;
+  margin: 0 auto;
 }
 
 h1 {

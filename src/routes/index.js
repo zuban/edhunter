@@ -40,12 +40,16 @@ const routes = {
       load: () => import(/* webpackChunkName: 'teacher' */ './teacher'),
     },
     {
-      path: '/about',
-      load: () => import(/* webpackChunkName: 'about' */ './about'),
+      path: '/register',
+      load: () => import(/* webpackChunkName: 'register' */ './register'),
     },
     {
-      path: '/privacy',
-      load: () => import(/* webpackChunkName: 'privacy' */ './privacy'),
+      path: '/education',
+      load: () => import(/* webpackChunkName: 'education' */ './education'),
+    },
+    {
+      path: '/java',
+      load: () => import(/* webpackChunkName: 'java' */ './java'),
     },
     {
       path: '/admin',

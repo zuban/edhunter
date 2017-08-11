@@ -9,16 +9,15 @@
 
 import React from 'react';
 import Layout from '../../components/Layout';
-import Page from '../../components/Page';
-import about from './about.md';
+import Java from './Java'
 
 function action() {
   return {
-    chunks: ['about'],
-    title: about.title,
+    chunks: ['java'],
+    title: 'Курс JAVA',
     component: (
       <Layout>
-        <Page {...about} />
+        <Java/>
       </Layout>
     ),
   };

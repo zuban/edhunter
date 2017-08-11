@@ -89,7 +89,7 @@
 }
 
 .missionBackground {
-  background: #202020 url(./missionBlock.png)  no-repeat right center;
+  background: #202020 url(./missionBlock.png) no-repeat right center;
   background-size: cover;
 }
 
@@ -156,7 +156,7 @@
 .photoHelpBlock {
   position: relative;
   height: 700px;
-  background: #202020 url(./macbook.png)  no-repeat right center;
+  background: #202020 url(./macbook.png) no-repeat right center;
   background-size: cover;
 }
 
@@ -166,7 +166,7 @@
 
 .processBlock {
   height: 608px;
-  background: #202020 url(./process.png)  no-repeat right center;
+  background: #202020 url(./process.png) no-repeat right center;
   background-size: cover;
 }
 
@@ -206,7 +206,7 @@
 
 .firstBlock {
   height: 500px;
-  background: #202020 url(./first.png)  no-repeat right center;
+  background: #202020 url(./first.png) no-repeat right center;
   background-size: cover;
   text-align: center;
   padding-top: 12rem;
@@ -214,7 +214,7 @@
 
 .secondBlock {
   height: 500px;
-  background: #202020 url(./second.png)  no-repeat right center;
+  background: #202020 url(./second.png) no-repeat right center;
   background-size: cover;
   text-align: center;
   padding-top: 12rem;
@@ -222,7 +222,7 @@
 
 .thirdBlock {
   height: 500px;
-  background: #202020 url(./third.png)  no-repeat right center;
+  background: #202020 url(./third.png) no-repeat right center;
   background-size: cover;
   text-align: center;
   padding-top: 12rem;
@@ -230,22 +230,56 @@
 
 .foursBlock {
   height: 500px;
-  background: #202020 url(./fouth.png)  no-repeat right center;
+  background: #202020 url(./fouth.png) no-repeat right center;
   background-size: cover;
   text-align: center;
   padding-top: 12rem;
 }
 
 .recommendBlock {
-  background: #202020 url(./recomend.png)  no-repeat right center;
+  background: #202020 url(./recomend.png) no-repeat right center;
   background-size: cover;
   text-align: center;
   color: var(--white-text-color);
 }
 
+.courseName {
+  padding: 1rem;
+  text-align: center;
+}
+
+.courseDescription {
+  background: var(--button-primary-color);
+}
+
+.javaCourse {
+  background: #202020 url(./javaCoruse.png) no-repeat right center;
+  background-size: cover;
+  text-align: center;
+  color: var(--white-text-color);
+}
+
+.htmlCourse {
+  background: #202020 url(./htmlCourse.png) no-repeat center center;
+  background-size: cover;
+  text-align: center;
+  color: var(--white-text-color);
+}
+
+.yourCourse {
+  background: #202020 url(./yourCourse.png) no-repeat right center;
+  background-size: cover;
+  text-align: center;
+  color: var(--white-text-color);
+}
+
+.courseRow {
+  height: 35rem;
+}
+
 .contactBlock {
-  height: 800px;
-  background: #202020 url(./contact.png)  no-repeat right center;
+  height: 900px;
+  background: #202020 url(./contact.png) no-repeat right center;
   background-size: cover;
   text-align: center;
 
@@ -257,18 +291,20 @@
   background: white;
   padding-top: 5rem;
   padding-bottom: 5rem;
-  text-align: left;
+  text-align: center;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
 .contactForm {
   background: white;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding: 5rem;
   text-align: left;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
+.partnersContainer {
+  text-align: center;
+}
 
 .marginPriceCount {
   margin-top: 30px;
@@ -307,8 +343,8 @@
   }
 
   .priceCol {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   .partnersContainer {
@@ -320,7 +356,7 @@
     font-size: 2.5rem;
   }
 
-  .processBlock{
+  .processBlock {
     display: none;
   }
 

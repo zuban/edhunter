@@ -41,7 +41,7 @@ class Header extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    user: state.user.name
+    user: state.user ? state.user : null,
   }
 }
 

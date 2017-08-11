@@ -10,7 +10,7 @@
 
 .root {
   background-color: #fff;
-  background: url(./java.png) top center no-repeat;
+  background: url(../../assets/java.png) top center no-repeat;
   background-attachment: fixed;
   background-size: cover;
   position: relative;
@@ -21,9 +21,14 @@
 
 .container {
   padding-top: 15rem;
+  padding-bottom: 15rem;
 }
 
 .registerRow {
   max-width: 500px;
   margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 3rem;
 }

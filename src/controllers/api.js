@@ -29,24 +29,10 @@ exports.contact = (req, res) => {
     if (err) {
       res.sendStatus(500);
     }
-    req.flash('success', { msg: 'Спасибо за Ваше Обращение. Мы свяжемся с Вами в ближайшее время.' });
-    return res.redirect('/contact');
+    res.sendStatus(200)
   });
 };
-exports.landingContact = (req, res) => {
-  const contact = new Contact({
-    email: req.body.email,
-    name: req.body.name,
-    phone: req.body.phone,
-    message: req.body.message,
-  });
-  contact.save((err) => {
-    if (err) {
-      res.sendStatus(500);
-    }
-    return res.redirect('/success');
-  });
-};
+
 
 exports.currentUser = (req, res) => res.send(req.user);
 

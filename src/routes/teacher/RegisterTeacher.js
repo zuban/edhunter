@@ -11,6 +11,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Styles.css';
+
 import Button from '../../components/Button';
 import {
   Container,
@@ -20,7 +21,6 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText
 } from 'reactstrap';
 class RegisterTeacher extends React.Component {
   static propTypes = {
@@ -30,11 +30,44 @@ class RegisterTeacher extends React.Component {
   constructor(...props) {
     super(...props);
     this.state = {
+      notification: null,
       email: null,
-      login: null,
+      name: null,
+      course: null,
+      password: null,
     }
   }
 
+  changeFieldName(field, value) {
+    let state = this.state;
+    state[field] = value;
+    this.setState(state);
+    console.log(state);
+  }
+
+  send() {
+    const _this = this;
+    fetch("/api/register", {
+      method: "POST",
+      body: JSON.stringify(this.state),
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+    }).then(function (response) {
+      if (response.status === 201)
+      {
+        window.location.href = '/'
+      }
+      return response.json();
+    }).then(function (result) {
+      _this.setState({notification: result.errors})
+    }).catch(function (error) {
+      console.log('Request failed', error);
+    });
+    ;
+  }
 
   render() {
     return (
@@ -43,25 +76,34 @@ class RegisterTeacher extends React.Component {
           <Row className={s.registerRow}>
             <Col>
               <h1>
-                Войти
+                Для учителей. Зарегистрироваться.
               </h1>
               <Form>
+                {
+                  this.state.notification ? <p>{this.state.notification}</p> : null
+                }
                 <FormGroup>
-                  <Label for="exampleEmail">Email</Label>
-                  <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                  <Label>Ваш email</Label>
+                  <Input onBlur={e => this.changeFieldName('email', e.target.value)} type="email" name="email"
+                         placeholder="Ваш email"/>
                 </FormGroup>
                 <FormGroup>
-                  <Label for="examplePassword">Password</Label>
-                  <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+                  <Label>Ваше имя</Label>
+                  <Input onBlur={e => this.changeFieldName('name', e.target.value)} type="text" name="name"
+                         placeholder="Ваше имя"/>
                 </FormGroup>
-                <FormGroup check>
-                  <Label check>
-                    <Input type="checkbox" />{' '}
-                    Check me out
-                  </Label>
+                <FormGroup>
+                  <Label>Область ваших интересов</Label>
+                  <Input onBlur={e => this.changeFieldName('course', e.target.value)} type="text" name="course"
+                         placeholder="Область ваших интересов"/>
                 </FormGroup>
-                <Button text="Submit" primary />
+                <FormGroup>
+                  <Label for="examplePassword">Пароль</Label>
+                  <Input onBlur={e => this.changeFieldName('password', e.target.value)} type="password" name="password"
+                         placeholder="Введите ваш пароль"/>
+                </FormGroup>
               </Form>
+              <Button onClick={() => this.send()} text="Зарегистрироваться" primary/>
             </Col>
           </Row>
         </Container>

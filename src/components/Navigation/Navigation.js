@@ -16,31 +16,34 @@ import Link from '../Link';
 class Navigation extends React.Component {
 
   logout() {
-    fetch("/logout", {
-      method: "POST",
-      body: null
-    });
+    fetch('/logout', {
+      credentials: 'include',
+    }).then(function (response) {
+      document.cookie = 'connect.sid' +  '=; Max-Age=0';
+      window.location.href = '/'
+    }).catch(alert);
   }
+
   render() {
     const {profile} = this.props;
     return (
       <div className={s.root} role="navigation">
-        <Link className={s.link} to="/about">
+        <Link className={s.link} to="#team">
           Команда
         </Link>
-        <Link className={s.link} to="/contact">
+        <Link className={s.link} to="#mission">
           Миссия
         </Link>
-        <Link className={s.link} to="/contact">
+        <Link className={s.link} to="#partners">
           Партнеры
         </Link>
-        <Link className={s.link} to="/contact">
+        <Link className={s.link} to="#courses">
           Курсы
         </Link>
-        <Link className={s.link} to="/contact">
+        <Link className={s.link} to="#prices">
           Цены
         </Link>
-        <Link className={s.link} to="/contact">
+        <Link className={s.link} to="#contacts">
           Контакты
         </Link>
         {profile

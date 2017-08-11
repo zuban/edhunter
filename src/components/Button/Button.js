@@ -15,7 +15,7 @@ import { Button as BootstrapButton } from 'reactstrap';
 class Button extends React.Component {
   render() {
     return (
-      <BootstrapButton className={this.props.primary ? s.primary : s.secondary}>
+      <BootstrapButton onClick={this.props.onClick} className={this.props.primary ? s.primary : s.secondary}>
         {this.props.text}
       </BootstrapButton>
     );

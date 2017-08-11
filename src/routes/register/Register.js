@@ -11,7 +11,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Register.css';
-
+import Link from '../../components/Link';
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+} from 'reactstrap';
 class Register extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
@@ -20,41 +29,25 @@ class Register extends React.Component {
   render() {
     return (
       <div className={s.root}>
-        <div className={s.container}>
-          <h1>
-            {this.props.title}
-          </h1>
-          <form method="post">
-            <div className={s.formGroup}>
-              <label className={s.label} htmlFor="email">
-                email address:
-              </label>
-              <input
-                className={s.input}
-                id="email"
-                type="email"
-                name="email"
-                autoFocus // eslint-disable-line jsx-a11y/no-autofocus
-              />
-            </div>
-            <div className={s.formGroup}>
-              <label className={s.label} htmlFor="password">
-                Password:
-              </label>
-              <input
-                className={s.input}
-                id="password"
-                type="password"
-                name="password"
-              />
-            </div>
-            <div className={s.formGroup}>
-              <button className={s.button} type="submit">
-                Log in
-              </button>
-            </div>
-          </form>
-        </div>
+        <Container className={s.container}>
+          <Row className={s.registerRow}>
+            <Col sm="4">
+              <h2>
+                <Link to="/register/student">Регистрация для студентов</Link>
+              </h2>
+            </Col>
+            <Col sm="4">
+              <h2>
+                <Link to="/register/company">Регистрация для компаний</Link>
+              </h2>
+            </Col>
+            <Col sm="4">
+              <h2>
+                <Link to="/register/teacher">Регистрация для преподавателей</Link>
+              </h2>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

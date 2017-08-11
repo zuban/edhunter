@@ -9,16 +9,15 @@
 
 import React from 'react';
 import Layout from '../../components/Layout';
-import Page from '../../components/Page';
-import privacy from './privacy.md';
+import Education from './Education'
 
 function action() {
   return {
-    chunks: ['privacy'],
-    title: privacy.title,
+    chunks: ['education'],
+    title: 'Концепция перевернутого обучения',
     component: (
       <Layout>
-        <Page {...privacy} />
+        <Education />
       </Layout>
     ),
   };

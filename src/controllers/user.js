@@ -29,8 +29,7 @@ exports.postLogin = (req, res, next) => {
   const errors = req.validationErrors();
 
   if (errors) {
-    return res.send({errors});
-    // return res.redirect('/login');
+    return res.status(500).send({errors: 'Не валидный пароль или email'});
   }
 
   passport.authenticate('local', (err, user, info) => {
@@ -38,14 +37,13 @@ exports.postLogin = (req, res, next) => {
       return next(err);
     }
     if (!user) {
-      return res.send({errors});
+      return res.send({errors: 'Пользователя с таким email не существует'});
     }
     req.logIn(user, (err) => {
       if (err) {
         return next(err);
       }
-      res.send({success: 'Вход совершен.'});
-      res.redirect(req.session.returnTo || '/contact');
+      res.status(200).send({success: 'Вход совершен.'});
     });
   })(req, res, next);
 };
@@ -56,21 +54,25 @@ exports.postLogin = (req, res, next) => {
  */
 exports.logout = (req, res) => {
   req.logout();
-  res.redirect('/');
+  req.session.destroy();
+  res.clearCookie('__cfduid');
+  res.clearCookie('connect.sid');
+  res.clearCookie('io');
+  res.sendStatus(200);
 };
 
-/**
- * GET /signup
- * Signup page.
- */
-exports.getSignup = (req, res) => {
-  if (req.user) {
-    return res.redirect('/contact');
-  }
-  res.render('account/signup', {
-    title: 'Create Account'
-  });
-};
+// /**
+//  * GET /signup
+//  * Signup page.
+//  */
+// exports.getSignup = (req, res) => {
+//   if (req.user) {
+//     return res.redirect('/contact');
+//   }
+//   res.render('account/signup', {
+//     title: 'Create Account'
+//   });
+// };
 
 /**
  * GET /signup
@@ -103,18 +105,16 @@ exports.getSignupStudent = (req, res) => {
  * Create a new local account.
  */
 exports.postSignup = (req, res, next) => {
-  req.assert('email', 'Email is not valid').isEmail();
-  req.assert('password', 'Password must be at least 4 characters long').len(4);
-  req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
-  req.sanitize('email').normalizeEmail({ remove_dots: false });
-
-  const errors = req.validationErrors();
-
-  if (errors) {
-    req.flash('errors', errors);
-    return res.redirect('/signup');
+  if (!req.body) {
+    return res.status(500).send({
+      errors: 'Заполните все поля'
+    });
   }
-
+  if (req.body.password.lenght < 4) {
+    return res.status(500).send({
+      errors: 'Пароль должен содержать как минимум 4 символа'
+    });
+  }
   const user = new User({
     email: req.body.email,
     password: req.body.password,
@@ -128,13 +128,12 @@ exports.postSignup = (req, res, next) => {
     university: req.body.university,
   });
 
-  User.findOne({ email: req.body.email }, (err, existingUser) => {
+  User.findOne({email: req.body.email}, (err, existingUser) => {
     if (err) {
       return next(err);
     }
     if (existingUser) {
-      req.flash('errors', { msg: 'Аккаунт с данным email уже существует.' });
-      return res.redirect('/signup');
+      return res.status(500).send({errors: 'Аккаунт с данным email уже существует.'});
     }
     user.save((err) => {
       if (err) {
@@ -144,7 +143,7 @@ exports.postSignup = (req, res, next) => {
         if (err) {
           return next(err);
         }
-        res.redirect('/contact');
+        res.sendStatus(201)
       });
     });
   });
@@ -166,7 +165,7 @@ exports.getAccount = (req, res) => {
  */
 exports.postUpdateProfile = (req, res, next) => {
   req.assert('email', 'Please enter a valid email address.').isEmail();
-  req.sanitize('email').normalizeEmail({ remove_dots: false });
+  req.sanitize('email').normalizeEmail({remove_dots: false});
 
   const errors = req.validationErrors();
 
@@ -187,12 +186,12 @@ exports.postUpdateProfile = (req, res, next) => {
     user.save((err) => {
       if (err) {
         if (err.code === 11000) {
-          req.flash('errors', { msg: 'The email address you have entered is already associated with an account.' });
+          req.flash('errors', {msg: 'The email address you have entered is already associated with an account.'});
           return res.redirect('/account');
         }
         return next(err);
       }
-      req.flash('success', { msg: 'Profile information has been updated.' });
+      req.flash('success', {msg: 'Profile information has been updated.'});
       res.redirect('/account');
     });
   });
@@ -222,7 +221,7 @@ exports.postUpdatePassword = (req, res, next) => {
       if (err) {
         return next(err);
       }
-      req.flash('success', { msg: 'Password has been changed.' });
+      req.flash('success', {msg: 'Password has been changed.'});
       res.redirect('/account');
     });
   });
@@ -233,12 +232,12 @@ exports.postUpdatePassword = (req, res, next) => {
  * Delete user account.
  */
 exports.postDeleteAccount = (req, res, next) => {
-  User.remove({ _id: req.user.id }, (err) => {
+  User.remove({_id: req.user.id}, (err) => {
     if (err) {
       return next(err);
     }
     req.logout();
-    req.flash('info', { msg: 'Your account has been deleted.' });
+    req.flash('info', {msg: 'Your account has been deleted.'});
     res.redirect('/');
   });
 };
@@ -259,7 +258,7 @@ exports.getOauthUnlink = (req, res, next) => {
       if (err) {
         return next(err);
       }
-      req.flash('info', { msg: `${provider} account has been unlinked.` });
+      req.flash('info', {msg: `${provider} account has been unlinked.`});
       res.redirect('/account');
     });
   });
@@ -274,14 +273,14 @@ exports.getReset = (req, res, next) => {
     return res.redirect('/');
   }
   User
-    .findOne({ passwordResetToken: req.params.token })
+    .findOne({passwordResetToken: req.params.token})
     .where('passwordResetExpires').gt(Date.now())
     .exec((err, user) => {
       if (err) {
         return next(err);
       }
       if (!user) {
-        req.flash('errors', { msg: 'Password reset token is invalid or has expired.' });
+        req.flash('errors', {msg: 'Password reset token is invalid or has expired.'});
         return res.redirect('/forgot');
       }
       res.render('account/reset', {
@@ -307,11 +306,11 @@ exports.postReset = (req, res, next) => {
 
   const resetPassword = () =>
     User
-      .findOne({ passwordResetToken: req.params.token })
+      .findOne({passwordResetToken: req.params.token})
       .where('passwordResetExpires').gt(Date.now())
       .then((user) => {
         if (!user) {
-          req.flash('errors', { msg: 'Password reset token is invalid or has expired.' });
+          req.flash('errors', {msg: 'Password reset token is invalid or has expired.'});
           return res.redirect('back');
         }
         user.password = req.body.password;
@@ -346,7 +345,7 @@ exports.postReset = (req, res, next) => {
     };
     return transporter.sendMail(mailOptions)
       .then(() => {
-        req.flash('success', { msg: 'Пароль был изменен.' });
+        req.flash('success', {msg: 'Пароль был изменен.'});
       });
   };
 
@@ -377,7 +376,7 @@ exports.getForgot = (req, res) => {
  */
 exports.postForgot = (req, res, next) => {
   req.assert('email', 'Пожалуйста, введите валидный email.').isEmail();
-  req.sanitize('email').normalizeEmail({ remove_dots: false });
+  req.sanitize('email').normalizeEmail({remove_dots: false});
 
   const errors = req.validationErrors();
 
@@ -392,10 +391,10 @@ exports.postForgot = (req, res, next) => {
 
   const setRandomToken = token =>
     User
-      .findOne({ email: req.body.email })
+      .findOne({email: req.body.email})
       .then((user) => {
         if (!user) {
-          req.flash('errors', { msg: 'Аккаунт с этим email уже существует.' });
+          req.flash('errors', {msg: 'Аккаунт с этим email уже существует.'});
         } else {
           user.passwordResetToken = token;
           user.passwordResetExpires = Date.now() + 3600000; // 1 hour
@@ -427,7 +426,7 @@ exports.postForgot = (req, res, next) => {
     };
     return transporter.sendMail(mailOptions)
       .then(() => {
-        req.flash('info', { msg: `Письмо с инструкциями направлено по адресу ${user.email}.` });
+        req.flash('info', {msg: `Письмо с инструкциями направлено по адресу ${user.email}.`});
       });
   };
 

@@ -12,7 +12,7 @@ import express from 'express';
 import expressValidator from 'express-validator';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import expressJwt, { UnauthorizedError as Jwt401Error } from 'express-jwt';
+import expressJwt, {UnauthorizedError as Jwt401Error} from 'express-jwt';
 import expressGraphQL from 'express-graphql';
 import jwt from 'jsonwebtoken';
 import nodeFetch from 'node-fetch';
@@ -21,7 +21,7 @@ import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
 import App from './components/App';
 import Html from './components/Html';
-import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
+import {ErrorPageWithoutStyle} from './routes/error/ErrorPage';
 import errorPageStyle from './routes/error/ErrorPage.css';
 import createFetch from './createFetch';
 import passport from './passport';
@@ -30,7 +30,7 @@ import router from './router';
 // import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import configureStore from './store/configureStore';
-import { setRuntimeVariable } from './actions/runtime';
+import {setRuntimeVariable} from './actions/runtime';
 const compression = require('compression');
 const session = require('express-session');
 const chalk = require('chalk');
@@ -44,7 +44,7 @@ const expressStatusMonitor = require('express-status-monitor');
  * Controllers (route handlers).
  */
 // const homeController = require('./controllers/home');
-const userController = require('./controllers/user');
+import userController from './controllers/user';
 const educationController = require('./controllers/education');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
@@ -52,7 +52,7 @@ const contactController = require('./controllers/contact');
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
-dotenv.load({ path: '.env.example' });
+dotenv.load({path: '.env.example'});
 
 /**
  * API keys and Passport configuration.
@@ -74,8 +74,9 @@ global.navigator.userAgent = global.navigator.userAgent || 'all';
 // -----------------------------------------------------------------------------
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(expressValidator());
 app.use(session({
   resave: true,
@@ -87,6 +88,11 @@ app.use(session({
     clear_interval: 3600
   })
 }));
+
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 // //
 // // Authentication
 // // -----------------------------------------------------------------------------
@@ -112,37 +118,35 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.post('/login', userController.postLogin);
-app.get('/logout', userController.logout);
-app.get('/forgot', userController.getForgot);
+// app.get('/logout', userController.logout);
+// app.get('/forgot', userController.getForgot);
 app.post('/forgot', userController.postForgot);
-app.get('/reset/:token', userController.getReset);
+// app.get('/reset/:token', userController.getReset);
 app.post('/reset/:token', userController.postReset);
-app.get('/signup', userController.getSignup);
+// app.get('/signup', userController.getSignup);
 app.post('/signup', userController.postSignup);
-app.get('/signup-employer', userController.getSignupEmployer);
+// app.get('/signup-employer', userController.getSignupEmployer);
 app.post('/signup-employer', userController.postSignup);
-app.get('/signup-teacher', userController.getSignupStudent);
-app.post('/signup-teacher', userController.postSignup);
-app.get('/contact', contactController.getContact);
+// app.get('/register-teacher', userController.getSignupStudent);
+app.post('/api/register', userController.postSignup);
+// app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
-app.get('/education', educationController.getContact);
-app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
+// app.get('/education', educationController.getContact);
+// app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
 app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
 app.post('/api/contact', apiController.contact);
-app.post('/api/landingContact', apiController.landingContact);
 app.post('/api/news', apiController.news);
-app.get('/api/currentUser', apiController.currentUser);
+// app.get('/api/currentUser', apiController.currentUser);
 
-app.get('/success', apiController.success);
+// app.get('/success', apiController.success);
 
 if (__DEV__) {
   app.enable('trust proxy');
 }
-
 
 
 /**
@@ -183,9 +187,14 @@ app.get('*', async (req, res, next) => {
     //   baseUrl: config.api.serverUrl,
     //   cookie: req.headers.cookie,
     // });
-    console.log(`user: ${JSON.stringify(req.user)}`);
+
+
+    console.log('---------------');
+    console.log(req.user);
+    console.log('---------------');
+
     const initialState = {
-      user: req.user || null,
+      user: req.user ? req.user.name : null,
     };
 
     const store = configureStore(initialState, {
@@ -226,13 +235,13 @@ app.get('*', async (req, res, next) => {
       return;
     }
 
-    const data = { ...route };
+    const data = {...route};
     data.children = ReactDOM.renderToString(
       <App context={context} store={store}>
         {route.component}
       </App>,
     );
-    data.styles = [{ id: 'css', cssText: [...css].join('') }];
+    data.styles = [{id: 'css', cssText: [...css].join('')}];
     data.scripts = [assets.vendor.js];
     if (route.chunks) {
       data.scripts.push(...route.chunks.map(chunk => assets[chunk].js));
@@ -265,9 +274,9 @@ app.use((err, req, res, next) => {
     <Html
       title="Internal Server Error"
       description={err.message}
-      styles={[{ id: 'css', cssText: errorPageStyle._getCss() }]} // eslint-disable-line no-underscore-dangle
+      styles={[{id: 'css', cssText: errorPageStyle._getCss()}]} // eslint-disable-line no-underscore-dangle
     >
-      {ReactDOM.renderToString(<ErrorPageWithoutStyle error={err} />)}
+    {ReactDOM.renderToString(<ErrorPageWithoutStyle error={err}/>)}
     </Html>,
   );
   res.status(err.status || 500);
