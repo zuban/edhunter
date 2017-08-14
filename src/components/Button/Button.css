@@ -30,3 +30,19 @@
   width: 270px;
   font-size: 14pt;
 }
+
+.primary:hover {
+  color: #292b2c;
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.secondary:hover {
+  color: #292b2c;
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}

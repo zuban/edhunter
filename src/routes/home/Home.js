@@ -39,7 +39,7 @@ class Home extends React.Component {
   static propTypes = {};
 
   scrollTo() {
-    document.getElementById("mission").scrollIntoView()
+    document.getElementById('mission').scrollIntoView();
   }
 
   constructor(...props) {
@@ -50,36 +50,41 @@ class Home extends React.Component {
       name: null,
       phone: null,
       message: null,
-    }
+    };
   }
 
   changeFieldName(field, value) {
-    let state = this.state;
+    const state = this.state;
     state[field] = value;
     this.setState(state);
   }
 
   send() {
     const _this = this;
-    fetch("/api/contact", {
-      method: "POST",
+    fetch('/api/contact', {
+      method: 'POST',
       body: JSON.stringify(this.state),
       credentials: 'include',
       headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
       },
-    }).then(function (response) {
-      _this.setState({notification: "Спасибо за ваше обращение. Мы с Вами свяжемся!"})
-      return response.json();
-    }).then(function (result) {
-    }).catch(function (error) {
-      console.log('Request failed', error);
-    });
+    })
+      .then(response => {
+        _this.setState({
+          notification: 'Спасибо за ваше обращение. Мы с Вами свяжемся!',
+        });
+        return response.json();
+      })
+      .then(result => {})
+      .catch(error => {
+        console.log('Request failed', error);
+      });
   }
 
   render() {
-    return (<div className={s.homePageContent}>
+    return (
+      <div className={s.homePageContent}>
         <div className={s.headerImage}>
           <section>
             <div className={s.content}>
@@ -93,20 +98,27 @@ class Home extends React.Component {
                   Мы помогаем IT компаниям растить правильные компетенции у
                   кандидатов
                 </p>
-                <Button text="Хочу стать разработчиком" onClick={() => this.scrollTo('mission')} primary/>
-                <Button text="Узнать больше" onClick={() => this.scrollTo('courses')}/>
+                <Button
+                  text="Хочу стать разработчиком"
+                  onClick={() => this.scrollTo('mission')}
+                  primary
+                />
+                <Button
+                  text="Узнать больше"
+                  onClick={() => this.scrollTo('courses')}
+                />
               </div>
             </div>
           </section>
         </div>
         <div className={s.arrowDown}>
-          <img src={arrowDown} alt="arrow down"/>
+          <img src={arrowDown} alt="arrow down" />
         </div>
         <Container className={s.paddingContainer} id="team">
           <Row>
             <div className="col-sm-3">
               <div>
-                <img className={s.commandPhoto} src={rumyantsev}/>
+                <img className={s.commandPhoto} src={rumyantsev} />
                 <h4 className="text-center">
                   ДМИТРИЙ<br />РУМЯНЦЕВ
                 </h4>
@@ -128,7 +140,7 @@ class Home extends React.Component {
             </div>
             <div className="col-sm-3">
               <div>
-                <img className={s.commandPhoto} src={yakovlev} alt=""/>
+                <img className={s.commandPhoto} src={yakovlev} alt="" />
                 <h4 className="text-center">
                   ВЛАД<br />ЯКОВЛЕВ
                 </h4>
@@ -150,7 +162,7 @@ class Home extends React.Component {
             </div>
             <div className="col-sm-3">
               <div>
-                <img className={s.commandPhoto} src={matorin}/>
+                <img className={s.commandPhoto} src={matorin} />
                 <h4 className="text-center">
                   АЛЕКСАНДР<br />МАТОРИН
                 </h4>
@@ -173,7 +185,7 @@ class Home extends React.Component {
 
             <div className="col-sm-3">
               <div>
-                <img className={s.commandPhoto} src={zubov}/>
+                <img className={s.commandPhoto} src={zubov} />
                 <h4 className="text-center">
                   СЕРГЕЙ<br />ЗУБОВ
                 </h4>
@@ -224,7 +236,7 @@ class Home extends React.Component {
                           </li>
                         </ul>
                       </div>
-                      <img className="d-flex ml-3" src={desctop}/>
+                      <img className="d-flex ml-3" src={desctop} />
                     </div>
                   </div>
                   <div className="col-sm-6">
@@ -243,12 +255,12 @@ class Home extends React.Component {
                           </li>
                         </ul>
                       </div>
-                      <img className="d-flex ml-3" src={layers}/>
+                      <img className="d-flex ml-3" src={layers} />
                     </div>
                   </div>
                 </Row>
               </div>
-              <div className={`${s.missionBackground} col-sm-4`}/>
+              <div className={`${s.missionBackground} col-sm-4`} />
             </Row>
           </Container>
         </div>
@@ -262,7 +274,7 @@ class Home extends React.Component {
             <div className={`${s.helpBlock} col-sm-7`}>
               <Row className={s.textGrey}>
                 <div className={`col-sm-12 text-center ${s.bulbPadding}`}>
-                  <img src={bulb}/>
+                  <img src={bulb} />
                 </div>
                 <div
                   className={`col-sm-12  text-center ${s.bulbPadding} ${s.textDark}`}
@@ -282,13 +294,15 @@ class Home extends React.Component {
                   <h2>КАК МЫ ЭТО ДЕЛАЕМ</h2>
                 </div>
                 <div className="col-sm-12  text-center">
-                  <Link className={s.link} to="/education">
-                    С помощью концепции перевернутого обучения
-                  </Link>
+                  <h4>
+                    <Link className={s.link} to="/education">
+                      С помощью концепции перевернутого обучения
+                    </Link>
+                  </h4>
                 </div>
               </Row>
             </div>
-            <div className={`${s.photoHelpBlock} col-sm-7 offset-md-5`}/>
+            <div className={`${s.photoHelpBlock} col-sm-7 offset-md-5`} />
           </Row>
         </Container>
         <div className={s.processBlock}>
@@ -322,48 +336,70 @@ class Home extends React.Component {
             }}
           />
           <div>
-            <Button text="Стать партнером" onClick={() => {
-              window.location.href = '/register/company'
-            }} primary/>
+            <Button
+              text="Стать партнером"
+              onClick={() => {
+                window.location.href = '/register/company';
+              }}
+              primary
+            />
           </div>
         </Container>
         <div className={s.darkSection} id="courses">
-          <Container >
+          <Container>
             <Row className={s.headerPadding}>
               <h1 className={s.blockCenter}>Курсы</h1>
             </Row>
           </Container>
           <Container fluid>
             <Row className={s.courseRow}>
-              <div className={`col-sm-4 ${s.javaCourse}`}/>
+              <div className={`col-sm-4 ${s.javaCourse}`} />
               <div className={`col-sm-4 ${s.courseDescription}`}>
                 <div className={s.courseName}>
                   <h1>КУРС JAVA</h1>
                 </div>
                 <ol>
-                  <a className="nav-link"><strong>Sprint 1.</strong> Знакомство с платформой Java. Изучение основных
-                    синтаксических
-                    конструкций языка.</a>
-                  <a className="nav-link"><strong>Sprint 2.</strong> Классы в Java, основные пакеты(lang, util, io).
-                    ООП</a>
-                  <a className="nav-link"><strong>Sprint 3.</strong> Структуры данных в Java. Основные интерфейсы
-                    коллекций и их
-                    реализации.
+                  <a className="nav-link">
+                    <strong>Sprint 1.</strong> Знакомство с платформой Java.
+                    Изучение основных синтаксических конструкций языка.
                   </a>
-                  <a className="nav-link"><strong>Sprint 4.</strong> Сборка проекта. Maven. Тестирование с помощью
-                    JUnit.
+                  <a className="nav-link">
+                    <strong>Sprint 2.</strong> Классы в Java, основные
+                    пакеты(lang, util, io). ООП
                   </a>
-                  <a className="nav-link"><strong>Sprint 5.</strong> Обработка исключений. Иерархия исключений.</a>
-                  <a className="nav-link"><strong>Sprint 6.</strong> Generics. Параметризация классов, методов,
-                    переменных.</a>
-                  <a className="nav-link"><strong>Sprint 7.</strong> Reflection. Пакет java.lang.reflect</a>
-                  <a className="nav-link"><strong>Sprint 8.</strong> Загрузка классов. Класслоадеры, их
-                    иерархия.</a>
-                  <a className="nav-link"><strong>Sprint 9.</strong> Java 8. Дефолтные методы.</a>
-                  <a className="nav-link"><strong>Sprint 10.</strong> Введение в многопоточность.</a>
+                  <a className="nav-link">
+                    <strong>Sprint 3.</strong> Структуры данных в Java. Основные
+                    интерфейсы коллекций и их реализации.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 4.</strong> Сборка проекта. Maven.
+                    Тестирование с помощью JUnit.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 5.</strong> Обработка исключений. Иерархия
+                    исключений.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 6.</strong> Generics. Параметризация классов,
+                    методов, переменных.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 7.</strong> Reflection. Пакет
+                    java.lang.reflect
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 8.</strong> Загрузка классов. Класслоадеры,
+                    их иерархия.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 9.</strong> Java 8. Дефолтные методы.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 10.</strong> Введение в многопоточность.
+                  </a>
                 </ol>
               </div>
-              <div className={`col-sm-4 ${s.yourCourse}`}/>
+              <div className={`col-sm-4 ${s.yourCourse}`} />
             </Row>
             <Row className={s.courseRow}>
               <div className={`col-sm-4 ${s.courseDescription}`}>
@@ -371,30 +407,53 @@ class Home extends React.Component {
                   <h1>REACT. КУРС В РАЗРАБОТКЕ.</h1>
                 </div>
                 <ol>
-                  <a className="nav-link"><strong>Sprint 1.</strong> Кросс-браузерная верстка HTML и CSS.</a>
-                  <a className="nav-link"><strong>Sprint 2.</strong> Язык программирования JavaScript.</a>
-                  <a className="nav-link"><strong>Sprint 3.</strong> JavaScript в браузере и Web API.
+                  <a className="nav-link">
+                    <strong>Sprint 1.</strong> Кросс-браузерная верстка HTML и
+                    CSS.
                   </a>
-                  <a className="nav-link"><strong>Sprint 4.</strong> Библиотека React.
+                  <a className="nav-link">
+                    <strong>Sprint 2.</strong> Язык программирования JavaScript.
                   </a>
-                  <a className="nav-link"><strong>Sprint 5.</strong> Создание одностраничного веб-приложения.</a>
-                  <a className="nav-link"><strong>Sprint 6.</strong> AJAX.</a>
-                  <a className="nav-link"><strong>Sprint 7.</strong> Композиция компонентов. JSX.</a>
-                  <a className="nav-link"><strong>Sprint 8.</strong> Роутинг в приложении.</a>
-                  <a className="nav-link"><strong>Sprint 9.</strong> Шаблоны MVC, MVVM.</a>
-                  <a className="nav-link"><strong>Sprint 10.</strong> Шаблоны pub/sub, observer, mediator.</a>
+                  <a className="nav-link">
+                    <strong>Sprint 3.</strong> JavaScript в браузере и Web API.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 4.</strong> Библиотека React.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 5.</strong> Создание одностраничного
+                    веб-приложения.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 6.</strong> AJAX.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 7.</strong> Композиция компонентов. JSX.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 8.</strong> Роутинг в приложении.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 9.</strong> Шаблоны MVC, MVVM.
+                  </a>
+                  <a className="nav-link">
+                    <strong>Sprint 10.</strong> Шаблоны pub/sub, observer,
+                    mediator.
+                  </a>
                 </ol>
               </div>
-              <div className={`col-sm-4 ${s.htmlCourse}`}/>
+              <div className={`col-sm-4 ${s.htmlCourse}`} />
               <div className={`col-sm-4 ${s.courseDescription}`}>
                 <div className={s.courseName}>
-                  <h1>ЗДЕСЬ МОЖЕТ БЫТЬ КУРС
-                    ПО ВАШИМ ТРЕБОВАНИЯМ</h1>
+                  <h1>ЗДЕСЬ МОЖЕТ БЫТЬ КУРС ПО ВАШИМ ТРЕБОВАНИЯМ</h1>
                 </div>
                 <div className="text-center">
-                  <Button text="Заказать курс" onClick={() => {
-                    window.location.href = '/register/company'
-                  }}/>
+                  <Button
+                    text="Заказать курс"
+                    onClick={() => {
+                      window.location.href = '/register/company';
+                    }}
+                  />
                 </div>
               </div>
             </Row>
@@ -429,9 +488,13 @@ class Home extends React.Component {
                     <b>3</b> собеседования в разные компании
                   </p>
                   <div>
-                    <Button text="Зарегистрироваться" onClick={() => {
-                      window.location.href = '/register/student'
-                    }} primary/>
+                    <Button
+                      text="Зарегистрироваться"
+                      onClick={() => {
+                        window.location.href = '/register/student';
+                      }}
+                      primary
+                    />
                   </div>
                 </div>
               </div>
@@ -456,9 +519,13 @@ class Home extends React.Component {
                     <b>1</b> cобеседование, при удачной сдаче экзамена
                   </p>
                   <div>
-                    <Button text="Зарегистрироваться" onClick={() => {
-                      window.location.href = '/register/student'
-                    }} primary/>
+                    <Button
+                      text="Зарегистрироваться"
+                      onClick={() => {
+                        window.location.href = '/register/student';
+                      }}
+                      primary
+                    />
                   </div>
                 </div>
               </div>
@@ -500,22 +567,22 @@ class Home extends React.Component {
           <Container>
             <Row>
               <div className={`col-sm-4 ${s.headerMargin}`}>
-                {/*<img src={icon1} alt=""/>*/}
-                {/*<h1></h1>*/}
-                {/*<p> МФТИ / Сбертех</p>*/}
-                {/*<p>„EdHunter дал мне необходимые знания для моей карьеры!“</p>*/}
+                {/* <img src={icon1} alt=""/>*/}
+                {/* <h1></h1>*/}
+                {/* <p> МФТИ / Сбертех</p>*/}
+                {/* <p>„EdHunter дал мне необходимые знания для моей карьеры!“</p>*/}
               </div>
               <div className={`col-sm-4 ${s.headerMargin}`}>
-                <img src={icon2} alt=""/>
+                <img src={icon2} alt="" />
                 <h1>Здесь может быть твое имя</h1>
                 <p>Твоя компания</p>
                 <p>„EdHunter дал мне необходимые знания для моей карьеры!“</p>
               </div>
               <div className={`col-sm-4 ${s.headerMargin}`}>
-                {/*<img src={icon3} alt=""/>*/}
-                {/*<h1>Наташа Брезнякова</h1>*/}
-                {/*<p> МФТИ / Сбертех</p>*/}
-                {/*<p> „EdHunter дал мне необходимые знания для моей карьеры!“</p>*/}
+                {/* <img src={icon3} alt=""/>*/}
+                {/* <h1>Наташа Брезнякова</h1>*/}
+                {/* <p> МФТИ / Сбертех</p>*/}
+                {/* <p> „EdHunter дал мне необходимые знания для моей карьеры!“</p>*/}
               </div>
             </Row>
           </Container>
@@ -533,9 +600,13 @@ class Home extends React.Component {
               “Таргетированный отбор”.
             </p>
             <div className={s.blockCenter}>
-              <Button text="Для компаний" onClick={() => {
-                window.location.href = '/register/company'
-              }} primary/>
+              <Button
+                text="Для компаний"
+                onClick={() => {
+                  window.location.href = '/register/company';
+                }}
+                primary
+              />
             </div>
           </Row>
         </Container>
@@ -550,8 +621,8 @@ class Home extends React.Component {
             </Row>
             <Row>
               <div className={`${s.contacts} col-sm-4`}>
-                {/*<h3 className={s.textBlue}>НАШ АДРЕС</h3>*/}
-                {/*<p>Москва, пр. Ленина 18 Офис 352</p>*/}
+                {/* <h3 className={s.textBlue}>НАШ АДРЕС</h3>*/}
+                {/* <p>Москва, пр. Ленина 18 Офис 352</p>*/}
                 <h3 className={s.textBlue}>ПОЗВОНИТЕ НАМ</h3>
                 <p>+ 7 (916) 642 30 72</p>
                 <h3 className={s.textBlue}>НАПИШИТЕ НАМ</h3>
@@ -561,19 +632,20 @@ class Home extends React.Component {
                 <h3 className={s.textBlue}>Форма обратной связи</h3>
                 <Form>
                   <FormGroup>
-                    <Label for="exampleEmail">Наше имя</Label>
+                    <Label for="exampleEmail">Ваше имя</Label>
                     <Input
                       onBlur={e => this.changeFieldName('name', e.target.value)}
                       type="name"
                       name="name"
                       id="name"
-                      placeholder="Наше имя"
+                      placeholder="Ваше имя"
                     />
                   </FormGroup>
                   <FormGroup>
                     <Label for="exampleEmail">Email</Label>
                     <Input
-                      onBlur={e => this.changeFieldName('email', e.target.value)}
+                      onBlur={e =>
+                        this.changeFieldName('email', e.target.value)}
                       type="email"
                       name="email"
                       id="email"
@@ -583,7 +655,8 @@ class Home extends React.Component {
                   <FormGroup>
                     <Label for="examplePassword">Ваш телефон</Label>
                     <Input
-                      onBlur={e => this.changeFieldName('phone', e.target.value)}
+                      onBlur={e =>
+                        this.changeFieldName('phone', e.target.value)}
                       type="phone"
                       name="phone"
                       id="phone"
@@ -593,18 +666,21 @@ class Home extends React.Component {
                   <FormGroup>
                     <Label for="examplePassword">Ваше сообщение</Label>
                     <Input
-                      onBlur={e => this.changeFieldName('message', e.target.value)}
+                      onBlur={e =>
+                        this.changeFieldName('message', e.target.value)}
                       type="phone"
                       name="phone"
                       id="phone"
-                      placeholder="Ваш телефон"
+                      placeholder="Ваше сообщение"
                     />
                   </FormGroup>
                 </Form>
-                <Button onClick={() => this.send()} text="Отправить" primary/>
-                {
-                  this.state.notification ? <p>{this.state.notification}</p> : null
-                }
+                <Button onClick={() => this.send()} text="Отправить" primary />
+                {this.state.notification
+                  ? <p>
+                      {this.state.notification}
+                    </p>
+                  : null}
               </div>
             </Row>
           </Container>

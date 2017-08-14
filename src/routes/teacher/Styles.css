@@ -32,3 +32,9 @@
 h1 {
   margin-bottom: 3rem;
 }
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 2rem;
+  }
+}

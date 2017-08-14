@@ -334,6 +334,34 @@
     height: 110vh;
   }
 
+  .work {
+    padding: 1rem;
+  }
+
+  .courseRow {
+    height: auto;
+  }
+
+  .htmlCourse {
+    background: none;
+    min-height: 0;
+  }
+
+  .javaCourse {
+    background: none;
+    min-height: 0;
+  }
+
+  .yourCourse {
+    background: none;
+    min-height: 0;
+  }
+
+  .contactForm {
+    padding: 1rem;
+    text-align: center;
+  }
+
   .missionRow {
     padding: 1rem;
   }
