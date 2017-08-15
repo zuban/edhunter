@@ -394,10 +394,15 @@ class Home extends React.Component {
                   <a className="nav-link">
                     <strong>Sprint 9.</strong> Java 8. Дефолтные методы.
                   </a>
-                  <a className="nav-link">
-                    <strong>Sprint 10.</strong> Введение в многопоточность.
-                  </a>
                 </ol>
+                <div className="text-center">
+                  <Button
+                    text="Подробнее"
+                    onClick={() => {
+                      window.location.href = '/java';
+                    }}
+                  />
+                </div>
               </div>
               <div className={`col-sm-4 ${s.yourCourse}`} />
             </Row>
