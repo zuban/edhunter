@@ -9,15 +9,15 @@
 
 import React from 'react';
 import Layout from '../../components/Layout';
-import Education from './Education'
+import Policy from './Policy';
 
 function action() {
   return {
-    chunks: ['education'],
-    title: 'Концепция перевернутого обучения',
+    chunks: ['policy'],
+    title: 'EdHunter - политика конфиденциальности',
     component: (
       <Layout>
-        <Education />
+        <Policy />
       </Layout>
     ),
   };

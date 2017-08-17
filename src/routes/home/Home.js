@@ -391,9 +391,6 @@ class Home extends React.Component {
                     <strong>Sprint 8.</strong> Загрузка классов. Класслоадеры,
                     их иерархия.
                   </a>
-                  <a className="nav-link">
-                    <strong>Sprint 9.</strong> Java 8. Дефолтные методы.
-                  </a>
                 </ol>
                 <div className="text-center">
                   <Button

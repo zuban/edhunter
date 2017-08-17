@@ -6,25 +6,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Styles.css';
-import Button from '../../components/Button';
-import qs from 'qs'
 import Page from '../../components/Page';
-import education from './education.md';
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-} from 'reactstrap';
+import policy from './policy.md';
+import { Container, Row, Col } from 'reactstrap';
 
-class Education extends React.Component {
+class Policy extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
   };
-
 
   render() {
     return (
@@ -32,8 +21,7 @@ class Education extends React.Component {
         <Container className={s.container}>
           <Row>
             <Col>
-              <Page {...education}/>
-
+              <Page {...policy} />
             </Col>
           </Row>
         </Container>
@@ -42,4 +30,4 @@ class Education extends React.Component {
   }
 }
 
-export default withStyles(s)(Education);
+export default withStyles(s)(Policy);
