@@ -83,8 +83,7 @@ class Html extends React.Component {
               }}
             />
           }
-          {process.env.NODE_ENV === 'production' &&
-            <script
+          {<script
               dangerouslySetInnerHTML={{
                 __html:
                   "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){" +
@@ -95,8 +94,7 @@ class Html extends React.Component {
                   "ga('send', 'pageview');",
               }}
             />}
-          {process.env.NODE_ENV === 'production' &&
-            <script
+          {<script
               dangerouslySetInnerHTML={{
                 __html:
                   `try {` +
