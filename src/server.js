@@ -12,10 +12,10 @@ import express from 'express';
 import expressValidator from 'express-validator';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import expressJwt, {UnauthorizedError as Jwt401Error} from 'express-jwt';
-import expressGraphQL from 'express-graphql';
-import jwt from 'jsonwebtoken';
-import nodeFetch from 'node-fetch';
+// import expressJwt, {UnauthorizedError as Jwt401Error} from 'express-jwt';
+// import expressGraphQL from 'express-graphql';
+// import jwt from 'jsonwebtoken';
+// import nodeFetch from 'node-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
@@ -23,8 +23,8 @@ import App from './components/App';
 import Html from './components/Html';
 import {ErrorPageWithoutStyle} from './routes/error/ErrorPage';
 import errorPageStyle from './routes/error/ErrorPage.css';
-import createFetch from './createFetch';
-import passport from './passport';
+// import createFetch from './createFetch';
+const passport = require('passport');
 import router from './router';
 // import models from './data/models';
 // import schema from './data/schema';
@@ -38,7 +38,7 @@ const lusca = require('lusca');
 const dotenv = require('dotenv');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
-const expressStatusMonitor = require('express-status-monitor');
+// const expressStatusMonitor = require('express-status-monitor');
 
 /**
  * Controllers (route handlers).
@@ -130,13 +130,13 @@ app.post('/signup-employer', userController.postSignup);
 // app.get('/register-teacher', userController.getSignupStudent);
 app.post('/api/register', userController.postSignup);
 // app.get('/contact', contactController.getContact);
-app.post('/contact', contactController.postContact);
+// app.post('/contact', contactController.postContact);
 // app.get('/education', educationController.getContact);
 // app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
-app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
-app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
-app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
-app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+// app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
+// app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
+// app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
+// app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
 app.post('/api/contact', apiController.contact);
 app.post('/api/news', apiController.news);
@@ -160,7 +160,7 @@ mongoose.connection.on('error', (err) => {
   process.exit();
 });
 
-app.use(expressStatusMonitor());
+// app.use(expressStatusMonitor());
 app.use(compression());
 // //
 // // Register API middleware

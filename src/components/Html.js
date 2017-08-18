@@ -10,7 +10,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import serialize from 'serialize-javascript';
-import config from '../config';
+// import config from '../config';
 
 import appleIcon57 from '../favicon/apple-icon-57x57.png';
 import appleIcon60 from '../favicon/apple-icon-60x60.png';
