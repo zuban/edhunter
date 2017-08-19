@@ -21,16 +21,18 @@ import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
 import App from './components/App';
 import Html from './components/Html';
-import {ErrorPageWithoutStyle} from './routes/error/ErrorPage';
+import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
 import errorPageStyle from './routes/error/ErrorPage.css';
 // import createFetch from './createFetch';
 const passport = require('passport');
+
 import router from './router';
 // import models from './data/models';
 // import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import configureStore from './store/configureStore';
-import {setRuntimeVariable} from './actions/runtime';
+import { setRuntimeVariable } from './actions/runtime';
+
 const compression = require('compression');
 const session = require('express-session');
 const chalk = require('chalk');
@@ -45,14 +47,14 @@ const mongoose = require('mongoose');
  */
 // const homeController = require('./controllers/home');
 import userController from './controllers/user';
-const educationController = require('./controllers/education');
+// const educationController = require('./controllers/education');
 const apiController = require('./controllers/api');
-const contactController = require('./controllers/contact');
+// const contactController = require('./controllers/contact');
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
-dotenv.load({path: '.env.example'});
+dotenv.load({ path: '.env.example' });
 
 /**
  * API keys and Passport configuration.
@@ -60,6 +62,7 @@ dotenv.load({path: '.env.example'});
 const passportConfig = require('./config/passport');
 
 import config from './config';
+
 const app = express();
 
 //
@@ -75,19 +78,21 @@ global.navigator.userAgent = global.navigator.userAgent || 'all';
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(expressValidator());
-app.use(session({
-  resave: true,
-  saveUninitialized: true,
-  secret: process.env.SESSION_SECRET,
-  store: new MongoStore({
-    url: process.env.MONGODB_URI || process.env.MONGOLAB_URI,
-    autoReconnect: true,
-    clear_interval: 3600
-  })
-}));
+app.use(
+  session({
+    resave: true,
+    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET,
+    store: new MongoStore({
+      url: process.env.MONGODB_URI || process.env.MONGOLAB_URI,
+      autoReconnect: true,
+      clear_interval: 3600,
+    }),
+  }),
+);
 
 app.use((req, res, next) => {
   res.locals.user = req.user;
@@ -148,15 +153,17 @@ if (__DEV__) {
   app.enable('trust proxy');
 }
 
-
 /**
  * Connect to MongoDB.
  */
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
-mongoose.connection.on('error', (err) => {
+mongoose.connection.on('error', err => {
   console.error(err);
-  console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
+  console.log(
+    '%s MongoDB connection error. Please make sure MongoDB is running.',
+    chalk.red('✗'),
+  );
   process.exit();
 });
 
@@ -188,28 +195,27 @@ app.get('*', async (req, res, next) => {
     //   cookie: req.headers.cookie,
     // });
 
-
     console.log('---------------');
     console.log(req.user);
     console.log('---------------');
 
     let name = null;
     if (req.user) {
-      if (req.user.email)
-        name = req.user.email;
-      if (req.user.contactPerson)
-        name = req.user.contactPerson;
-      if (req.user.name)
-        name = req.user.name;
+      if (req.user.email) name = req.user.email;
+      if (req.user.contactPerson) name = req.user.contactPerson;
+      if (req.user.name) name = req.user.name;
     }
     const initialState = {
       user: name,
     };
 
-    const store = configureStore(initialState, {
-      // fetch,
-      // I should not use `history` on server.. but how I do redirection? follow universal-router
-    });
+    const store = configureStore(
+      initialState,
+      {
+        // fetch,
+        // I should not use `history` on server.. but how I do redirection? follow universal-router
+      },
+    );
 
     store.dispatch(
       setRuntimeVariable({
@@ -244,13 +250,13 @@ app.get('*', async (req, res, next) => {
       return;
     }
 
-    const data = {...route};
+    const data = { ...route };
     data.children = ReactDOM.renderToString(
       <App context={context} store={store}>
         {route.component}
       </App>,
     );
-    data.styles = [{id: 'css', cssText: [...css].join('')}];
+    data.styles = [{ id: 'css', cssText: [...css].join('') }];
     data.scripts = [assets.vendor.js];
     if (route.chunks) {
       data.scripts.push(...route.chunks.map(chunk => assets[chunk].js));
@@ -283,9 +289,9 @@ app.use((err, req, res, next) => {
     <Html
       title="Internal Server Error"
       description={err.message}
-      styles={[{id: 'css', cssText: errorPageStyle._getCss()}]} // eslint-disable-line no-underscore-dangle
+      styles={[{ id: 'css', cssText: errorPageStyle._getCss() }]} // eslint-disable-line no-underscore-dangle
     >
-    {ReactDOM.renderToString(<ErrorPageWithoutStyle error={err}/>)}
+      {ReactDOM.renderToString(<ErrorPageWithoutStyle error={err} />)}
     </Html>,
   );
   res.status(err.status || 500);
