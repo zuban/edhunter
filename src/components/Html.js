@@ -84,6 +84,14 @@ class Html extends React.Component {
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-TileImage" content={msIcon144} />
           <meta name="theme-color" content="#ffffff" />
+          {
+            <script
+              id="mcjs"
+              dangerouslySetInnerHTML={{
+                __html: ` !function(c,h,i,m,p){m = c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/db8555557d6e3e6c079798299/126a61b8f8ecb8734fc4fdac7.js");`,
+              }}
+            />
+          }
           {scripts.map(script =>
             <link key={script} rel="preload" href={script} as="script" />,
           )}
