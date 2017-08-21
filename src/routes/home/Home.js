@@ -104,8 +104,10 @@ class Home extends React.Component {
                   primary
                 />
                 <Button
-                  text="Узнать больше"
-                  onClick={() => this.scrollTo('courses')}
+                  text="Хочу нанять разработчика"
+                  onClick={() => {
+                    window.location.href = '/register/company';
+                  }}
                 />
               </div>
             </div>
@@ -314,27 +316,35 @@ class Home extends React.Component {
         </div>
         <Container className={s.partnersContainer} id="partners">
           <Row className={s.headerPadding}>
-            <h1 className={s.blockCenter}>
-              НАШИ ПАРТНЕРЫ В СТАДИИ ПЕРЕГОВОРОВ
-            </h1>
-            <hr />
+            <Col>
+              <h1 className={s.blockCenter}>НАШИ ПАРТНЕРЫ</h1>
+
+              <hr />
+            </Col>
           </Row>
-          <img
-            src="http://toplogos.ru/images/logo-rosevrobank.png"
-            style={{
-              filter: 'grayscale(1)',
-              width: '250px',
-              opacity: 0.5,
-            }}
-          />
-          <img
-            src="https://hsto.org/getpro/moikrug/uploads/company/830/016/812/logo/medium_db0b3701909fd9944e6e9a5310f023be.png"
-            style={{
-              filter: 'grayscale(1)',
-              width: '250px',
-              opacity: 0.5,
-            }}
-          />
+          <Row>
+            <p>
+              Если ваша компания заинтересована в сотрудничестве с нами,
+              зарегистрируйтесь для дальнйших инструкций, или свяжитесь с нами:
+              team@edhunter.ru
+            </p>
+          </Row>
+          {/* <img*/}
+          {/* src="http://toplogos.ru/images/logo-rosevrobank.png"*/}
+          {/* style={{*/}
+          {/* filter: 'grayscale(1)',*/}
+          {/* width: '250px',*/}
+          {/* opacity: 0.5,*/}
+          {/* }}*/}
+          {/* />*/}
+          {/* <img*/}
+          {/* src="https://hsto.org/getpro/moikrug/uploads/company/830/016/812/logo/medium_db0b3701909fd9944e6e9a5310f023be.png"*/}
+          {/* style={{*/}
+          {/* filter: 'grayscale(1)',*/}
+          {/* width: '250px',*/}
+          {/* opacity: 0.5,*/}
+          {/* }}*/}
+          {/* />*/}
           <div>
             <Button
               text="Стать партнером"
@@ -626,9 +636,9 @@ class Home extends React.Component {
                 {/* <h3 className={s.textBlue}>НАШ АДРЕС</h3>*/}
                 {/* <p>Москва, пр. Ленина 18 Офис 352</p>*/}
                 <h3 className={s.textBlue}>ПОЗВОНИТЕ НАМ</h3>
-                <p>+ 7 (916) 642 30 72</p>
+                <p>+ 7 (916) 600 00 40</p>
                 <h3 className={s.textBlue}>НАПИШИТЕ НАМ</h3>
-                <p>edhunter@gmail.com</p>
+                <p>team@edhunter.ru</p>
               </div>
               <div className={`${s.contactForm} col-sm-7 offset-md-1`}>
                 <h3 className={s.textBlue}>Форма обратной связи</h3>

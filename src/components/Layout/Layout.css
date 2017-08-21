@@ -6,7 +6,6 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE.txt file in the root directory of this source tree.
  */
-
 @import '../variables.css';
 
 /*
@@ -19,13 +18,39 @@
  * Base styles
  * ========================================================================== */
 
+/* Connect font "Tahoma-Regular"; */
+@font-face {
+  font-family: 'Tahoma';
+  src: local("Tahoma"), local("TahomaRegular"),
+    url('../../fonts/Tahoma-Regular/Tahoma-Regular.eot'),
+    url('../../fonts/Tahoma-Regular/Tahoma-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/Tahoma-Regular/Tahoma-Regular.woff') format('woff'),
+    url('../../fonts/Tahoma-Regular/Tahoma-Regular.ttf') format('truetype'),
+    url('../../fonts/Tahoma-Regular/Tahoma-Regular.svg#Tahoma-Regular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Connect font "Tahoma-Bold"; */
+@font-face {
+  font-family: 'Tahoma';
+  src: local("Tahoma"), local("TahomaBold"),
+    url('../../fonts/Tahoma-Bold/Tahoma-Bold.eot'),
+    url('../../fonts/Tahoma-Bold/Tahoma-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/Tahoma-Bold/Tahoma-Bold.woff') format('woff'),
+    url('../../fonts/Tahoma-Bold/Tahoma-Bold.ttf') format('truetype'),
+    url('../../fonts/Tahoma-Bold/Tahoma-Bold.svg#Tahoma-Bold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
 html {
   color: #222;
 }
 
 body {
   margin: 0;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Tahoma', sans-serif;
 }
 
 a {
@@ -139,7 +164,6 @@ textarea {
    * Don't show links that are fragment identifiers,
    * or use the `javascript:` pseudo protocol
    */
-
   a[href^='#']::after,
   a[href^='javascript:']::after {
     content: '';
@@ -155,7 +179,6 @@ textarea {
    * Printing Tables:
    * http://css-discuss.incutio.com/wiki/Printing_Tables
    */
-
   thead {
     display: table-header-group;
   }

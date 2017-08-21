@@ -18,6 +18,28 @@
   color: var(--white-text-color);
 }
 
+h2 {
+  font-size: 24pt;
+}
+
+p {
+  font-size: 14pt;
+}
+
+.courseName {
+  font-size: 3.5rem;
+}
+
+.textBlue {
+  color: var(--button-primary-color);
+}
+
+.textLeft {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: left;
+}
+
 .container {
   padding-top: 15rem;
   padding-bottom: 15rem;
@@ -37,18 +59,20 @@
   padding-bottom: 2rem;
 }
 
-
 .teacherDescription {
   background: white;
   position: absolute;
   height: 600px;
   z-index: 1;
   top: 150px;
+  display: table;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
-.textGrey {
+.textCenterGrey {
   color: var(--paragraph-text);
+  display: table-cell;
+  vertical-align: middle;
 }
 
 h1 {
@@ -75,8 +99,6 @@ h1 {
     height: 750px;
   }
 }
-
-
 
 /** timeline box structure **/
 .timeline {
@@ -106,7 +128,7 @@ h1 {
   padding: 3px 0;
   font-weight: bold;
   text-align: center;
-  -webkit-box-shadow: 0 0 11px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, 0.35);
 }
 
 .timeline li {
@@ -170,8 +192,8 @@ h1 {
 }
 
 .timeline li .timelinePanel.noarrow:before, .timeline li .timelinePanel.noarrow:after {
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   display: none;
   border: 0;
 }
@@ -194,14 +216,13 @@ h1 {
   right: auto;
 }
 
-
 /** timeline circle icons **/
 .timeline li .tlCirc {
   position: absolute;
   top: 23px;
   left: 50%;
   text-align: center;
-  background: #6a8db3;
+  background: var(--button-primary-color);
   color: #fff;
   width: 35px;
   height: 35px;
@@ -215,16 +236,17 @@ h1 {
   z-index: 99999;
 }
 
-
 /** timeline content **/
 
 .tlHeading h4 {
   margin: 0;
-  color: #c25b4e;
+  color: var(--button-primary-color);
 }
 
 .tlBody p, .tlBody ul {
   margin-bottom: 0;
+  color: var(--paragraph-text);
+  text-align: left;
 }
 
 .tlBody > p + p {
@@ -239,13 +261,17 @@ h1 {
 }
 
 @media (max-width: 700px) {
-  .page-header h1 { font-size: 1.8em; }
+  .page-header h1 {
+    font-size: 1.8em;
+  }
 
   ul.timeline:before {
     left: 40px;
   }
 
-  .tldate { width: 140px; }
+  .tldate {
+    width: 140px;
+  }
 
   ul.timeline li .timelinePanel {
     width: calc(100% - 90px);

@@ -15,16 +15,24 @@ class Java extends React.Component {
         <Container className={s.container}>
           <Row className={s.javaCourse}>
             <Col>
-              <h1>Курс “Платформа Java”</h1>
-              <h2>Продолжительность: 5 месяцев, 2 занятия в неделю</h2>
-              <h2>
+              <h1 className={s.courseName}>
+                Курс <span className={s.textBlue}>“Платформа Java”</span>
+              </h1>
+            </Col>
+          </Row>
+          <Row className={s.javaCourse}>
+            <Col>
+              <h2 className={s.textBlue}>
+                Продолжительность: 5 месяцев, 2 занятия в неделю
+              </h2>
+              <h2 className={s.textBlue}>
                 Необходимое время в неделю: по 4 академических часа на занятия и
                 на домашнюю работу
               </h2>
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col className={s.textLeft}>
               <p>
                 Данный курс предназначен для тех, кто хочет сделать Java своим
                 основным языком. В начале курса коротко рассматриваются основные
@@ -65,11 +73,71 @@ class Java extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col className={s.textLeft}>
+              <h2 className={s.textBlue}>Что получает студент за деньги?</h2>
+              <h3>Курс Core Java</h3>
+              <h3>Курс Java enterprise</h3>
+              <h3>Фидбек по каждому ДЗ</h3>
+              <h3>Помощь в составлении резюме</h3>
+              <h3>Репетиция собеседования</h3>
+              <h3>Возможность пройти собеседование у наших партнеров</h3>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col className={s.textLeft}>
+              <h2 className={s.textBlue}>Как проходит обучение?</h2>
               <p>
-                Требования к студентам: знание основ любого
-                объектно-ориентированного языка, успешно сданный вступительный
-                тест.
+                Каждую неделю проходят 2 вебинара. За время вебинара невозможно
+                подробно и глубоко раскрыть новую тему. Поэтому мы решили
+                организовать наше обучение по принципу перевернутого
+                обучения(ссылка на подробное описание). Цель вебинара – не
+                научить вас новой теме, а объяснить применимость темы и
+                показать, на что обратить особое внимание при изучении темы.
+                Озвучить вопросы, которые чаще всего спрашивают на собеседования
+                по данной теме.
+              </p>
+              <p>
+                Глубокое изучение темы остается за студентом в свободное время.
+                Мы со своей стороны тщательно отбираем материалы, которые
+                студенты должны пройти. У студентов есть возможность в любое
+                время задать вопрос преподавателю по непонятным моментам.
+              </p>
+              <p>
+                Также к каждой теме есть достаточно большое домашнее задание.
+                Задание нужно сделать, выложить в github или bitbucket. После
+                этого преподаватель делает code review и дает вам фидбек, что и
+                как можно улучшить. Возможно, бОльшая ценность этого курса,
+                заключается именно в этом фидбеке. Почему? Теоретических знаний
+                о Java в свободном доступе найти не сложно, но иметь опытного
+                ментора, который посмотрит ваш код, и объяснит, что можно
+                сделать лучше – это действительно ценно. В процессе ревью
+                проверяется не только правльность решения, но и “красота” кода,
+                соответствие принципам объектно-ориентированного дизайна.
+              </p>
+              <p>
+                В некоторых заданиях студенты сами будут делать код ревью других
+                студентов, чтобы попробовать себя и со стороны того кто дает код
+                на ревью, и того кто это ревью делает, поучаствовать в командной
+                разработке.
+              </p>
+              <p>
+                В процессе обучения будут вебинары, на которых мы повторяем
+                пройденные темы в формате интервью, обсуждаем вопросы, которые
+                часто спрашивают на собеседованиях.
+              </p>
+              <p>
+                Так же, в курс включена индивидуальная репетиция собеседования
+                на позицию Java разработчик с каждым студентом.
+              </p>
+            </Col>
+          </Row>
+          <Row>
+            <Col className={s.textLeft}>
+              <p>
+                <span className={s.textBlue}>Требования к студентам:</span>{' '}
+                знание основ любого объектно-ориентированного языка, успешно
+                сданный вступительный тест.
               </p>
             </Col>
           </Row>
@@ -78,12 +146,15 @@ class Java extends React.Component {
           <Container>
             <Row>
               <Col>
-                <h1 className={s.darkText}>Александр Маторин Преподаватель</h1>
+                <h1 className={s.darkText}>
+                  <span className={s.textBlue}>Александр Маторин</span>{' '}
+                  Преподаватель
+                </h1>
               </Col>
             </Row>
             <Row>
               <div className={`${s.teacherDescription} col-sm-7`}>
-                <Row className={s.textGrey}>
+                <Row className={s.textCenterGrey}>
                   <div
                     className={`${s.marginTeacherBlock}col-sm-12  text-center`}
                   >
@@ -124,29 +195,20 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Обзор платформы Java</h4>
-                  <p>
-                    <small>
-                      <i className="glyphicon glyphicon-time" /> 6 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Обзор платформы Java</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>
-                      Знакомство с платформой Java, Установка окружения,
-                      изучение основных синтаксических конструкций языка.
-                    </li>
-                    <li>
-                      Компиляция и запуск с командной строки. Понятие пакета.
-                    </li>
-                    <li>Установить Idea, JDK.</li>
-                    <li>Создать проект на github.</li>
-                    <li>
-                      Решить 15 задач на сайте с автоматической проверкой
-                      решения на основы синтаксиса.
-                    </li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>
+                    Знакомство с платформой Java, Установка окружения, изучение
+                    основных синтаксических конструкций языка.
+                  </p>
+                  <p>Компиляция и запуск с командной строки. Понятие пакета.</p>
+                  <p>Установить Idea, JDK. </p>
+                  <p>Создать проект на github. </p>
+                  <p>
+                    Решить 15 задач на сайте с автоматической проверкой решения
+                    на основы синтаксиса.
+                  </p>
                 </div>
               </div>
             </li>
@@ -157,20 +219,13 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Классы в Java</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 12 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Классы в Java</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Верхнеуровневые и внутренние классы, static классы</li>
-                    <li>Наследование, полиморфизм, инкапсуляция</li>
-                    <li>Конструкторы, модификаторы доступа.</li>
-                    <li>Пакеты lang, util, io. Свои пакеты.</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Верхнеуровневые и внутренние классы, static классы</p>
+                  <p>Наследование, полиморфизм, инкапсуляция</p>
+                  <p>Конструкторы, модификаторы доступа.</p>
+                  <p>Пакеты lang, util, io. Свои пакеты.</p>
                 </div>
               </div>
             </li>
@@ -181,21 +236,14 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Структуры данных в Java</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 18 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Структуры данных в Java</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Основные интерфейсы коллекций и их реализации.</li>
-                    <li>
-                      Детали реализаций коллекций, Оценка сложности основных
-                      операций.
-                    </li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Основные интерфейсы коллекций и их реализации.</p>
+                  <p>
+                    Детали реализаций коллекций, Оценка сложности основных
+                    операций.
+                  </p>
                 </div>
               </div>
             </li>
@@ -205,19 +253,12 @@ class Java extends React.Component {
             <li className={s.timelineInverted}>
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Сборка проекта, тестирование</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 4 часа
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Сборка проекта, тестирование</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Maven</li>
-                    <li>Подключение зависимостей</li>
-                    <li>Тестирование с помощью JUnit</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Maven</p>
+                  <p>Подключение зависимостей</p>
+                  <p>Тестирование с помощью JUnit</p>
                 </div>
               </div>
             </li>
@@ -228,20 +269,13 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Обработка исключений.</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 18 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Обработка исключений.</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Иерархия исключений. Checked и runtime исключения.</li>
-                    <li>Конструкция try-catch-finally.</li>
-                    <li>Правильное закрытие ресурсов.</li>
-                    <li>Использование своих исключений.</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Иерархия исключений. Checked и runtime исключения.</p>
+                  <p>Конструкция try-catch-finally.</p>
+                  <p>Правильное закрытие ресурсов.</p>
+                  <p>Использование своих исключений.</p>
                 </div>
               </div>
             </li>
@@ -252,21 +286,14 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Generics</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 6 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Generics</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Параметризация классов, методов, переменных</li>
-                    <li>Границы дженериков T extends</li>
-                    <li>Wildcards. ? extends, ? super</li>
-                    <li>Type erasure</li>
-                    <li>Гибкое API с дженериками.</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Параметризация классов, методов, переменных</p>
+                  <p>Границы дженериков T extends</p>
+                  <p>Wildcards. ? extends, ? super</p>
+                  <p>Type erasure</p>
+                  <p>Гибкое API с дженериками</p>
                 </div>
               </div>
             </li>
@@ -277,28 +304,20 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Reflection</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 18 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Reflection</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Пакет java.lang.reflect</li>
-                    <li>
-                      Класс Class{'<T>'}{' '}
-                    </li>
-                    <li>Получение информации о классе, полях, методах.</li>
-                    <li>Вызовы методов, изменение полей.</li>
-                    <li>Создание прокси объектов.</li>
-                    <li>Использование Аннотаций</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Пакет java.lang.reflect</p>
+                  <p>
+                    Класс Class{'<T>'}{' '}
+                  </p>
+                  <p>Получение информации о классе, полях, методах. </p>
+                  <p>Вызовы методов, изменение полей. </p>
+                  <p>Создание прокси объектов. </p>
+                  <p>Использование Аннотаций </p>
                 </div>
               </div>
             </li>
-
             <li>
               <div className={s.tldate}>Sprint 8</div>
             </li>
@@ -306,19 +325,12 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Загрузка классов</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 6 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Загрузка классов</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Класслоадеры, их иерархия, модель делегации</li>
-                    <li>Использование своих класслоадеров</li>
-                    <li>Типичные исключения при загрузке классов</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Класслоадеры, их иерархия, модель делегации</p>
+                  <p>Использование своих класслоадеров</p>
+                  <p>Типичные исключения при загрузке классов</p>
                 </div>
               </div>
             </li>
@@ -330,20 +342,13 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Java 8</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 18 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Java 8</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Дефолтные методы</li>
-                    <li>Лямбды</li>
-                    <li>stream api</li>
-                    <li>функциональное программирование</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Дефолтные методы</p>
+                  <p>Лямбды</p>
+                  <p>stream api</p>
+                  <p>функциональное программирование</p>
                 </div>
               </div>
             </li>
@@ -355,20 +360,13 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Введение в многопоточность</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 6 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Введение в многопоточность</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Создание и запуск потоков</li>
-                    <li>Демон потоки</li>
-                    <li>Состояния потока</li>
-                    <li>join и sleep методы</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Создание и запуск потоков</p>
+                  <p>Демон потоки</p>
+                  <p>Состояния потока</p>
+                  <p>join и sleep методы</p>
                 </div>
               </div>
             </li>
@@ -379,20 +377,13 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Java memory model</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 18 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Java memory model</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Понятие happens before</li>
-                    <li>Reordering, visiblity</li>
-                    <li>Семантика volatile, synchronized, final</li>
-                    <li>double check locking</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Понятие happens before</p>
+                  <p>Reordering, visiblity</p>
+                  <p>Семантика volatile, synchronized, final</p>
+                  <p>double check locking</p>
                 </div>
               </div>
             </li>
@@ -403,21 +394,14 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Пакет java.util.concurrent</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 6 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Пакет java.util.concurrent</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>thread pools</li>
-                    <li>locks</li>
-                    <li>atomics</li>
-                    <li>concurrent data structures</li>
-                    <li>futures</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>thread pools</p>
+                  <p>locks</p>
+                  <p>atomics</p>
+                  <p>concurrent data structures</p>
+                  <p>futures</p>
                 </div>
               </div>
             </li>
@@ -428,20 +412,13 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>Сериализация</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 18 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>Сериализация</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Serializable, Externalizable интерфейсы</li>
-                    <li>Версии классов</li>
-                    <li>Десериализация</li>
-                    <li>Типичные исключения при сериализации/десериализации</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Serializable, Externalizable интерфейсы</p>
+                  <p>Версии классов</p>
+                  <p>Десериализация</p>
+                  <p>Типичные исключения при сериализации/десериализации</p>
                 </div>
               </div>
             </li>
@@ -452,18 +429,11 @@ class Java extends React.Component {
               <div className={s.tlCirc} />
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
-                  <h4>JVM</h4>
-                  <p>
-                    <small className="text-muted">
-                      <i className="glyphicon glyphicon-time" /> 6 часов
-                    </small>
-                  </p>
+                  <h2 className={s.textBlue}>JVM</h2>
                 </div>
-                <div style={{ color: 'black' }} className={s.tlBody}>
-                  <ul>
-                    <li>Оптимизации JIT.</li>
-                    <li>Алгоритмы GC</li>
-                  </ul>
+                <div className={s.tlBody}>
+                  <p>Оптимизации JIT.</p>
+                  <p>Алгоритмы GC</p>
                 </div>
               </div>
             </li>
