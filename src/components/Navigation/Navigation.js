@@ -47,7 +47,7 @@ class Navigation extends React.Component {
           Контакты
         </Link>
         {profile
-          ? <span><Link className={s.link} to="/">
+          ? <span><Link className={s.link} to="/profile">
               {profile}
             </Link>
              <span className={s.spacer}>или</span>

@@ -6,7 +6,7 @@ import { Container, Row, Col, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class Java extends React.Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
   };
 
   render() {

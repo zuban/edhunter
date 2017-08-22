@@ -140,6 +140,7 @@ app.post('/api/register', userController.postSignup);
 
 app.post('/api/contact', apiController.contact);
 app.post('/api/news', apiController.news);
+app.get('/api/users', apiController.auditUsers);
 // app.get('/api/currentUser', apiController.currentUser);
 
 // app.get('/success', apiController.success);
@@ -180,6 +181,32 @@ app.use(compression());
 // -----------------------------------------------------------------------------
 app.get('*', async (req, res, next) => {
   try {
+    if (req.path === '/profile') {
+      if (req.isAuthenticated()) {
+        console.log('-------------------');
+        console.log('user authenticated');
+        console.log(req.path);
+        console.log('-------------------');
+      } else {
+        console.log('-------------------');
+        console.log('user not authenticated');
+        console.log('-------------------');
+        return res.redirect('/login');
+      }
+    }
+    if (req.path === '/admin') {
+      if (req.isAuthenticated() && req.user.email === 'admin@admin.com') {
+        console.log('-------------------');
+        console.log('user authenticated');
+        console.log(req.path);
+        console.log('-------------------');
+      } else {
+        console.log('-------------------');
+        console.log('user not authenticated');
+        console.log('-------------------');
+        return res.redirect('/login');
+      }
+    }
     const css = new Set();
 
     // Universal HTTP client
@@ -187,7 +214,6 @@ app.get('*', async (req, res, next) => {
     //   baseUrl: config.api.serverUrl,
     //   cookie: req.headers.cookie,
     // });
-
 
     console.log('---------------');
     console.log(req.user);
@@ -250,6 +276,7 @@ app.get('*', async (req, res, next) => {
         {route.component}
       </App>,
     );
+
     data.styles = [{id: 'css', cssText: [...css].join('')}];
     data.scripts = [assets.vendor.js];
     if (route.chunks) {

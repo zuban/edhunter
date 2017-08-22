@@ -9,17 +9,15 @@
 
 import React from 'react';
 import Layout from '../../components/Layout';
-import Admin from './Admin';
-
-const title = 'Admin Page';
+import Profile from './Profile';
 
 function action() {
   return {
-    chunks: ['admin'],
-    title,
+    chunks: ['profile'],
+    title: 'EdHunter - Личный кабинет',
     component: (
       <Layout>
-        <Admin title={title} />
+        <Profile />
       </Layout>
     ),
   };

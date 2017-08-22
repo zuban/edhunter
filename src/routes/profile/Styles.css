@@ -6,9 +6,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE.txt file in the root directory of this source tree.
  */
-
 @import '../../components/variables.css';
-
 
 .root {
   background-color: #fff;
@@ -16,6 +14,7 @@
   background-attachment: fixed;
   background-size: cover;
   position: relative;
+  text-align: left;
   color: var(--white-text-color);
   min-height: 100vh;
 }
@@ -23,20 +22,39 @@
 .container {
   padding-top: 15rem;
   padding-bottom: 15rem;
-  text-align: left;
-}
-
-.registerRow {
-  max-width: 500px;
-  margin: 0 auto;
 }
 
 h1 {
   margin-bottom: 3rem;
 }
 
-@media (max-width: 576px) {
-  h1 {
-    font-size: 2rem;
-  }
+.processVideoRow {
+  display: block;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.textLeft {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: left;
+}
+
+.textBlue {
+  color: var(--button-primary-color);
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

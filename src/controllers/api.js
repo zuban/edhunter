@@ -2,13 +2,13 @@
  * Created by sergeyzubov on 08/08/2017.
  */
 const bluebird = require('bluebird');
-const request = bluebird.promisifyAll(require('request'), { multiArgs: true });
+const request = bluebird.promisifyAll(require('request'), {multiArgs: true});
 const graph = require('fbgraph');
 const path = require('path');
 
 const Contact = require('../models/Contact');
 const Email = require('../models/Email');
-
+const User = require('../models/User');
 exports.success = (req, res) => {
   res.render('success', {
     title: 'Спасибо за обращение'
@@ -30,6 +30,27 @@ exports.contact = (req, res) => {
       res.sendStatus(500);
     }
     res.sendStatus(200)
+  });
+};
+
+exports.auditUsers = (req, res) => {
+  if (!req.isAuthenticated() && !(req.user.email === 'admin@admin.com')) {
+    return res.redirect('/login');
+  }
+  User.find({}, (err, users) => {
+    if (err) {
+      console.log(err);
+      return res.sendStatus(500);
+    }
+    return res.status(200).send({
+      gridData: users.map(item => {
+        delete item['password'];
+        delete item['tokens'];
+        delete item['__v'];
+        delete item['_id'];
+        return item;
+      })
+    });
   });
 };
 
