@@ -12,7 +12,7 @@ import ErrorPage from './ErrorPage';
 
 function action() {
   return {
-    title: 'Demo Error',
+    title: 'EdHunter - Страница не найдена',
     component: <ErrorPage />,
   };
 }

@@ -72,8 +72,11 @@ const routes = {
     const route = await next();
 
     // Provide default values for title, description etc.
-    route.title = `${route.title || 'EdHunter'} - образование`;
-    route.description = route.description || '';
+    route.title = `${route.title ||
+      'EdHunter'} - Получи знания, заяви о себе, найди себя, открой мечту. Стань разработчиком, найди работу в ведущих IT компаниях.`;
+    route.description =
+      route.description ||
+      'Мы помогаем IT компаниям растить правильные компетенции у кандидатов.';
 
     return route;
   },

@@ -11,7 +11,7 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import Login from './Login';
 
-const title = 'Вход';
+const title = 'EdHunter - Страница входа';
 
 function action() {
   return {

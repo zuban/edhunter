@@ -9,12 +9,12 @@
 
 import React from 'react';
 import Layout from '../../components/Layout';
-import Education from './Education'
+import Education from './Education';
 
 function action() {
   return {
     chunks: ['education'],
-    title: 'Концепция перевернутого обучения',
+    title: 'EdHunter - Концепция перевернутого обучения',
     component: (
       <Layout>
         <Education />

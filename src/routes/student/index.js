@@ -11,7 +11,7 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import RegisterStudent from './RegisterStudent';
 
-const title = 'Log In';
+const title = 'EdHunter - Регистрация для студентов';
 
 function action() {
   return {

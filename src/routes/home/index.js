@@ -14,7 +14,8 @@ import Layout from '../../components/Layout';
 async function action({ fetch }) {
   return {
     chunks: ['home'],
-    title: 'EdHunter - образование',
+    title:
+      'EdHunter - Получи знания, заяви о себе, найди себя, открой мечту. Стань разработчиком, найди работу в ведущих IT компаниях.',
     component: (
       <Layout>
         <Home />
