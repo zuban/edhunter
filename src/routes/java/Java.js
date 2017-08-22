@@ -132,11 +132,25 @@ class Java extends React.Component {
               </p>
             </Col>
           </Row>
+          <Row className={s.processVideoRow}>
+            <Col className={s.textLeft}>
+              <h2 className={s.textBlue}>Видео о процессе обучения</h2>
+            </Col>
+            <div className={s.videoWrapper}>
+              <iframe
+                width={560}
+                height={315}
+                src="https://www.youtube.com/embed/9ihoc742Gho"
+                frameBorder={0}
+                allowFullScreen
+              />
+            </div>
+          </Row>
           <Row>
             <Col className={s.textLeft}>
+              <h2 className={s.textBlue}>Требования к студентам</h2>
               <p>
-                <span className={s.textBlue}>Требования к студентам:</span>{' '}
-                знание основ любого объектно-ориентированного языка, успешно
+                Знание основ любого объектно-ориентированного языка, успешно
                 сданный вступительный тест.
               </p>
             </Col>
@@ -183,6 +197,19 @@ class Java extends React.Component {
                 </Row>
               </div>
               <div className={`${s.matoringBlock} col-sm-7 offset-md-5`} />
+            </Row>
+          </Container>
+          <Container>
+            <Row className={s.videoRow}>
+              <div className={s.videoWrapper}>
+                <iframe
+                  width={560}
+                  height={315}
+                  src="https://www.youtube.com/embed/6kqfSNPgdNo"
+                  frameBorder={0}
+                  allowFullScreen
+                />
+              </div>
             </Row>
           </Container>
         </div>
