@@ -145,6 +145,30 @@ app.get('/api/users', apiController.auditUsers);
 
 // app.get('/success', apiController.success);
 
+app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email', 'public_profile']}));
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  failureRedirect: '/login'
+}), (req, res) => {
+  res.redirect(req.session.returnTo || '/profile');
+});
+
+
+app.get('/auth/google', passport.authenticate('google', {scope: 'profile email'}));
+app.get('/auth/google/callback', passport.authenticate('google', {
+  failureRedirect: '/login'
+}), (req, res) => {
+  res.redirect(req.session.returnTo || '/profile');
+});
+
+app.get('/auth/vkontakte', passport.authenticate('vkontakte', {scope: ['email']}));
+app.get('/auth/vkontakte/callback', passport.authenticate('vkontakte', {
+  failureRedirect: '/login',
+  successRedirect: '/profile',
+}), (req, res) => {
+  // res.redirect(req.session.returnTo || '/profile');
+});
+
+
 if (__DEV__) {
   app.enable('trust proxy');
 }

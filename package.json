@@ -6,7 +6,12 @@
     "node": ">=6.5",
     "npm": ">=3.10"
   },
-  "browserslist": [">1%", "last 4 versions", "Firefox ESR", "not ie < 9"],
+  "browserslist": [
+    ">1%",
+    "last 4 versions",
+    "Firefox ESR",
+    "not ie < 9"
+  ],
   "dependencies": {
     "assets-webpack-plugin": "^3.5.1",
     "autoprefixer": "^7.1.1",
@@ -79,8 +84,12 @@
     "opn-cli": "^3.1.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
+    "passport-google-oauth20": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-oauth": "^1.0.0",
+    "passport-oauth2": "^1.4.0",
+    "passport-vkontakte": "^0.3.2",
     "pixrem": "^4.0.1",
     "pleeease-filters": "^4.0.0",
     "postcss": "^6.0.4",
@@ -121,6 +130,7 @@
     "redux-thunk": "^2.2.0",
     "request": "^2.81.0",
     "rimraf": "^2.6.1",
+    "serialize-javascript": "^1.3.0",
     "sinon": "^2.3.5",
     "source-map-support": "^0.4.15",
     "stylelint": "^7.12.0",
@@ -134,8 +144,7 @@
     "webpack-dev-middleware": "^1.11.0",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-node-externals": "^1.6.0",
-    "whatwg-fetch": "^2.0.3",
-    "serialize-javascript": "^1.3.0"
+    "whatwg-fetch": "^2.0.3"
   },
   "babel": {
     "presets": [
@@ -152,7 +161,9 @@
     ],
     "env": {
       "test": {
-        "plugins": ["rewire"]
+        "plugins": [
+          "rewire"
+        ]
       }
     },
     "ignore": [
@@ -164,9 +175,18 @@
     ]
   },
   "lint-staged": {
-    "*.{js,jsx}": ["eslint --fix", "git add"],
-    "*.{json,graphql}": ["prettier --write", "git add"],
-    "*.{css,less,scss,sss}": ["stylelint --fix", "git add"]
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,graphql}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{css,less,scss,sss}": [
+      "stylelint --fix",
+      "git add"
+    ]
   },
   "scripts": {
     "precommit": "lint-staged",

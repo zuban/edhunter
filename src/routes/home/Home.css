@@ -310,17 +310,44 @@
 }
 
 .priceCount {
-  height: 150px;
-  width: 150px;
+  height: 175px;
+  width: 175px;
   text-align: center;
   border-radius: 50%;
   border: 1px solid white;
   background: white;
   position: absolute;
-  top: 6rem;
+  top: 5rem;
   left: 50%;
   transform: translateX(-50%);
   color: var(--paragraph-text);
+}
+
+.videoRow {
+  display: block;
+  padding-bottom: 2rem;
+  padding-top: 5rem;
+}
+
+.processVideoRow {
+  display: block;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 576px) {

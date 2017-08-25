@@ -80,6 +80,20 @@ class Login extends React.Component {
               <h1>
                 Войти
               </h1>
+              <h3>Через социальные сети</h3>
+              <Button onClick={() => {
+                window.location.href = '/auth/vkontakte';
+              }} text={<span><i className="fa fa-vk"></i> Войти через VK</span>}
+                      primary/>
+              <Button onClick={() => {
+                window.location.href = '/auth/facebook';
+              }} text={<span><i className="fa fa-facebook"></i> Войти через Facebook</span>}
+                      primary/>
+              <Button onClick={() => {
+                window.location.href = '/auth/google';
+              }} text={<span><i className="fa fa-google-plus"></i> Войти через Google</span>}
+                      primary/>
+              <h3>Или введите логин и пароль</h3>
               <Form>
                 {
                   this.state.notification ? <p>{this.state.notification}</p> : null

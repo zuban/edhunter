@@ -28,22 +28,22 @@ class Navigation extends React.Component {
     const {profile} = this.props;
     return (
       <div className={s.root} role="navigation">
-        <Link className={s.link} to="#team">
+        <Link className={s.link} to="/#team">
           Команда
         </Link>
-        <Link className={s.link} to="#mission">
+        <Link className={s.link} to="/#mission">
           Миссия
         </Link>
-        <Link className={s.link} to="#partners">
+        <Link className={s.link} to="/#partners">
           Партнеры
         </Link>
-        <Link className={s.link} to="#courses">
+        <Link className={s.link} to="/#courses">
           Курсы
         </Link>
-        <Link className={s.link} to="#prices">
+        <Link className={s.link} to="/#prices">
           Цены
         </Link>
-        <Link className={s.link} to="#contacts">
+        <Link className={s.link} to="/#contacts">
           Контакты
         </Link>
         {profile

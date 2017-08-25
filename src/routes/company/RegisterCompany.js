@@ -75,6 +75,20 @@ class RegisterCompany extends React.Component {
               <h1>
                 Для компаний. Зарегистрироваться.
               </h1>
+              <h3>Через социальные сети</h3>
+              <Button onClick={() => {
+                window.location.href = '/auth/vkontakte';
+              }} text={<span><i className="fa fa-vk"></i> через VK</span>}
+                      primary/>
+              <Button onClick={() => {
+                window.location.href = '/auth/facebook';
+              }} text={<span><i className="fa fa-facebook"></i> через Facebook</span>}
+                      primary/>
+              <Button onClick={() => {
+                window.location.href = '/auth/google';
+              }} text={<span><i className="fa fa-google-plus"></i> через Google</span>}
+                      primary/>
+              <h3>Или заполните форму</h3>
               <Form>
                 {
                   this.state.notification ? <p>{this.state.notification}</p> : null

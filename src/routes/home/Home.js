@@ -38,8 +38,8 @@ import icon3 from './icon3.png';
 class Home extends React.Component {
   static propTypes = {};
 
-  scrollTo() {
-    document.getElementById('mission').scrollIntoView();
+  scrollTo(id) {
+    document.getElementById(id).scrollIntoView();
   }
 
   constructor(...props) {
@@ -100,14 +100,12 @@ class Home extends React.Component {
                 </p>
                 <Button
                   text="Хочу стать разработчиком"
-                  onClick={() => this.scrollTo('mission')}
+                  onClick={() => this.scrollTo('students-video')}
                   primary
                 />
                 <Button
                   text="Хочу нанять разработчика"
-                  onClick={() => {
-                    window.location.href = '/register/company';
-                  }}
+                  onClick={() => this.scrollTo('company-video')}
                 />
               </div>
             </div>
@@ -212,6 +210,21 @@ class Home extends React.Component {
               <a href="/register/teacher">ссылке.</a>
               &nbsp; Мы с тобой свяжемся.
             </h5>
+          </Row>
+
+          <Row className={s.processVideoRow} id="students-video">
+            <Col className={s.textLeft}>
+              <h2 className={s.textBlue}>Абитуриентам</h2>
+            </Col>
+            <div className={s.videoWrapper}>
+              <iframe
+                width={560}
+                height={315}
+                src="https://www.youtube.com/embed/Nh1cVIdpVUw"
+                frameBorder={0}
+                allowFullScreen
+              />
+            </div>
           </Row>
         </Container>
         <div className={s.darkSection} id="mission">
@@ -370,36 +383,25 @@ class Home extends React.Component {
                 </div>
                 <ol>
                   <a className="nav-link">
-                    <strong>Sprint 1.</strong> Знакомство с платформой Java.
-                    Изучение основных синтаксических конструкций языка.
+                    <strong>Модуль 1.</strong> Процесс разработки
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 2.</strong> Классы в Java, основные
-                    пакеты(lang, util, io). ООП
+                    <strong>Модуль 2.</strong> Java core
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 3.</strong> Структуры данных в Java. Основные
-                    интерфейсы коллекций и их реализации.
+                    <strong>Модуль 3.</strong> Многопоточность
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 4.</strong> Сборка проекта. Maven.
-                    Тестирование с помощью JUnit.
+                    <strong>Модуль 4.</strong> JVM
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 5.</strong> Обработка исключений. Иерархия
-                    исключений.
+                    <strong>Модуль 5.</strong> Clean code
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 6.</strong> Generics. Параметризация классов,
-                    методов, переменных.
+                    <strong>Модуль 6.</strong> Enterprise
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 7.</strong> Reflection. Пакет
-                    java.lang.reflect
-                  </a>
-                  <a className="nav-link">
-                    <strong>Sprint 8.</strong> Загрузка классов. Класслоадеры,
-                    их иерархия.
+                    <strong>Модуль 7.</strong> WEB
                   </a>
                 </ol>
                 <div className="text-center">
@@ -420,36 +422,36 @@ class Home extends React.Component {
                 </div>
                 <ol>
                   <a className="nav-link">
-                    <strong>Sprint 1.</strong> Кросс-браузерная верстка HTML и
+                    <strong>Модуль 1.</strong> Кросс-браузерная верстка HTML и
                     CSS.
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 2.</strong> Язык программирования JavaScript.
+                    <strong>Модуль 2.</strong> Язык программирования JavaScript.
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 3.</strong> JavaScript в браузере и Web API.
+                    <strong>Модуль 3.</strong> JavaScript в браузере и Web API.
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 4.</strong> Библиотека React.
+                    <strong>Модуль 4.</strong> Библиотека React.
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 5.</strong> Создание одностраничного
+                    <strong>Модуль 5.</strong> Создание одностраничного
                     веб-приложения.
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 6.</strong> AJAX.
+                    <strong>Модуль 6.</strong> AJAX.
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 7.</strong> Композиция компонентов. JSX.
+                    <strong>Модуль 7.</strong> Композиция компонентов. JSX.
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 8.</strong> Роутинг в приложении.
+                    <strong>Модуль 8.</strong> Роутинг в приложении.
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 9.</strong> Шаблоны MVC, MVVM.
+                    <strong>Модуль 9.</strong> Шаблоны MVC, MVVM.
                   </a>
                   <a className="nav-link">
-                    <strong>Sprint 10.</strong> Шаблоны pub/sub, observer,
+                    <strong>Модуль 10.</strong> Шаблоны pub/sub, observer,
                     mediator.
                   </a>
                 </ol>
@@ -474,7 +476,7 @@ class Home extends React.Component {
         <div className={s.whiteBlock} id="prices">
           <Container className="text-center">
             <Row className={s.headerPadding}>
-              <h1 className={s.blockCenter}>НАШИ ЦЕНЫ</h1>
+              <h1 className={s.blockCenter}>НАШИ ЦЕНЫ <span className={s.textBlue}>НА ПЕРВЫЙ НАБОР</span></h1>
             </Row>
           </Container>
           <Container>
@@ -487,17 +489,26 @@ class Home extends React.Component {
                   <h1 className={s.marginPriceCount}>
                     <b>30 000</b>
                   </h1>{' '}
-                  <p>за 5 месяцев</p>
+                  <p>рублей<br/>за 5 месяцев</p>
                 </div>
                 <div className={s.priceBlock}>
                   <p>
-                    <b>15</b> спринтов курса java
+                    Курс Core Java
                   </p>
                   <p>
-                    <b>1</b> резюме. поможем составить его правильно
+                    Курс Java enterprise
                   </p>
                   <p>
-                    <b>3</b> собеседования в разные компании
+                    Фидбек по каждому ДЗ
+                  </p>
+                  <p>
+                    Помощь в составлении резюме
+                  </p>
+                  <p>
+                    Репетиция собеседования
+                  </p>
+                  <p>
+                    Возможность пройти собеседование у наших партнеров
                   </p>
                   <div>
                     <Button
@@ -516,19 +527,28 @@ class Home extends React.Component {
                 </div>
                 <div className={s.priceCount}>
                   <h1 className={s.marginPriceCount}>
-                    <b>6500</b>
+                    <b>8000</b>
                   </h1>{' '}
-                  <p>в месяц</p>
+                  <p>рублей<br/>в месяц</p>
                 </div>
                 <div className={s.priceBlock}>
                   <p>
-                    <b>5</b> спринтов курса java
+                    Курс Core Java
                   </p>
                   <p>
-                    <b>30</b> лекций в группе
+                    Курс Java enterprise
                   </p>
                   <p>
-                    <b>1</b> cобеседование, при удачной сдаче экзамена
+                    Фидбек по каждому ДЗ
+                  </p>
+                  <p>
+                    Помощь в составлении резюме
+                  </p>
+                  <p>
+                    Репетиция собеседования
+                  </p>
+                  <p>
+                    Возможность пройти собеседование у наших партнеров
                   </p>
                   <div>
                     <Button
@@ -548,24 +568,21 @@ class Home extends React.Component {
           <Container fluid>
             <Row>
               <div className={`${s.firstBlock} col-sm-3`}>
-                <h1>15 / 06</h1>
-                <p>Открытие площадки.</p>
-                <p>День открытых дверей.</p>
+                <h1>20 / 08 / 2017</h1>
+                <p>Открыта запись на курс JAVA.</p>
               </div>
               <div className={`${s.secondBlock} col-sm-3`}>
-                <h1>08 / 07</h1>
-                <p>Запись на курс.</p>
-                <p>Первый набор будет тестовым.</p>
+                <h1>01 / 10 / 2017</h1>
+                <p>День открытых дверей.</p>
               </div>
               <div className={`${s.thirdBlock} col-sm-3`}>
-                <h1>20 / 08</h1>
-                <p>Первый выпуск.</p>
-                <p>Лично проконтролируем, что вы получили работу мечты.</p>
+                <h1>01 / 12 / 2017</h1>
+                <p>Презентация новых курсов JS и DevOps.</p>
               </div>
               <div className={`${s.foursBlock} col-sm-3`}>
-                <h1>01 / 09</h1>
-                <p>Презентация новых курсов.</p>
-                <p>Откроем новые курсы. Javascript, DevOps и другие.</p>
+                <h1>01 / 03 / 2018</h1>
+                <p>Первый выпуск.</p>
+                <p>Поможем вам пройти первое профессиональное собеседование.</p>
               </div>
             </Row>
           </Container>
@@ -618,6 +635,20 @@ class Home extends React.Component {
                   window.location.href = '/register/company';
                 }}
                 primary
+              />
+            </div>
+          </Row>
+          <Row className={s.processVideoRow} id="company-video">
+            <Col className={s.textLeft}>
+              <h2 className={s.textBlue}>Работодателю</h2>
+            </Col>
+            <div className={s.videoWrapper}>
+              <iframe
+                width={560}
+                height={315}
+                src="https://www.youtube.com/embed/iDx3gu13tfE"
+                frameBorder={0}
+                allowFullScreen
               />
             </div>
           </Row>

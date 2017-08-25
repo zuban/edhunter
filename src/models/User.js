@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
   university: String, // for student
 
   facebook: String,
+  vkontakte: String,
   twitter: String,
   google: String,
   github: String,
