@@ -195,7 +195,7 @@ passport.use(new GoogleStrategy({
 passport.use(new VKontakteStrategy({
   clientID: process.env.VK_ID,
   clientSecret: process.env.VK_SECRET,
-  callbackURL: '/auth/vkontakte/callback',
+  callbackURL: 'http://www.edhunter.ru/auth/vkontakte/callback',
   scope: ['email'],
   profileFields: ['email', 'city']
 
