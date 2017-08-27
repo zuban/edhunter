@@ -96,7 +96,7 @@ class Home extends React.Component {
                 <br />
                 <p>
                   Мы помогаем IT компаниям растить правильные компетенции у
-                  кандидатов
+                  кандидатов и сотрудников
                 </p>
                 <Button
                   text="Хочу стать разработчиком"
@@ -234,7 +234,7 @@ class Home extends React.Component {
                 <h1 className={s.missionHeader}>НАША МИССИЯ</h1>
                 <p className={s.textParagraph}>
                   Получи знания, заяви о себе, найди себя, открой мечту. Стань
-                  разработчиком, найди работу в ведущих IT компаниях.
+                  разработчиком, найди работу в лучших IT компаниях. Мы учим, чтобы вы работали.
                 </p>
                 <Row className={s.missionDescription}>
                   <div className="col-sm-6">
