@@ -208,3 +208,19 @@ textarea {
 p {
   font-size: 14pt;
 }
+
+.flashBlock {
+  z-index: 111;
+  position: absolute;
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  top: 80px;
+}
+
+.flashMessage {
+  background: var(--button-primary-color);
+  color: var(--white-text-color);
+  max-width: 700px;
+  margin: 0 auto;
+}

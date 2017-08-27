@@ -16,7 +16,7 @@ const ContextType = {
   // https://github.com/kriasoft/isomorphic-style-loader
   insertCss: PropTypes.func.isRequired,
   // Universal HTTP client
-  fetch: PropTypes.func.isRequired,
+  fetch: PropTypes.func,
   // Integrate Redux
   // http://redux.js.org/docs/basics/UsageWithReact.html
   ...ReduxProvider.childContextTypes,

@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 
-import { SET_RUNTIME_VARIABLE } from '../constants';
+import { SET_RUNTIME_VARIABLE, SET_FLASH_MESSAGE } from '../constants';
 
 export function setRuntimeVariable({ name, value }) {
   return {
@@ -8,6 +8,16 @@ export function setRuntimeVariable({ name, value }) {
     payload: {
       name,
       value,
+    },
+  };
+}
+
+export function setFlashMessage({ level, message }) {
+  return {
+    type: SET_FLASH_MESSAGE,
+    payload: {
+      level,
+      message,
     },
   };
 }
