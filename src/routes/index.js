@@ -52,6 +52,10 @@ const routes = {
       load: () => import(/* webpackChunkName: 'policy' */ './policy'),
     },
     {
+      path: '/terms',
+      load: () => import(/* webpackChunkName: 'terms' */ './terms'),
+    },
+    {
       path: '/java',
       load: () => import(/* webpackChunkName: 'java' */ './java'),
     },

@@ -11,7 +11,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Styles.css';
-
+import {Alert} from 'reactstrap';
 import Button from '../../components/Button';
 import {
   Container,
@@ -78,7 +78,8 @@ class RegisterStudent extends React.Component {
               <h1>
                 Для студентов. Зарегистрироваться.
               </h1>
-
+              <h2 style={{color: '#3d95b6;'}}>Оцени уровень своих знаний - пройди тестирование после регистрации и получи скидку 25{"%"}</h2>
+              <br/>
               <h3>Через социальные сети</h3>
               <Button onClick={() => {
                 window.location.href = '/auth/vkontakte';
@@ -95,7 +96,11 @@ class RegisterStudent extends React.Component {
               <h3>Или заполните форму</h3>
               <Form>
                 {
-                  this.state.notification ? <p>{this.state.notification}</p> : null
+                  this.state.notification ?
+                    <Alert color="danger">
+                      {this.state.notification}
+                    </Alert>
+                    : null
                 }
                 <FormGroup>
                   <Label>Ваш email</Label>
@@ -113,9 +118,9 @@ class RegisterStudent extends React.Component {
                          placeholder="Телефон"/>
                 </FormGroup>
                 <FormGroup>
-                  <Label>Учебное зеведение</Label>
+                  <Label>ВУЗ</Label>
                   <Input onBlur={e => this.changeFieldName('university', e.target.value)} type="text" name="university"
-                         placeholder="Учебное зеведение"/>
+                         placeholder="ВУЗ"/>
                 </FormGroup>
                 <FormGroup>
                   <Label>Расскажите о себе</Label>
@@ -129,6 +134,7 @@ class RegisterStudent extends React.Component {
                 </FormGroup>
               </Form>
               <Button onClick={() => this.send()} text="Зарегистрироваться" primary/>
+              <p>Авторизуясь, вы соглашаетесь с правилами <a href="/policy">пользования сайтом</a> и даете согласие на <a href="/terms">обработку персональных данных.</a></p>
             </Col>
           </Row>
         </Container>

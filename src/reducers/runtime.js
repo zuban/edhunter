@@ -1,6 +1,6 @@
-import { SET_RUNTIME_VARIABLE, SET_FLASH_MESSAGE } from '../constants';
+import {SET_RUNTIME_VARIABLE, SET_FLASH_MESSAGE, SET_PROFILE_STATE} from '../constants';
 
-export default function runtime(state = {}, action) {
+export default function runtime(state = {profileState: false}, action) {
   switch (action.type) {
     case SET_RUNTIME_VARIABLE:
       return {
@@ -11,6 +11,11 @@ export default function runtime(state = {}, action) {
       return {
         ...state,
         flash: action.payload,
+      };
+    case SET_PROFILE_STATE:
+      return {
+        ...state,
+        profileState: action.payload,
       };
     default:
       return state;

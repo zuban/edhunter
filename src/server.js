@@ -21,7 +21,7 @@ import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
 import App from './components/App';
 import Html from './components/Html';
-import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
+import {ErrorPageWithoutStyle} from './routes/error/ErrorPage';
 import errorPageStyle from './routes/error/ErrorPage.css';
 // import createFetch from './createFetch';
 const passport = require('passport');
@@ -31,7 +31,7 @@ import router from './router';
 // import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import configureStore from './store/configureStore';
-import { setRuntimeVariable, setFlashMessage } from './actions/runtime';
+import {setRuntimeVariable, setFlashMessage, setProfileState} from './actions/runtime';
 
 const compression = require('compression');
 const session = require('express-session');
@@ -41,7 +41,7 @@ const dotenv = require('dotenv');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
 // const expressStatusMonitor = require('express-status-monitor');
-
+const User = require('./models/User');
 /**
  * Controllers (route handlers).
  */
@@ -55,7 +55,7 @@ const contactController = require('./controllers/contact');
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
-dotenv.load({ path: '.env.example' });
+dotenv.load({path: '.env.example'});
 
 /**
  * API keys and Passport configuration.
@@ -79,7 +79,7 @@ global.navigator.userAgent = global.navigator.userAgent || 'all';
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(expressValidator());
 app.use(
@@ -127,6 +127,7 @@ app.post('/login', userController.postLogin);
 // app.get('/logout', userController.logout);
 // app.get('/forgot', userController.getForgot);
 app.post('/forgot', userController.postForgot);
+app.post('/api/test-form', userController.testForm);
 // app.get('/reset/:token', userController.getReset);
 app.post('/reset/:token', userController.postReset);
 // app.get('/signup', userController.getSignup);
@@ -153,7 +154,7 @@ app.get('/api/users', apiController.auditUsers);
 
 app.get(
   '/auth/facebook',
-  passport.authenticate('facebook', { scope: ['email', 'public_profile'] }),
+  passport.authenticate('facebook', {scope: ['email', 'public_profile']}),
 );
 app.get(
   '/auth/facebook/callback',
@@ -167,7 +168,7 @@ app.get(
 
 app.get(
   '/auth/google',
-  passport.authenticate('google', { scope: 'profile email' }),
+  passport.authenticate('google', {scope: 'profile email'}),
 );
 app.get(
   '/auth/google/callback',
@@ -181,7 +182,7 @@ app.get(
 
 app.get(
   '/auth/vkontakte',
-  passport.authenticate('vkontakte', { scope: ['email'] }),
+  passport.authenticate('vkontakte', {scope: ['email']}),
 );
 app.get(
   '/auth/vkontakte/callback',
@@ -232,32 +233,6 @@ app.use(compression());
 // -----------------------------------------------------------------------------
 app.get('*', async (req, res, next) => {
   try {
-    if (req.path === '/profile') {
-      if (req.isAuthenticated()) {
-        console.log('-------------------');
-        console.log('user authenticated');
-        console.log(req.path);
-        console.log('-------------------');
-      } else {
-        console.log('-------------------');
-        console.log('user not authenticated');
-        console.log('-------------------');
-        return res.redirect('/login');
-      }
-    }
-    if (req.path === '/admin') {
-      if (req.isAuthenticated() && req.user.email === 'admin@admin.com') {
-        console.log('-------------------');
-        console.log('user authenticated');
-        console.log(req.path);
-        console.log('-------------------');
-      } else {
-        console.log('-------------------');
-        console.log('user not authenticated');
-        console.log('-------------------');
-        return res.redirect('/login');
-      }
-    }
     const css = new Set();
 
     // Universal HTTP client
@@ -287,6 +262,50 @@ app.get('*', async (req, res, next) => {
         // I should not use `history` on server.. but how I do redirection? follow universal-router
       },
     );
+    if (req.isAuthenticated()) {
+      const user = await User.findById(req.user.id);
+      console.log('-------------------');
+      console.log(user);
+      console.log(user.profile.testPassed === true);
+      console.log('-------------------');
+      if (user.profile.testPassed === true) {
+        store.dispatch(
+          setRuntimeVariable({
+            name: 'testPassed',
+            value: true
+          })
+        )
+      }
+      else {
+        store.dispatch(
+          setRuntimeVariable({
+            name: 'testPassed',
+            value: false
+          })
+        )
+      }
+    }
+    else {
+      store.dispatch(
+        setRuntimeVariable({
+          name: 'testPassed',
+          value: false
+        })
+      )
+    }
+    if (req.path === '/admin') {
+      if (req.isAuthenticated() && req.user.email === 'admin@admin.com') {
+        console.log('-------------------');
+        console.log('user authenticated');
+        console.log(req.path);
+        console.log('-------------------');
+      } else {
+        console.log('-------------------');
+        console.log('user not authenticated');
+        console.log('-------------------');
+        return res.redirect('/login');
+      }
+    }
 
     store.dispatch(
       setRuntimeVariable({
@@ -336,14 +355,14 @@ app.get('*', async (req, res, next) => {
       return;
     }
 
-    const data = { ...route };
+    const data = {...route};
     data.children = ReactDOM.renderToString(
       <App context={context} store={store}>
         {route.component}
       </App>,
     );
 
-    data.styles = [{ id: 'css', cssText: [...css].join('') }];
+    data.styles = [{id: 'css', cssText: [...css].join('')}];
     data.scripts = [assets.vendor.js];
     if (route.chunks) {
       data.scripts.push(...route.chunks.map(chunk => assets[chunk].js));
@@ -376,9 +395,9 @@ app.use((err, req, res, next) => {
     <Html
       title="Internal Server Error"
       description={err.message}
-      styles={[{ id: 'css', cssText: errorPageStyle._getCss() }]} // eslint-disable-line no-underscore-dangle
+      styles={[{id: 'css', cssText: errorPageStyle._getCss()}]} // eslint-disable-line no-underscore-dangle
     >
-      {ReactDOM.renderToString(<ErrorPageWithoutStyle error={err} />)}
+    {ReactDOM.renderToString(<ErrorPageWithoutStyle error={err}/>)}
     </Html>,
   );
   res.status(err.status || 500);

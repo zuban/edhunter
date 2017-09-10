@@ -21,7 +21,10 @@ import {
   FormGroup,
   Label,
   Input,
+  Alert,
 } from 'reactstrap';
+import LoginForm from '../../components/LoginForm';
+
 class Login extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
@@ -31,34 +34,22 @@ class Login extends React.Component {
     super(...props);
     this.state = {
       notification: null,
-      email: null,
-      password: null,
     }
   }
 
-  changeFieldName(field, value) {
-    let state = this.state;
-    state[field] = value;
-    this.setState(state);
-    console.log(state);
-  }
-
-  send() {
+  handleSubmit(props) {
     const _this = this;
-    let formData = new FormData();
-    let state = this.state;
-    formData.append('email', state.email);
-    formData.append('password', state.password);
     fetch("/login", {
       method: "POST",
-      body: qs.stringify({
-        email: state.email,
-        password: state.password
+      body: JSON.stringify({
+        email: props.email,
+        password: props.password
       }),
       credentials: 'include',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-      }
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
     }).then(function (response) {
       if (response.status === 200) {
         window.location.href = '/'
@@ -71,6 +62,17 @@ class Login extends React.Component {
     });
   }
 
+  changeFieldName(field, value) {
+    let state = this.state;
+    state[field] = value;
+    this.setState(state);
+    console.log(state);
+  }
+
+  send() {
+
+  }
+
   render() {
     return (
       <div className={s.root}>
@@ -80,6 +82,7 @@ class Login extends React.Component {
               <h1>
                 Войти
               </h1>
+              <h2 style={{color: '#3d95b6;'}}>Оцени уровень своих знаний - пройди тестирование после регистрации и получи скидку 25{"%"}</h2>
               <h3>Через социальные сети</h3>
               <Button onClick={() => {
                 window.location.href = '/auth/vkontakte';
@@ -94,22 +97,13 @@ class Login extends React.Component {
               }} text={<span><i className="fa fa-google-plus"></i> Войти через Google</span>}
                       primary/>
               <h3>Или введите логин и пароль</h3>
-              <Form>
-                {
-                  this.state.notification ? <p>{this.state.notification}</p> : null
-                }
-                <FormGroup>
-                  <Label>Ваш email</Label>
-                  <Input onBlur={e => this.changeFieldName('email', e.target.value)} type="email" name="email"
-                         placeholder="Ваш email"/>
-                </FormGroup>
-                <FormGroup>
-                  <Label for="examplePassword">Пароль</Label>
-                  <Input onBlur={e => this.changeFieldName('password', e.target.value)} type="password" name="password"
-                         placeholder="Введите ваш пароль"/>
-                </FormGroup>
-              </Form>
-              <Button onClick={() => this.send()} text="Войти" primary/>
+
+              {
+                this.state.notification ? <Alert color="danger">{this.state.notification}</Alert> : null
+              }
+              <LoginForm onSubmit={(props) => this.handleSubmit(props)}/>
+              <p>Авторизуясь, вы соглашаетесь с правилами <a href="/policy">пользования сайтом</a> и даете согласие на <a href="/terms">обработку персональных данных.</a></p>
+
             </Col>
           </Row>
         </Container>
@@ -117,5 +111,5 @@ class Login extends React.Component {
     );
   }
 }
-
 export default withStyles(s)(Login);
+

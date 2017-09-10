@@ -12,6 +12,7 @@ import webpack from 'webpack';
 import AssetsPlugin from 'assets-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import overrideRules from './lib/overrideRules';
 import pkg from '../package.json';
 

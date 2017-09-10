@@ -122,6 +122,7 @@ class RegisterCompany extends React.Component {
                 </FormGroup>
               </Form>
               <Button onClick={() => this.send()} text="Зарегистрироваться" primary/>
+              <p>Авторизуясь, вы соглашаетесь с правилами <a href="/policy">пользования сайтом</a> и даете согласие на <a href="/terms">обработку персональных данных.</a></p>
             </Col>
           </Row>
         </Container>

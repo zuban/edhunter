@@ -32,6 +32,9 @@ const userSchema = new mongoose.Schema({
   tokens: Array,
 
   profile: {
+    testCount: Number,
+    testPassed: Boolean,
+
     name: String,
     gender: String,
     location: String,

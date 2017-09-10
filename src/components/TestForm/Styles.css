@@ -1,3 +1,4 @@
+
 /**
  * React Starter Kit (https://www.reactstarterkit.com/)
  *
@@ -6,24 +7,16 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE.txt file in the root directory of this source tree.
  */
+@import '../../components/variables.css';
 
-@import '../variables.css';
-
-.root {
-  background: black;
-  color: var(--white-text-color);
-}
-
-.feedbackIcon {
-  color: #3d95b6;
-  font-size: 5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.feedback {
-  text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+.testFormContainer {
+  padding: 3rem;
+  background: white;
+  color: black;
   margin: 0 auto;
+  border-radius: 5px;
+}
+
+.formRow {
+  padding-top: 2rem;
 }

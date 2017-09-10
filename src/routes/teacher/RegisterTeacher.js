@@ -56,8 +56,7 @@ class RegisterTeacher extends React.Component {
         'Content-Type': 'application/json'
       },
     }).then(function (response) {
-      if (response.status === 201)
-      {
+      if (response.status === 201) {
         window.location.href = '/'
       }
       return response.json();
@@ -78,6 +77,8 @@ class RegisterTeacher extends React.Component {
               <h1>
                 Для учителей. Зарегистрироваться.
               </h1>
+              <h2>Зарегистрируйся и получи персональный заказ на разработку курса.</h2>
+              <br/>
               <h3>Через социальные сети</h3>
               <Button onClick={() => {
                 window.location.href = '/auth/vkontakte';
@@ -118,6 +119,7 @@ class RegisterTeacher extends React.Component {
                 </FormGroup>
               </Form>
               <Button onClick={() => this.send()} text="Зарегистрироваться" primary/>
+              <p>Авторизуясь, вы соглашаетесь с правилами <a href="/policy">пользования сайтом</a> и даете согласие на <a href="/terms">обработку персональных данных.</a></p>
             </Col>
           </Row>
         </Container>

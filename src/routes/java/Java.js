@@ -204,6 +204,20 @@ class Java extends React.Component {
                 />
               </div>
             </Row>
+            <Row className={s.videoRow}>
+              <Col className={s.textLeft}>
+                <h2 className={s.textBlue}>Java-конференция Joker. Рефакторинг в функциональном стиле.</h2>
+              </Col>
+              <div className={s.videoWrapper}>
+                <iframe
+                  width={560}
+                  height={315}
+                  src="https://www.youtube.com/embed/rNg8jrWelXk"
+                  frameBorder={0}
+                  allowFullScreen
+                />
+              </div>
+            </Row>
           </Container>
         </div>
         <Container>

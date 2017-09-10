@@ -76,7 +76,8 @@ class Home extends React.Component {
         });
         return response.json();
       })
-      .then(result => {})
+      .then(result => {
+      })
       .catch(error => {
         console.log('Request failed', error);
       });
@@ -95,7 +96,7 @@ class Home extends React.Component {
                 </h3>
                 <br />
                 <p>
-                  Мы помогаем IT компаниям растить правильные компетенции у
+                  Помогаем IT компаниям растить правильные компетенции у
                   кандидатов и сотрудников
                 </p>
                 <Button
@@ -112,13 +113,13 @@ class Home extends React.Component {
           </section>
         </div>
         <div className={s.arrowDown}>
-          <img src={arrowDown} alt="arrow down" />
+          <img src={arrowDown} alt="arrow down"/>
         </div>
         <Container className={s.paddingContainer} id="team">
           <Row>
             <div className="col-sm-3">
               <div>
-                <img className={s.commandPhoto} src={rumyantsev} />
+                <img className={s.commandPhoto} src={rumyantsev}/>
                 <h4 className="text-center">
                   ДМИТРИЙ<br />РУМЯНЦЕВ
                 </h4>
@@ -140,7 +141,7 @@ class Home extends React.Component {
             </div>
             <div className="col-sm-3">
               <div>
-                <img className={s.commandPhoto} src={yakovlev} alt="" />
+                <img className={s.commandPhoto} src={yakovlev} alt=""/>
                 <h4 className="text-center">
                   ВЛАД<br />ЯКОВЛЕВ
                 </h4>
@@ -162,7 +163,7 @@ class Home extends React.Component {
             </div>
             <div className="col-sm-3">
               <div>
-                <img className={s.commandPhoto} src={matorin} />
+                <img className={s.commandPhoto} src={matorin}/>
                 <h4 className="text-center">
                   АЛЕКСАНДР<br />МАТОРИН
                 </h4>
@@ -185,7 +186,7 @@ class Home extends React.Component {
 
             <div className="col-sm-3">
               <div>
-                <img className={s.commandPhoto} src={zubov} />
+                <img className={s.commandPhoto} src={zubov}/>
                 <h4 className="text-center">
                   СЕРГЕЙ<br />ЗУБОВ
                 </h4>
@@ -210,6 +211,7 @@ class Home extends React.Component {
               <a href="/register/teacher">ссылке.</a>
               &nbsp; Мы с тобой свяжемся.
             </h5>
+            <h5 className={s.textBlue}>Зарегистрируйся и получи персональный заказ на разработку курса.</h5>
           </Row>
 
           <Row className={s.processVideoRow} id="students-video">
@@ -251,7 +253,7 @@ class Home extends React.Component {
                           </li>
                         </ul>
                       </div>
-                      <img className="d-flex ml-3" src={desctop} />
+                      <img className="d-flex ml-3" src={desctop}/>
                     </div>
                   </div>
                   <div className="col-sm-6">
@@ -270,12 +272,12 @@ class Home extends React.Component {
                           </li>
                         </ul>
                       </div>
-                      <img className="d-flex ml-3" src={layers} />
+                      <img className="d-flex ml-3" src={layers}/>
                     </div>
                   </div>
                 </Row>
               </div>
-              <div className={`${s.missionBackground} col-sm-4`} />
+              <div className={`${s.missionBackground} col-sm-4`}/>
             </Row>
           </Container>
         </div>
@@ -289,7 +291,7 @@ class Home extends React.Component {
             <div className={`${s.helpBlock} col-sm-7`}>
               <Row className={s.textGrey}>
                 <div className={`col-sm-12 text-center ${s.bulbPadding}`}>
-                  <img src={bulb} />
+                  <img src={bulb}/>
                 </div>
                 <div
                   className={`col-sm-12  text-center ${s.bulbPadding} ${s.textDark}`}
@@ -317,7 +319,7 @@ class Home extends React.Component {
                 </div>
               </Row>
             </div>
-            <div className={`${s.photoHelpBlock} col-sm-7 offset-md-5`} />
+            <div className={`${s.photoHelpBlock} col-sm-7 offset-md-5`}/>
           </Row>
         </Container>
         <div className={s.processBlock}>
@@ -338,7 +340,7 @@ class Home extends React.Component {
           <Row>
             <p>
               Если ваша компания заинтересована в сотрудничестве с нами,
-              зарегистрируйтесь для дальнйших инструкций, или свяжитесь с нами:
+              зарегистрируйтесь для дальнейших инструкций, или свяжитесь с нами:
               team@edhunter.ru
             </p>
           </Row>
@@ -376,7 +378,7 @@ class Home extends React.Component {
           </Container>
           <Container fluid>
             <Row className={s.courseRow}>
-              <div className={`col-sm-4 ${s.javaCourse}`} />
+              <div className={`col-sm-4 ${s.javaCourse}`}/>
               <div className={`col-sm-4 ${s.courseDescription}`}>
                 <div className={s.courseName}>
                   <h1>КУРС JAVA</h1>
@@ -413,7 +415,7 @@ class Home extends React.Component {
                   />
                 </div>
               </div>
-              <div className={`col-sm-4 ${s.yourCourse}`} />
+              <div className={`col-sm-4 ${s.yourCourse}`}/>
             </Row>
             <Row className={s.courseRow}>
               <div className={`col-sm-4 ${s.courseDescription}`}>
@@ -456,7 +458,7 @@ class Home extends React.Component {
                   </a>
                 </ol>
               </div>
-              <div className={`col-sm-4 ${s.htmlCourse}`} />
+              <div className={`col-sm-4 ${s.htmlCourse}`}/>
               <div className={`col-sm-4 ${s.courseDescription}`}>
                 <div className={s.courseName}>
                   <h1>ЗДЕСЬ МОЖЕТ БЫТЬ КУРС ПО ВАШИМ ТРЕБОВАНИЯМ</h1>
@@ -562,6 +564,9 @@ class Home extends React.Component {
                 </div>
               </div>
             </Row>
+            <Row className={s.headerPadding}>
+              <h1 className={s.textCenter}>ПРОЙДИ ТЕСТ ПОСЛЕ РЕГИСТРАЦИИ, ПОЛУЧИ СКИКДУ 25{"%"}</h1>
+            </Row>
           </Container>
         </div>
         <div className={s.darkSection}>
@@ -602,7 +607,7 @@ class Home extends React.Component {
                 {/* <p>„EdHunter дал мне необходимые знания для моей карьеры!“</p>*/}
               </div>
               <div className={`col-sm-4 ${s.headerMargin}`}>
-                <img src={icon2} alt="" />
+                <img src={icon2} alt=""/>
                 <h1>Здесь может быть твое имя</h1>
                 <p>Твоя компания</p>
                 <p>„EdHunter дал мне необходимые знания для моей карьеры!“</p>
@@ -628,6 +633,7 @@ class Home extends React.Component {
               по вашему заказу и предлагаем вам воспользоваться опцией
               “Таргетированный отбор”.
             </p>
+            <h3 className={s.textBlue}>Закажи эксклюзивный курс под свои требования за половину стоимости до 1 октября.</h3>
             <div className={s.blockCenter}>
               <Button
                 text="Для компаний"
@@ -718,11 +724,11 @@ class Home extends React.Component {
                     />
                   </FormGroup>
                 </Form>
-                <Button onClick={() => this.send()} text="Отправить" primary />
+                <Button onClick={() => this.send()} text="Отправить" primary/>
                 {this.state.notification
                   ? <p>
-                      {this.state.notification}
-                    </p>
+                    {this.state.notification}
+                  </p>
                   : null}
               </div>
             </Row>
