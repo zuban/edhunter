@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Styles.css';
-import { Container, Row, Col, Form, FormGroup, Label, Input } from 'reactstrap';
+import {Container, Row, Col, Form, FormGroup, Label, Input} from 'reactstrap';
 import Link from '../../components/Link';
-
+import Homework from '../../components/Homework';
 class Java extends React.Component {
   static propTypes = {
     title: PropTypes.string,
@@ -186,7 +186,7 @@ class Java extends React.Component {
                   </div>
                 </Row>
               </div>
-              <div className={`${s.matoringBlock} col-sm-7 offset-md-5`} />
+              <div className={`${s.matoringBlock} col-sm-7 offset-md-5`}/>
             </Row>
           </Container>
           <Container>
@@ -199,6 +199,20 @@ class Java extends React.Component {
                   width={560}
                   height={315}
                   src="https://www.youtube.com/embed/9ihoc742Gho"
+                  frameBorder={0}
+                  allowFullScreen
+                />
+              </div>
+            </Row>
+            <Row className={s.videoRow}>
+              <Col className={s.textLeft}>
+                <h2 className={s.textBlue}>Java-конференция JPoint 2016. Неочевидные Дженерики.</h2>
+              </Col>
+              <div className={s.videoWrapper}>
+                <iframe
+                  width={560}
+                  height={315}
+                  src="https://www.youtube.com/embed/_0c9Fd9FacU"
                   frameBorder={0}
                   allowFullScreen
                 />
@@ -226,7 +240,7 @@ class Java extends React.Component {
               <div className={s.tldate}>Модуль 1</div>
             </li>
             <li>
-              <div className={s.tlCirc} />
+              <div className={s.tlCirc}/>
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
                   <h2 className={s.textBlue}>Процесс разработки</h2>
@@ -243,7 +257,7 @@ class Java extends React.Component {
               <div className={s.tldate}>Модуль 2</div>
             </li>
             <li className={s.timelineInverted}>
-              <div className={s.tlCirc} />
+              <div className={s.tlCirc}/>
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
                   <h2 className={s.textBlue}>Java core</h2>
@@ -263,7 +277,7 @@ class Java extends React.Component {
               <div className={s.tldate}>Модуль 3</div>
             </li>
             <li>
-              <div className={s.tlCirc} />
+              <div className={s.tlCirc}/>
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
                   <h2 className={s.textBlue}>Многопоточность</h2>
@@ -294,7 +308,7 @@ class Java extends React.Component {
               <div className={s.tldate}>Модуль 5</div>
             </li>
             <li>
-              <div className={s.tlCirc} />
+              <div className={s.tlCirc}/>
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
                   <h2 className={s.textBlue}>Clean code</h2>
@@ -311,7 +325,7 @@ class Java extends React.Component {
               <div className={s.tldate}>Модуль 6</div>
             </li>
             <li className={s.timelineInverted}>
-              <div className={s.tlCirc} />
+              <div className={s.tlCirc}/>
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
                   <h2 className={s.textBlue}>Enterprise</h2>
@@ -327,7 +341,7 @@ class Java extends React.Component {
               <div className={s.tldate}>Модуль 7</div>
             </li>
             <li>
-              <div className={s.tlCirc} />
+              <div className={s.tlCirc}/>
               <div className={s.timelinePanel}>
                 <div className={s.tlHeading}>
                   <h2 className={s.textBlue}>WEB</h2>
@@ -342,6 +356,11 @@ class Java extends React.Component {
             </li>
           </ul>
         </Container>
+        <div className={s.javaTeacherContainer}>
+          <Container>
+            <Homework/>
+          </Container>
+        </div>
       </div>
     );
   }

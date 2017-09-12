@@ -65,7 +65,7 @@ exports.news = (req, res) => {
     if (err) {
       res.sendStatus(500);
     }
-    return res.redirect('/success');
+    return res.sendStatus(200);
   });
 };
 /**
