@@ -159,7 +159,7 @@ class Html extends React.Component {
             src="https://mc.yandex.ru/metrika/watch.js"
             type="text/javascript"
           />
-          <iframe src="https://rooms.webinar.tw/ru/login/1163781/light" width="800" height="600"></iframe>
+
         </body>
       </html>
     );
