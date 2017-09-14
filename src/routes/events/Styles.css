@@ -1,0 +1,138 @@
+/**
+ * React Starter Kit (https://www.reactstarterkit.com/)
+ *
+ * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+@import '../../components/variables.css';
+
+.root {
+  background-color: #fff;
+  background: url(../../assets/java.png) top center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  color: var(--white-text-color);
+}
+
+
+
+.webinarContainer {
+  background-color: #fff;
+  background: url(./3outline.png) top center no-repeat;
+  background-size: cover;
+  padding: 3rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  color: black;
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+
+h2 {
+  font-size: 24pt;
+}
+
+p {
+  font-size: 14pt;
+}
+
+.courseName {
+  font-size: 3.5rem;
+}
+
+.textBlue {
+  color: var(--button-primary-color);
+  text-align: left;
+}
+
+.textLeft {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: left;
+}
+
+.container {
+  padding-top: 15rem;
+  padding-bottom: 15rem;
+}
+
+.marginTeacherBlock {
+  margin-top: 90px;
+}
+
+.javaCourse {
+  margin: 0 auto;
+}
+
+.javaTeacherContainer {
+  background: var(--white-text-color);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.teacherDescription {
+  background: white;
+  position: absolute;
+  height: 600px;
+  z-index: 1;
+  top: 150px;
+  display: table;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.textCenterGrey {
+  color: var(--paragraph-text);
+  display: table-cell;
+  vertical-align: middle;
+}
+
+h1 {
+  margin-bottom: 3rem;
+}
+
+.darkText {
+  color: var(--text-color);
+}
+
+.form {
+  width: 580px;
+  height: 280px;
+  background-color: #F3F3F3;
+  border: 1px dashed #cacaca;
+  border-radius: 5px;
+  font-family: open sans;
+}
+
+.main {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.head {
+  color: #5d5d5d;
+  font-family: open sans;
+  width: 100%;
+}
+
+.name {
+  width: 35%;
+  float: left;
+}
+
+.email {
+  width: 35%;
+  float: left;
+}
+
+   form {
+  width: 100%;
+}
+
+   input[type="email"], input[type="password"], input[type="text"], select, textarea {
+  margin: 0px !important;
+}

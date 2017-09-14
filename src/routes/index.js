@@ -60,6 +60,10 @@ const routes = {
       load: () => import(/* webpackChunkName: 'java' */ './java'),
     },
     {
+      path: '/events/:id',
+      load: () => import(/* webpackChunkName: 'events' */ './events'),
+    },
+    {
       path: '/admin',
       load: () => import(/* webpackChunkName: 'admin' */ './admin'),
     },

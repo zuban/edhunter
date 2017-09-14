@@ -57,51 +57,51 @@ exports.testForm = (req, res, next) => {
   console.log('req.body');
   console.log(req.body);
   console.log('-------------------');
-  if (
-    req.body.section11 === true &&
-    req.body.section21 === true &&
-    req.body.section32 === true &&
-    req.body.section44 === true &&
-    req.body.section51 === true &&
-    req.body.section63 === true &&
-    req.body.section71 === '2' &&
-    req.body.section83 === true &&
-    req.body.section93 === true &&
-    req.body.section912 === true &&
-    req.body.section104 === true &&
-    req.body.section101 === true &&
-    req.body.section111 === true &&
-    req.body.section121 === true) {
-    User.findById(req.user.id, (err, user) => {
+  // if (
+  //   req.body.section11 === true &&
+  //   req.body.section21 === true &&
+  //   req.body.section32 === true &&
+  //   req.body.section44 === true &&
+  //   req.body.section51 === true &&
+  //   req.body.section63 === true &&
+  //   req.body.section71 === '2' &&
+  //   req.body.section83 === true &&
+  //   req.body.section93 === true &&
+  //   req.body.section912 === true &&
+  //   req.body.section104 === true &&
+  //   req.body.section101 === true &&
+  //   req.body.section111 === true &&
+  //   req.body.section121 === true) {
+  User.findById(req.user.id, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    user.profile.testPassed = true;
+    user.save((err) => {
       if (err) {
         return next(err);
       }
-      user.profile.testPassed = true;
-      user.save((err) => {
-        if (err) {
-          return next(err);
-        }
-        res.status(200).send({success: 'Вы прошли тест, поздравляем!'});
-      });
+      res.status(200).send({success: 'Вы прошли тест, поздравляем!'});
     });
-  }
-  else {
-    User.findById(req.user.id, (err, user) => {
-      if (err) {
-        return next(err);
-      }
-      user.profile.testCount = user.profile.testCount ? user.profile.testCount++ : 1;
-      user.profile.testPassed = false;
-
-      console.log(user);
-      user.save((err) => {
-        if (err) {
-          return next(err);
-        }
-        res.status(500).send({success: 'Вы не прошли тест. Попробуйте еще раз.'});
-      });
-    });
-  }
+  });
+  // }
+  // else {
+  //   User.findById(req.user.id, (err, user) => {
+  //     if (err) {
+  //       return next(err);
+  //     }
+  //     user.profile.testCount = user.profile.testCount ? user.profile.testCount++ : 1;
+  //     user.profile.testPassed = false;
+  //
+  //     console.log(user);
+  //     user.save((err) => {
+  //       if (err) {
+  //         return next(err);
+  //       }
+  //       res.status(500).send({success: 'Вы не прошли тест. Попробуйте еще раз.'});
+  //     });
+  //   });
+  // }
 };
 
 /**
