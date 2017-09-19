@@ -11,14 +11,31 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import Event from './Event';
 
-function action() {
+function action({ path, params, query }) {
+  let name = '';
+  let description = '';
+  let url = '';
+  if (path === '/events/160717') {
+    name = 'Вебинар. НЕАДЕКВАТНОЕ Java интервью';
+    description = 'В блоке ВОПРОС-ОТВЕТ вы сможете задать интересующие вас вопросы.\n' +
+      'Кроме того, в прямом эфире, мы разыграем два места на обучение. Победителям для получения выигрыша нужно будет связаться с нами в прямом эфире по номеру телефона.\n';
+    url = 'https://edhunter.webinarninja.co/my/wnwebinarlist/thankyouOnSite/90593';
+  } else if (path === '/events/220917') {
+    name = 'Особенности онлайн обучения в Edhunter по программе Java Developer';
+    description = 'В блоке ВОПРОС-ОТВЕТ вы сможете задать интересующие вас вопросы.\n' +
+      'Кроме того, в прямом эфире, мы разыграем два места на обучение. Победителям для получения выигрыша нужно будет связаться с нами в прямом эфире по номеру телефона.\n';
+    url = 'https://edhunter.webinarninja.co/my/wnwebinarlist/thankyouOnSite/91103';
+  }
+  else {
+    // window.location.href = '/error'
+  }
   return {
     chunks: ['events'],
     title:
-      'События Edhunter. Вебинары, день открытых дверей.',
+    'События Edhunter. Вебинары, день открытых дверей.' + name,
     component: (
       <Layout>
-        <Event />
+        <Event name={name} description={description} url={url}/>
       </Layout>
     ),
   };
