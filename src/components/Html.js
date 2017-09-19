@@ -159,7 +159,15 @@ class Html extends React.Component {
             src="https://mc.yandex.ru/metrika/watch.js"
             type="text/javascript"
           />
-
+          <div id="vk_community_messages"></div>
+          {
+            <script
+              dangerouslySetInnerHTML={{
+                __html:
+                `VK.Widgets.CommunityMessages("vk_community_messages", 151080301, {expandTimeout: "30000",tooltipButtonText: "Есть вопрос?"});`
+              }}
+            />
+          }
         </body>
       </html>
     );

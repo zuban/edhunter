@@ -22,6 +22,7 @@ import {
   Label,
   Input,
   FormText,
+  Button as BootstrapButton
 } from 'reactstrap';
 import arrowDown from './arrowDown.png';
 import matorin from './matorin.png';
@@ -94,7 +95,7 @@ class Home extends React.Component {
                 <h3 className={s.h3Header}>
                   ДЛЯ РАБОТЫ В ВЕДУЩИХ КОМПАНИЯХ РОССИИ
                 </h3>
-                <br />
+                <br/>
                 <p>
                   Помогаем IT компаниям растить правильные компетенции у
                   кандидатов и сотрудников
@@ -121,7 +122,7 @@ class Home extends React.Component {
               <div>
                 <img className={s.commandPhoto} src={rumyantsev}/>
                 <h4 className="text-center">
-                  ДМИТРИЙ<br />РУМЯНЦЕВ
+                  ДМИТРИЙ<br/>РУМЯНЦЕВ
                 </h4>
                 <p className="section-heading text-primary text-center">
                   ОПЕРАЦИОННЫЙ ДИРЕКТОР
@@ -143,7 +144,7 @@ class Home extends React.Component {
               <div>
                 <img className={s.commandPhoto} src={yakovlev} alt=""/>
                 <h4 className="text-center">
-                  ВЛАД<br />ЯКОВЛЕВ
+                  ВЛАД<br/>ЯКОВЛЕВ
                 </h4>
                 <p className="section-heading text-primary text-center">
                   АКАДЕМИЧЕСКИЙ ДИРЕКТОР
@@ -165,7 +166,7 @@ class Home extends React.Component {
               <div>
                 <img className={s.commandPhoto} src={matorin}/>
                 <h4 className="text-center">
-                  АЛЕКСАНДР<br />МАТОРИН
+                  АЛЕКСАНДР<br/>МАТОРИН
                 </h4>
                 <p className="section-heading text-primary text-center">
                   ПРЕПОДАВАТЕЛЬ
@@ -188,7 +189,7 @@ class Home extends React.Component {
               <div>
                 <img className={s.commandPhoto} src={zubov}/>
                 <h4 className="text-center">
-                  СЕРГЕЙ<br />ЗУБОВ
+                  СЕРГЕЙ<br/>ЗУБОВ
                 </h4>
                 <p className="section-heading text-primary text-center">
                   ПРЕПОДАВАТЕЛЬ
@@ -334,7 +335,7 @@ class Home extends React.Component {
             <Col>
               <h1 className={s.blockCenter}>НАШИ ПАРТНЕРЫ</h1>
 
-              <hr />
+              <hr/>
             </Col>
           </Row>
           <Row>
@@ -482,92 +483,171 @@ class Home extends React.Component {
             </Row>
           </Container>
           <Container>
-            <Row className={s.priceRow}>
-              <div className={`col-sm-6 text-center ${s.priceCol}`}>
-                <div className={s.priceBlockDuration}>
-                  <h1>РАЗОВЫЙ</h1>
-                </div>
-                <div className={s.priceCount}>
-                  <h1 className={s.marginPriceCount}>
-                    <b>30 000</b>
-                  </h1>{' '}
-                  <p>рублей<br/>за 5 месяцев</p>
-                </div>
-                <div className={s.priceBlock}>
-                  <p>
-                    Курс Core Java
-                  </p>
-                  <p>
-                    Курс Java enterprise
-                  </p>
-                  <p>
-                    Фидбек по каждому ДЗ
-                  </p>
-                  <p>
-                    Помощь в составлении резюме
-                  </p>
-                  <p>
-                    Репетиция собеседования
-                  </p>
-                  <p>
-                    Возможность пройти собеседование у наших партнеров
-                  </p>
-                  <div>
-                    <Button
-                      text="Зарегистрироваться"
-                      onClick={() => {
-                        window.location.href = '/register/student';
-                      }}
-                      primary
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className={`col-sm-6 text-center ${s.priceCol}`}>
-                <div className={s.priceMainBlockDuration}>
-                  <h1>ЕЖЕМЕСЯЧНЫЙ</h1>
-                </div>
-                <div className={s.priceCount}>
-                  <h1 className={s.marginPriceCount}>
-                    <b>8000</b>
-                  </h1>{' '}
-                  <p>рублей<br/>в месяц</p>
-                </div>
-                <div className={s.priceBlock}>
-                  <p>
-                    Курс Core Java
-                  </p>
-                  <p>
-                    Курс Java enterprise
-                  </p>
-                  <p>
-                    Фидбек по каждому ДЗ
-                  </p>
-                  <p>
-                    Помощь в составлении резюме
-                  </p>
-                  <p>
-                    Репетиция собеседования
-                  </p>
-                  <p>
-                    Возможность пройти собеседование у наших партнеров
-                  </p>
-                  <div>
-                    <Button
-                      text="Зарегистрироваться"
-                      onClick={() => {
-                        window.location.href = '/register/student';
-                      }}
-                      primary
-                    />
-                  </div>
-                </div>
-              </div>
+            <Row className={s.priceContainer2}>
+              <Col className={s.priceRow2}>
+                <h1 className={s.priceName2}>Что вы получаете?</h1>
+                <Row>
+                  <Col>
+                    <Row className={s.priceTopics}>
+                      <div className='offset-md-3 col-sm-1'>
+                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 100 100">
+                          <path
+                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
+                          <path
+                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
+                        </svg>
+                      </div>
+                      <div className='col-sm-8'>
+                        <h3>
+                          Курс Core Java
+                        </h3>
+                      </div>
+                    </Row>
+                    <Row className={s.priceTopics}>
+                      <div className='offset-md-3 col-sm-1'>
+                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 100 100">
+                          <path
+                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
+                          <path
+                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
+                        </svg>
+                      </div>
+                      <div className='col-sm-8'>
+                        <h3>
+                          Курс Java enterprise
+                        </h3>
+                      </div>
+                    </Row>
+                    <Row className={s.priceTopics}>
+                      <div className='offset-md-3 col-sm-1'>
+                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 100 100">
+                          <path
+                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
+                          <path
+                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
+                        </svg>
+                      </div>
+                      <div className='col-sm-8'>
+                        <h3>
+                          Feedback по каждому ДЗ
+                        </h3>
+
+                      </div>
+                    </Row>
+                    <Row className={s.priceTopics}>
+                      <div className='offset-md-3 col-sm-1'>
+                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 100 100">
+                          <path
+                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
+                          <path
+                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
+                        </svg>
+                      </div>
+                      <div className='col-sm-8'>
+                        <h3>
+                          Помощь в составлении резюме
+                        </h3>
+                      </div>
+                    </Row>
+                    <Row className={s.priceTopics}>
+                      <div className='offset-md-3 col-sm-1'>
+                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 100 100">
+                          <path
+                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
+                          <path
+                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
+                        </svg>
+                      </div>
+                      <div className='col-sm-8'>
+                        <h3>
+                          Репетиция собеседования
+                        </h3>
+                      </div>
+                    </Row>
+                    <Row className={s.priceTopics}>
+                      <div className='offset-md-3 col-sm-1'>
+                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 100 100">
+                          <path
+                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
+                          <path
+                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
+                        </svg>
+                      </div>
+                      <div className='col-sm-8'>
+                        <h3>
+                          Возможность пройти собеседование у наших партнеров
+                        </h3>
+                      </div>
+                    </Row>
+                  </Col>
+                </Row>
+              </Col>
             </Row>
-            <Row className={s.headerPadding}>
-              <h1 className={s.textCenter}>ПРОЙДИ ТЕСТ ПОСЛЕ РЕГИСТРАЦИИ, ПОЛУЧИ СКИКДУ 25{"%"}</h1>
+            <Row>
+              <div className={`offset-md-1 col-sm-3 ${s.darkPrice}`}>
+                <h3>ЕЖЕМЕСЯЧНЫЙ</h3>
+                <span className={s.priceCount2}>8000</span>
+                <span className={s.rouble}>₽</span>
+                <br/>
+                <span style={{fontSize: '0.9rem'}}>ПРОЙДИ ТЕСТ ПОСЛЕ РЕГИСТРАЦИИ, ПОЛУЧИ СКИКДУ 20{"%"}</span>
+                <br/>
+                <BootstrapButton
+                  style={{marginTop: '10px'}}
+                  text="Зарегистрироваться"
+                  onClick={() => {
+                    window.location.href = '/register/student';
+                  }}
+                  primary
+                >Зарегистрироваться</BootstrapButton>
+              </div>
+              <div className={`col-sm-4 ${s.bluePrice}`}>
+                <h1>РАЗОВЫЙ</h1>
+                <span className={s.priceCount2}>30000</span>
+                <span className={s.rouble}>₽</span>
+                <br/>
+                <span style={{fontSize: '0.9rem'}}>ЗА 5 МЕСЯЦЕВ</span>
+                <br/>
+                <BootstrapButton
+                  style={{marginTop: '10px'}}
+                  text="Зарегистрироваться"
+                  onClick={() => {
+                    window.location.href = '/register/student';
+                  }}
+                  primary
+                >Зарегистрироваться</BootstrapButton>
+              </div>
+              <div className={`col-sm-3 ${s.purplePrice}`}>
+                <h3>БЕСПЛАТНОЕ ОБУЧЕНИЕ</h3>
+                <span className={s.priceCount2}>45000</span>
+                <span className={s.rouble}>₽</span>
+                <br/>
+                <span style={{fontSize: '0.9rem'}}>ОПЛАТА ПОСЛЕ ТРУДОУСТРОЙСТВА</span>
+                <br/>
+                <BootstrapButton
+                  style={{marginTop: '10px'}}
+                  text="Зарегистрироваться"
+                  onClick={() => {
+                    window.location.href = '/register/student';
+                  }}
+                  primary
+                >Зарегистрироваться</BootstrapButton>
+              </div>
             </Row>
           </Container>
+
+
         </div>
         <div className={s.darkSection}>
           <Container fluid>
@@ -633,7 +713,8 @@ class Home extends React.Component {
               по вашему заказу и предлагаем вам воспользоваться опцией
               “Таргетированный отбор”.
             </p>
-            <h3 className={s.textBlue}>Закажи эксклюзивный курс под свои требования за половину стоимости до 1 октября.</h3>
+            <h3 className={s.textBlue}>Закажи эксклюзивный курс под свои требования за половину стоимости до 1
+              октября.</h3>
             <div className={s.blockCenter}>
               <Button
                 text="Для компаний"

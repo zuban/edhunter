@@ -350,6 +350,84 @@
   height: 100%;
 }
 
+.priceContainer2 {
+
+  background-color: #373737;
+  border-width: 0px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
+}
+
+.priceRow2 {
+  padding: 5rem;
+  padding-bottom: 220px;
+  color: #f4f5f9;
+}
+
+.darkPrice {
+  padding-top: 50px;
+  text-align: center;
+  border-width: 0px;
+  position: relative;
+  top: -150px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
+  right: -5px;
+  background: #8893d3;
+  color: #f4f5f9;
+  height: 300px;
+}
+
+.bluePrice {
+  padding-top: 50px;
+  text-align: center;
+  z-index: 11;
+  position: relative;
+  top: -180px;
+  height: 400px;
+  padding-top: 50px;
+  border-width: 0px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
+  background: #73b7de;
+  color: #f4f5f9;
+}
+
+.purplePrice {
+  padding-top: 50px;
+  text-align: center;
+  left: -5px;
+  position: relative;
+  top: -150px;
+  border-width: 0px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
+  background: #b697f5;
+  color: #f4f5f9;
+  height: 300px;
+}
+
+.priceCount2 {
+  font-size: 4rem;
+}
+
+.rouble {
+  font-size: 2rem;
+}
+
+.priceTopics {
+  margin-top: 1rem;
+}
+
+.priceName2 {
+  text-align: center;
+  color: #3d95b6;
+}
+
+
 @media (max-width: 576px) {
   .missionText {
     text-align: right;
@@ -433,4 +511,28 @@
   .priceRow {
     padding: 0;
   }
+
+  .priceRow2 {
+    padding: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .darkPrice {
+    position: initial;
+    top: 0;
+    right: 0;
+  }
+
+  .bluePrice {
+    position: initial;
+    top: 0;
+    height: 330px;
+
+  }
+  .purplePrice {
+    position: initial;
+    top: 0;
+    left: 0;
+  }
 }
+

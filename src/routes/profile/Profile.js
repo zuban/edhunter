@@ -62,7 +62,7 @@ class Profile extends React.Component {
           </Row> :
             <Row className={s.processVideoRow}>
               <Col className={s.textLeft}>
-                <h2>Поздравляем! Вы получаете скидку 25% на курс!</h2>
+                <h2>Поздравляем! Вы получаете скидку 20% на курс!</h2>
               </Col>
               <Col className={s.textLeft}>
                 <h3>
