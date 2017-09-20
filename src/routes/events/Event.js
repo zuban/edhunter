@@ -44,7 +44,7 @@ class Event extends React.Component {
           </Row>
           <Row>
             <Form className={s.webinarContainer}
-                  action="https://edhunter.webinarninja.co/my/wnwebinarlist/thankyouOnSite/90593" method="POST">
+                  action={url} method="POST">
               <FormGroup>
                 <Label for="full_name"><h5>Ваше имя</h5></Label>{'  '}
                 <Input type="text" name="full_name" id="full_name" placeholder="Ваше имя" required/>

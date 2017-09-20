@@ -1,0 +1,18 @@
+/**
+ * React Starter Kit (https://www.reactstarterkit.com/)
+ *
+ * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+
+@import '../variables.css';
+
+.courseContainer {
+  background-color: #55b5dc;
+  background-image: -webkit-gradient(linear, right top, left top, from(#55b5dc), to(#8672d8));
+  background-image: linear-gradient(to left, #55b5dc, #8672d8);
+  color: #2e81e2;
+  height: 500px;
+}

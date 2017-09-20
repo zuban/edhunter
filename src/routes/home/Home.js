@@ -36,6 +36,8 @@ import icon1 from './icon1.png';
 import icon2 from './icon2.png';
 import icon3 from './icon3.png';
 
+import JavaCourse from '../../components/JavaCourse';
+
 class Home extends React.Component {
   static propTypes = {};
 
@@ -371,6 +373,7 @@ class Home extends React.Component {
             />
           </div>
         </Container>
+        {/*<JavaCourse/>*/}
         <div className={s.darkSection} id="courses">
           <Container>
             <Row className={s.headerPadding}>

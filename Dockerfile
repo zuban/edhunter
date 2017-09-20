@@ -1,15 +1,19 @@
 FROM node:7.9.0-alpine
 
-# Set a working directory
-WORKDIR /usr/src/app
+RUN npm install pm2@next -g
 
+COPY process.yml .
 COPY ./build/package.json .
 COPY ./build/yarn.lock .
+# Copy application files
+COPY ./build .
+COPY .env.example .
 
 # Install Node.js dependencies
 RUN yarn install --production --no-progress
 
-# Copy application files
-COPY ./build .
+# Expose ports
+EXPOSE 80 3000 443 43554
 
-CMD [ "node", "server.js" ]
+# Start process.yml
+CMD ["pm2-docker",  "process.yml"]
