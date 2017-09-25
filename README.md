@@ -1,3 +1,40 @@
+
+HOW TO
+docker build -t edhunter-web .
+docker run -p 3000:3000 edhunter-web
+
+
+$ docker exec -it <container-id> pm2 monit	Monitoring CPU/Usage of each process
+$ docker exec -it <container-id> pm2 list	Listing managed processes
+$ docker exec -it <container-id> pm2 show	Get more information about a process
+$ docker exec -it <container-id> pm2 reload all	0sec downtime reload all applications
+
+
+Import collection
+mongoimport -h ds115110.mlab.com:15110 -d heroku_v4vqslpf -c <collection> -u <user> -p <password> --file <input file>
+Export collection
+mongoexport -h ds115110.mlab.com:15110 -d heroku_v4vqslpf -c <collection> -u <user> -p <password> -o <output file>
+
+
+Import collection
+mongoimport -h ds115110.mlab.com:15110 -d heroku_v4vqslpf -c <collection> -u <user> -p <password> --file <input .csv file> --type csv --headerline
+Export collection
+mongoexport -h ds115110.mlab.com:15110 -d heroku_v4vqslpf -c <collection> -u <user> -p <password> -o <output .csv file> --csv -f <comma-separated list of field names>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## React Starter Kit — "[isomorphic](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)" web app boilerplate &nbsp; <a href="https://github.com/kriasoft/react-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/kriasoft/react-starter-kit.svg?style=social&label=Star&maxAge=3600" height="20"></a> <a href="https://twitter.com/ReactStarter"><img src="https://img.shields.io/twitter/follow/ReactStarter.svg?style=social&label=Follow&maxAge=3600" height="20"></a>
 
 [React Starter Kit](https://www.reactstarterkit.com) is an opinionated boilerplate for web

@@ -253,7 +253,7 @@ passport.use(
     {
       clientID: process.env.VK_ID,
       clientSecret: process.env.VK_SECRET,
-      callbackURL: 'http://www.edhunter.ru/auth/vkontakte/callback',
+      callbackURL: 'http://edhunter.ru/auth/vkontakte/callback',
       scope: ['email'],
       profileFields: ['email', 'city'],
     },

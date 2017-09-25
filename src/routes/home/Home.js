@@ -95,11 +95,11 @@ class Home extends React.Component {
               <div className="container">
                 <h1 className={s.h1Header}>МЫ "ПРОКАЧАЕМ" ТЕБЯ</h1>
                 <h3 className={s.h3Header}>
-                  ДЛЯ РАБОТЫ В ВЕДУЩИХ КОМПАНИЯХ РОССИИ
+                  ДЛЯ РАБОТЫ В ВЕДУЩИХ IT КОМПАНИЯХ РОССИИ
                 </h3>
                 <br/>
                 <p>
-                  Помогаем IT компаниям растить правильные компетенции у
+                  Помогаем компаниям растить правильные компетенции у
                   кандидатов и сотрудников
                 </p>
                 <Button
@@ -604,7 +604,7 @@ class Home extends React.Component {
                 <span className={s.priceCount2}>8000</span>
                 <span className={s.rouble}>₽</span>
                 <br/>
-                <span style={{fontSize: '0.9rem'}}>ПРОЙДИ ТЕСТ ПОСЛЕ РЕГИСТРАЦИИ, ПОЛУЧИ СКИКДУ 20{"%"}</span>
+                <span style={{fontSize: '0.9rem'}}>ПРОЙДИ ТЕСТ ПОСЛЕ РЕГИСТРАЦИИ, ПОЛУЧИ СКИДКУ 20{"%"}</span>
                 <br/>
                 <BootstrapButton
                   style={{marginTop: '10px'}}
@@ -747,10 +747,6 @@ class Home extends React.Component {
           <Container>
             <Row className={s.headerPadding}>
               <h1 className={s.blockCenter}>СВЯЗАТЬСЯ С НАМИ</h1>
-              <p className={s.blockCenter}>
-                Предложите курс, или просто оставьте контакты, мы с Вами
-                свяжемся.
-              </p>
             </Row>
             <Row>
               <div className={`${s.contacts} col-sm-4`}>
@@ -762,7 +758,7 @@ class Home extends React.Component {
                 <p>team@edhunter.ru</p>
               </div>
               <div className={`${s.contactForm} col-sm-7 offset-md-1`}>
-                <h3 className={s.textBlue}>Форма обратной связи</h3>
+                <h3 className={s.textBlue}>Установить контакт. Мы любим, когда нам пишут. Пишите больше!</h3>
                 <Form>
                   <FormGroup>
                     <Label for="exampleEmail">Ваше имя</Label>
