@@ -64,6 +64,10 @@ const routes = {
       load: () => import(/* webpackChunkName: 'events' */ './events'),
     },
     {
+      path: '/stream/:id',
+      load: () => import(/* webpackChunkName: 'stream' */ './stream'),
+    },
+    {
       path: '/admin',
       load: () => import(/* webpackChunkName: 'admin' */ './admin'),
     },

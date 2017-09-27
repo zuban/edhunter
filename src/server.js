@@ -284,6 +284,13 @@ app.get('*', async (req, res, next) => {
           })
         )
       }
+
+      store.dispatch(
+        setRuntimeVariable({
+          name: 'plans',
+          value: user.plan
+        })
+      )
     }
     else {
       store.dispatch(

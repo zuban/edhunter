@@ -84,6 +84,10 @@ class Home extends React.Component {
       .catch(error => {
         console.log('Request failed', error);
       });
+
+    if (window.ga) {
+      window.ga('send', 'event', 'Contacts', 'Submit');
+    }
   }
 
   render() {

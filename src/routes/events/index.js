@@ -10,6 +10,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import Event from './Event';
+import BigmarkerEvent from './BigmarkerEvent';
 
 function action({ path, params, query }) {
   let name = '';
@@ -25,9 +26,21 @@ function action({ path, params, query }) {
     description = 'В блоке ВОПРОС-ОТВЕТ вы сможете задать интересующие вас вопросы.\n' +
       'Кроме того, в прямом эфире, мы разыграем два места на обучение. Победителям для получения выигрыша нужно будет связаться с нами в прямом эфире по номеру телефона.\n';
     url = 'https://edhunter.webinarninja.co/my/wnwebinarlist/thankyouOnSite/91103';
+  } else if (path === '/events/300917') {
+    name = 'Особенности онлайн-обучения на Программе "Java Developer"';
+    description = 'В блоке ВОПРОС-ОТВЕТ вы сможете задать интересующие вас вопросы.\n' +
+      'Кроме того, в прямом эфире, мы разыграем места на обучение. Победителям для получения выигрыша нужно будет связаться с нами в прямом эфире по номеру телефона.\n';
+    url = 'https://edhunter.webinarninja.co/my/wnwebinarlist/thankyouOnSite/1596';
   }
   else {
     // window.location.href = '/error'
+  }
+
+  let component = <Event name={name} description={description} url={url}/>;
+
+  if (path === '/events/300917')
+  {
+    component = <BigmarkerEvent/>;
   }
   return {
     chunks: ['events'],
@@ -35,7 +48,7 @@ function action({ path, params, query }) {
     'События Edhunter. Вебинары, день открытых дверей.' + name,
     component: (
       <Layout>
-        <Event name={name} description={description} url={url}/>
+        {component}
       </Layout>
     ),
   };

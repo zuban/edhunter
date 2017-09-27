@@ -64,6 +64,9 @@ class RegisterCompany extends React.Component {
     }).catch(function (error) {
       console.log('Request failed', error);
     });
+    if (window.ga) {
+      window.ga('send', 'event', 'Register', 'Submit', 'Company');
+    }
   }
 
   render() {

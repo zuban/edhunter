@@ -238,3 +238,7 @@ p {
   color: #313843;
   text-decoration: underline;
 }
+
+a:focus, a:hover {
+  color: #ffffff;
+}

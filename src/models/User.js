@@ -31,6 +31,7 @@ const userSchema = new mongoose.Schema({
   steam: String,
   tokens: Array,
 
+  plan: Array,
   profile: {
     testCount: Number,
     testPassed: Boolean,

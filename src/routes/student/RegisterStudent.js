@@ -67,6 +67,10 @@ class RegisterStudent extends React.Component {
     }).catch(function (error) {
       console.log('Request failed', error);
     });
+
+    if (window.ga) {
+      window.ga('send', 'event', 'Register', 'Submit', 'Student');
+    }
   }
 
   render() {
@@ -78,7 +82,7 @@ class RegisterStudent extends React.Component {
               <h1>
                 Для студентов. Зарегистрироваться.
               </h1>
-              <h2 style={{color: '#3d95b6;'}}>Оцени уровень своих знаний - пройди тестирование после регистрации и получи скидку 25{"%"}</h2>
+              <h2 style={{color: '#3d95b6;'}}>Оцени уровень своих знаний - пройди тестирование после регистрации и получи скидку 20{"%"}</h2>
               <br/>
               <h3>Через социальные сети</h3>
               <Button onClick={() => {

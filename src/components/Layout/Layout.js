@@ -30,9 +30,9 @@ class Layout extends React.Component {
     return (
       <div>
         <p className={s.events}>
-          Бесплатный вебинар. 22 сентября. Особенности онлайн обучения в
+          Бесплатный вебинар. 30 сентября. Особенности онлайн обучения в
           Edhunter по программе Java Developer.{' '}
-          <a className={s.eventLink} href="/events/220917">
+          <a className={s.eventLink} href="/events/300917">
             Регистрация
           </a>{' '}
           открыта!
