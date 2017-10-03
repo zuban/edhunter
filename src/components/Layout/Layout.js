@@ -29,14 +29,14 @@ class Layout extends React.Component {
     const { flash } = this.props;
     return (
       <div>
-        <p className={s.events}>
-          Бесплатный вебинар. 30 сентября. Особенности онлайн обучения в
-          Edhunter по программе Java Developer.{' '}
-          <a className={s.eventLink} href="/events/300917">
-            Регистрация
-          </a>{' '}
-          открыта!
-        </p>
+        {/*<p className={s.events}>*/}
+          {/*Бесплатный вебинар. 30 сентября. Особенности онлайн обучения в*/}
+          {/*Edhunter по программе Java Developer.{' '}*/}
+          {/*<a className={s.eventLink} href="/events/300917">*/}
+            {/*Регистрация*/}
+          {/*</a>{' '}*/}
+          {/*открыта!*/}
+        {/*</p>*/}
         <Header />
         {flash ? (
           <div className={s.flashBlock}>

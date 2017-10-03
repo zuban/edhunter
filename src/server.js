@@ -136,6 +136,7 @@ app.post('/signup', userController.postSignup);
 app.post('/signup-employer', userController.postSignup);
 // app.get('/register-teacher', userController.getSignupStudent);
 app.post('/api/register', userController.postSignup);
+app.post('/api/pay', userController.pay);
 // app.get('/contact', contactController.getContact);
 // app.post('/contact', contactController.postContact);
 // app.get('/education', educationController.getContact);
@@ -289,6 +290,12 @@ app.get('*', async (req, res, next) => {
         setRuntimeVariable({
           name: 'plans',
           value: user.plan
+        })
+      )
+      store.dispatch(
+        setRuntimeVariable({
+          name: 'userId',
+          value: req.user.id
         })
       )
     }

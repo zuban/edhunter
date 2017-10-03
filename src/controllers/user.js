@@ -102,6 +102,30 @@ exports.testForm = (req, res, next) => {
   //     });
   //   });
   // }
+};/**
+ * POST /login
+ * Sign in using email and password.
+ */
+exports.pay = (req, res, next) => {
+  console.log('-------------------');
+  console.log('req.body');
+  console.log(req.body);
+  console.log('-------------------');
+  User.findById(req.body.label, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    user.plan = [{
+        name: 'october-java',
+        meta: req.body
+      }];
+    user.save((err) => {
+      if (err) {
+        return next(err);
+      }
+      res.sendStatus(200);
+    });
+  });
 };
 
 /**
