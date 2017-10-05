@@ -37,6 +37,7 @@ import icon2 from './icon2.png';
 import icon3 from './icon3.png';
 
 import JavaCourse from '../../components/JavaCourse';
+import ProcessBlock from '../../components/ProcessBlock';
 
 class Home extends React.Component {
   static propTypes = {};
@@ -329,13 +330,9 @@ class Home extends React.Component {
             <div className={`${s.photoHelpBlock} col-sm-7 offset-md-5`}/>
           </Row>
         </Container>
-        <div className={s.processBlock}>
-          <Container>
-            <Row className={`${s.processHeader} ${s.headerPadding}`}>
-              <h1 className={s.blockCenter}>ПРОЦЕСС ОБУЧЕНИЯ</h1>
-            </Row>
-          </Container>
-        </div>
+
+        <ProcessBlock/>
+
         <Container className={s.partnersContainer} id="partners">
           <Row className={s.headerPadding}>
             <Col>
@@ -377,111 +374,14 @@ class Home extends React.Component {
             />
           </div>
         </Container>
-        {/*<JavaCourse/>*/}
+
         <div className={s.darkSection} id="courses">
           <Container>
             <Row className={s.headerPadding}>
               <h1 className={s.blockCenter}>Курсы</h1>
             </Row>
           </Container>
-          <Container fluid>
-            <Row className={s.courseRow}>
-              <div className={`col-sm-4 ${s.javaCourse}`}/>
-              <div className={`col-sm-4 ${s.courseDescription}`}>
-                <div className={s.courseName}>
-                  <h1>КУРС JAVA</h1>
-                </div>
-                <ol>
-                  <a className="nav-link">
-                    <strong>Модуль 1.</strong> Процесс разработки
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 2.</strong> Java core
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 3.</strong> Многопоточность
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 4.</strong> JVM
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 5.</strong> Clean code
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 6.</strong> Enterprise
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 7.</strong> WEB
-                  </a>
-                </ol>
-                <div className="text-center">
-                  <Button
-                    text="Подробнее"
-                    onClick={() => {
-                      window.location.href = '/java';
-                    }}
-                  />
-                </div>
-              </div>
-              <div className={`col-sm-4 ${s.yourCourse}`}/>
-            </Row>
-            <Row className={s.courseRow}>
-              <div className={`col-sm-4 ${s.courseDescription}`}>
-                <div className={s.courseName}>
-                  <h1>REACT. КУРС В РАЗРАБОТКЕ.</h1>
-                </div>
-                <ol>
-                  <a className="nav-link">
-                    <strong>Модуль 1.</strong> Кросс-браузерная верстка HTML и
-                    CSS.
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 2.</strong> Язык программирования JavaScript.
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 3.</strong> JavaScript в браузере и Web API.
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 4.</strong> Библиотека React.
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 5.</strong> Создание одностраничного
-                    веб-приложения.
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 6.</strong> AJAX.
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 7.</strong> Композиция компонентов. JSX.
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 8.</strong> Роутинг в приложении.
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 9.</strong> Шаблоны MVC, MVVM.
-                  </a>
-                  <a className="nav-link">
-                    <strong>Модуль 10.</strong> Шаблоны pub/sub, observer,
-                    mediator.
-                  </a>
-                </ol>
-              </div>
-              <div className={`col-sm-4 ${s.htmlCourse}`}/>
-              <div className={`col-sm-4 ${s.courseDescription}`}>
-                <div className={s.courseName}>
-                  <h1>ЗДЕСЬ МОЖЕТ БЫТЬ КУРС ПО ВАШИМ ТРЕБОВАНИЯМ</h1>
-                </div>
-                <div className="text-center">
-                  <Button
-                    text="Заказать курс"
-                    onClick={() => {
-                      window.location.href = '/register/company';
-                    }}
-                  />
-                </div>
-              </div>
-            </Row>
-          </Container>
+          <JavaCourse/>
         </div>
         <div className={s.whiteBlock} id="prices">
           <Container className="text-center">

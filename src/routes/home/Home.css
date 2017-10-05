@@ -167,6 +167,7 @@
 .processBlock {
   height: 808px;
   background: #202020 url(./process.png) no-repeat right center;
+  background-position: center 37.4669%;
   background-size: cover;
 }
 
