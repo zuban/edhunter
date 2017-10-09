@@ -22,7 +22,20 @@ import js from './js.png'
 class JavaCourse extends React.Component {
   render() {
     return (
-      <div className={s.courseContainer} >
+      <div className={s.courseContainer}>
+        <Container>
+          <Row>
+            <Col>
+              <h1 className={s.whatWeDo}>ЧТО МЫ ДЕЛАЕМ?</h1>
+              <h3 className={s.sellText}>
+                Даем только необходимые знания, сокращаем дистанцию между тобой и профессией, готовим под требования
+                компании, настраиваем контакт между тобой и преподавателем а также помогаем подготовить резюме — всё это
+                мы делаем с помощью
+                наших курсов:
+              </h3>
+            </Col>
+          </Row>
+        </Container>
         <Container className={s.javaContainer}>
           <Row>
             <div className={`col-sm-4 ${s.javaBackground} ${s.textCenter}`}>
@@ -34,9 +47,11 @@ class JavaCourse extends React.Component {
               />
             </div>
             <div className={`col-sm-8 ${s.javaDescription}`}>
-              <h1>JAVA CORE</h1>
-              <p>Язык разметки HTML и таблицы стилей CSS устроены намного проще, чем кажется. Порция хорошей теории
-                и практики на наших занятиях обеспечит вас уверенными базовыми знаниями.</p>
+              <h1>ПРОФЕССИЯ: JAVA РАЗРАБОТЧИК</h1>
+              <p>В начале курса коротко рассматриваются основные концепции и синтаксические особенности языка и далее
+                разбираются уже сложные и интересные возможности платформы Java. Во второй части рассматриваются
+                библиотеки и фреймворки, используемые для создания крупных проектов (Spring, Hibernate, etc).
+              </p>
               <ul>
                 <li>
                   <a className="nav-link">
@@ -78,7 +93,8 @@ class JavaCourse extends React.Component {
               <i className={`fa fa-arrow-right fa-4 ${s.javaIcon}`} aria-hidden="true">
                 <a href="/java" className={s.javaDescriptionButton}>ПОДРОБНЕЕ</a>
               </i>
-              <div className={s.greenNote}><a className={s.groupLink} href="/register/student">01.12 - НАБОР ВТОРОЙ ГРУППЫ</a></div>
+              <div className={s.greenNote}><a className={s.groupLink} href="/register/student">01.12 - НАБОР ВТОРОЙ
+                ГРУППЫ</a></div>
             </div>
           </Row>
         </Container>
@@ -93,7 +109,7 @@ class JavaCourse extends React.Component {
               />
             </div>
             <div className={`col-sm-8 ${s.javaDescription}`}>
-              <h1>JAVASCRIPT</h1>
+              <h1>ПРОФЕССИЯ: WEB РАЗРАБОТЧИК</h1>
               <p>Язык разметки HTML и таблицы стилей CSS устроены намного проще, чем кажется. Порция хорошей теории
                 и практики на наших занятиях обеспечит вас уверенными базовыми знаниями.</p>
               <ul>
@@ -151,8 +167,13 @@ class JavaCourse extends React.Component {
           <Row>
             <Col className={s.companyNamePadding}>
               <h1>ЗДЕСЬ МОЖЕТ БЫТЬ КУРС ПО ВАШИМ ТРЕБОВАНИЯМ</h1>
-              <p>Здесь текст для компании. Почему мы считаем, что они хороши. Почему они должны заказывать у нас курс
-              + еще пару фактов. И еще одно предложение</p>
+              <p>Любая компания, занимающаяся разработкой программного обеспечения, несмотря на несомненную схожесть
+                требований к специалистам, имеет свои индивидуальные запросы.
+                Эти нюансы требований к компетенциям и квалификации кандидата часто являются самыми важными для
+                компании. И для «доучивания» каждого нового сотрудника приходится тратить и время и средства компании.
+                Мы неоднократно сталкивались с такой ситуацией в своей личной практике.
+                Курс, полностью удовлетворяющий специфическим запросам именно Вашей компании, позволит решить эту проблему
+                и, как результат, сэкономить Ваши временные и финансовые ресурсы.</p>
               <i className={`fa fa-arrow-right fa-4 ${s.companyIcon}`} aria-hidden="true">
                 <a href="/register/company" className={s.companyDescriptionButton}>ЗАКАЗАТЬ</a>
               </i>

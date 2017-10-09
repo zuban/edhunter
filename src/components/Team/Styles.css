@@ -18,6 +18,12 @@
   background: #f4f5f9;
 }
 
+
+.tabActive {
+  border: 0;
+  border-bottom: 3px solid;
+  border-color: #3e94b5;
+}
 .paddingContainer {
   margin-top: 2rem;
 }
@@ -230,4 +236,39 @@
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
+}
+
+
+.darkSection {
+  background-color: #202020;
+  color: var(--white-text-color);
+}
+
+.link {
+  display: inline-block;
+  padding: 3px 8px;
+  text-decoration: none;
+  font-size: 21px;
+}
+
+
+.link,
+.link:active,
+.link:visited {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.link:hover {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  border-bottom: 1px solid white;
+}
+
+
+.hrTeam {
+  background: #F8F8F8;
+  border: 0;
+  height: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

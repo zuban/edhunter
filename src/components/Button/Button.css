@@ -10,6 +10,7 @@
 @import '../variables.css';
 
 .primary {
+  font-family: 'Exo 2', sans-serif;
   background: var(--button-primary-color);
   border-color: var(--button-primary-color);
   color: var(--white-text-color);
@@ -21,6 +22,7 @@
 }
 
 .secondary {
+  font-family: 'Exo 2', sans-serif;
   background: transparent;
   border-color: var(--white-text-color);
   color: var(--white-text-color);

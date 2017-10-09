@@ -38,6 +38,7 @@ import icon3 from './icon3.png';
 
 import JavaCourse from '../../components/JavaCourse';
 import ProcessBlock from '../../components/ProcessBlock';
+import Team from '../../components/Team';
 
 class Home extends React.Component {
   static propTypes = {};
@@ -103,7 +104,7 @@ class Home extends React.Component {
                   ДЛЯ РАБОТЫ В ВЕДУЩИХ IT КОМПАНИЯХ РОССИИ
                 </h3>
                 <br/>
-                <p>
+                <p className={s.headerDescription}>
                   Помогаем компаниям растить правильные компетенции у
                   кандидатов и сотрудников
                 </p>
@@ -123,6 +124,199 @@ class Home extends React.Component {
         <div className={s.arrowDown}>
           <img src={arrowDown} alt="arrow down"/>
         </div>
+        <JavaCourse/>
+        <div className={s.darkSection}>
+          <Container>
+            <Row className={s.processVideoRow} id="students-video">
+              <Col className={s.textLeft}>
+                <h2 className={s.textWhite}>АБИТУРИЕНТАМ</h2>
+              </Col>
+              <div className={s.videoWrapper}>
+                <iframe
+                  width={560}
+                  height={315}
+                  src="https://www.youtube.com/embed/Nh1cVIdpVUw"
+                  frameBorder={0}
+                  allowFullScreen
+                />
+              </div>
+            </Row>
+          </Container>
+        </div>
+        <ProcessBlock/>
+
+
+
+
+        <div className={s.whiteBlock} id="prices">
+          <Container className="text-center">
+            <Row className={s.headerPadding}>
+              <h1 className={s.blockCenter}>НАШИ ЦЕНЫ</h1>
+            </Row>
+          </Container>
+          <Container>
+            <Row className={s.priceContainer2}>
+              <Col className={s.priceRow2}>
+                <h1 className={s.priceName2}>Что вы получаете?</h1>
+                <Row>
+                  <Col>
+                    <Row className={s.priceTopics}>
+                      <div className='offset-md-3 col-sm-1'>
+                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 100 100">
+                          <path
+                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
+                          <path
+                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
+                        </svg>
+                      </div>
+                      <div className='col-sm-8'>
+                        <h3>
+                          Feedback по каждому ДЗ
+                        </h3>
+
+                      </div>
+                    </Row>
+                    <Row className={s.priceTopics}>
+                      <div className='offset-md-3 col-sm-1'>
+                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 100 100">
+                          <path
+                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
+                          <path
+                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
+                        </svg>
+                      </div>
+                      <div className='col-sm-8'>
+                        <h3>
+                          Помощь в составлении резюме
+                        </h3>
+                      </div>
+                    </Row>
+                    <Row className={s.priceTopics}>
+                      <div className='offset-md-3 col-sm-1'>
+                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 100 100">
+                          <path
+                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
+                          <path
+                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
+                        </svg>
+                      </div>
+                      <div className='col-sm-8'>
+                        <h3>
+                          Репетиция собеседования
+                        </h3>
+                      </div>
+                    </Row>
+                    <Row className={s.priceTopics}>
+                      <div className='offset-md-3 col-sm-1'>
+                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 100 100">
+                          <path
+                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
+                          <path
+                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
+                        </svg>
+                      </div>
+                      <div className='col-sm-8'>
+                        <h3>
+                          Возможность пройти собеседование у наших партнеров
+                        </h3>
+                      </div>
+                    </Row>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+            <Row>
+              <div className={`offset-md-1 col-sm-3 ${s.darkPrice}`}>
+                <h3>ЕЖЕМЕСЯЧНЫЙ</h3>
+                <span className={s.priceCount2}>8000</span>
+                <span className={s.rouble}>₽</span>
+                <br/>
+                <BootstrapButton
+                  style={{marginTop: '10px'}}
+                  text="Зарегистрироваться"
+                  onClick={() => {
+                    window.location.href = '/register/student';
+                  }}
+                  primary
+                >Зарегистрироваться</BootstrapButton>
+              </div>
+              <div className={`col-sm-4 ${s.bluePrice}`}>
+                <h1>РАЗОВЫЙ</h1>
+                <span className={s.priceCount2}>30000</span>
+                <span className={s.rouble}>₽</span>
+                <br/>
+                <span style={{fontSize: '0.9rem'}}>ЗА 5 МЕСЯЦЕВ</span>
+                <br/>
+                <BootstrapButton
+                  style={{marginTop: '10px'}}
+                  text="Зарегистрироваться"
+                  onClick={() => {
+                    window.location.href = '/register/student';
+                  }}
+                  primary
+                >Зарегистрироваться</BootstrapButton>
+              </div>
+              <div className={`col-sm-3 ${s.purplePrice}`}>
+                <h3>БЕСПЛАТНОЕ ОБУЧЕНИЕ</h3>
+                <span className={s.priceCount2}>45000</span>
+                <span className={s.rouble}>₽</span>
+                <br/>
+                <span style={{fontSize: '0.9rem'}}>ОПЛАТА ПОСЛЕ ТРУДОУСТРОЙСТВА</span>
+                <br/>
+                <BootstrapButton
+                  style={{marginTop: '10px'}}
+                  text="Зарегистрироваться"
+                  onClick={() => {
+                    window.location.href = '/register/student';
+                  }}
+                  primary
+                >Зарегистрироваться</BootstrapButton>
+              </div>
+            </Row>
+          </Container>
+
+
+        </div>
+        <div className={s.darkSection}>
+          <Container>
+            <Row>
+              <Col>
+                <h1>НАШИ ПЛАНЫ: ЗАПИСИ НА КУРС</h1>
+              </Col>
+            </Row>
+          </Container>
+          <Container fluid>
+            <Row>
+              <div className={`${s.firstBlock} col-sm-3`}>
+                <h1>20 / 08 / 2017</h1>
+                <p>Открыта запись на курс JAVA.</p>
+              </div>
+              <div className={`${s.secondBlock} col-sm-3`}>
+                <h1>01 / 10 / 2017</h1>
+                <p>День открытых дверей.</p>
+              </div>
+              <div className={`${s.thirdBlock} col-sm-3`}>
+                <h1>01 / 12 / 2017</h1>
+                <p>Презентация новых курсов JS и DevOps.</p>
+              </div>
+              <div className={`${s.foursBlock} col-sm-3`}>
+                <h1>01 / 03 / 2018</h1>
+                <p>Первый выпуск.</p>
+                <p>Поможем вам пройти первое профессиональное собеседование.</p>
+              </div>
+            </Row>
+          </Container>
+        </div>
+
+        <Team/>
         <Container className={s.paddingContainer} id="team">
           <Row>
             <div className="col-sm-3">
@@ -221,364 +415,8 @@ class Home extends React.Component {
             </h5>
             <h5 className={s.textBlue}>Зарегистрируйся и получи персональный заказ на разработку курса.</h5>
           </Row>
-
-          <Row className={s.processVideoRow} id="students-video">
-            <Col className={s.textLeft}>
-              <h2 className={s.textBlue}>Абитуриентам</h2>
-            </Col>
-            <div className={s.videoWrapper}>
-              <iframe
-                width={560}
-                height={315}
-                src="https://www.youtube.com/embed/Nh1cVIdpVUw"
-                frameBorder={0}
-                allowFullScreen
-              />
-            </div>
-          </Row>
-        </Container>
-        <div className={s.darkSection} id="mission">
-          <Container fluid>
-            <Row className={s.missionRow}>
-              <div className={`col-sm-8 ${s.missionText}`}>
-                <h1 className={s.missionHeader}>НАША МИССИЯ</h1>
-                <p className={s.textParagraph}>
-                  Получи знания, заяви о себе, найди себя, открой мечту. Стань
-                  разработчиком, найди работу в лучших IT компаниях. Мы учим, чтобы вы работали.
-                </p>
-                <Row className={s.missionDescription}>
-                  <div className="col-sm-6">
-                    <h3 className="text-primary">Я ХОЧУ СТАТЬ РАЗРАБОТЧИКОМ</h3>
-
-                    <div className="media">
-                      <div className="media-body">
-                        <ul className={s.missionUl}>
-                          <li className={s.textParagraph}>
-                            Мы даем только необходимые знания
-                          </li>
-                          <li className={s.textParagraph}>
-                            Мы сокращаем дистанцию между тобой и профессией
-                          </li>
-                        </ul>
-                      </div>
-                      <img className="d-flex ml-3" src={desctop}/>
-                    </div>
-                  </div>
-                  <div className="col-sm-6">
-                    <h3 className="text-primary">Я ХОЧУ ЗДЕСЬ РАБОТАТЬ</h3>
-                    <div className="media">
-                      <div className="media-body">
-                        <ul className={s.missionUl}>
-                          <li className={s.textParagraph}>
-                            Подготовим тебя под требования компании
-                          </li>
-                          <li className={s.textParagraph}>
-                            Обеспечим интервью в компании
-                          </li>
-                          <li className={s.textParagraph}>
-                            Выдадим цифровой сертификат
-                          </li>
-                        </ul>
-                      </div>
-                      <img className="d-flex ml-3" src={layers}/>
-                    </div>
-                  </div>
-                </Row>
-              </div>
-              <div className={`${s.missionBackground} col-sm-4`}/>
-            </Row>
-          </Container>
-        </div>
-        <Container className={s.paddingContainer}>
-          <Row className={s.headerMargin}>
-            <h1 className={s.blockCenter}>
-              <span className={s.textBlue}>ЧТО</span> МЫ ДЕЛАЕМ
-            </h1>
-          </Row>
-          <Row>
-            <div className={`${s.helpBlock} col-sm-7`}>
-              <Row className={s.textGrey}>
-                <div className={`col-sm-12 text-center ${s.bulbPadding}`}>
-                  <img src={bulb}/>
-                </div>
-                <div
-                  className={`col-sm-12  text-center ${s.bulbPadding} ${s.textDark}`}
-                >
-                  <h2>ПОМОГАЕМ НА ВСЕМ ПУТИ</h2>
-                </div>
-                <div className="col-sm-12  text-center">
-                  <p>
-                    Интерактивное общение с преподавателями Выполнение проектов,
-                    построенных на реальных кейсах Профессиональная подготовка
-                    резюме Имитация собеседования в компании
-                  </p>
-                </div>
-                <div
-                  className={`col-sm-12  text-center ${s.bulbPadding} ${s.textDark}`}
-                >
-                  <h2>КАК МЫ ЭТО ДЕЛАЕМ</h2>
-                </div>
-                <div className="col-sm-12  text-center">
-                  <h4>
-                    <Link className={s.link} to="/education">
-                      С помощью концепции перевернутого обучения
-                    </Link>
-                  </h4>
-                </div>
-              </Row>
-            </div>
-            <div className={`${s.photoHelpBlock} col-sm-7 offset-md-5`}/>
-          </Row>
         </Container>
 
-        <ProcessBlock/>
-
-        <Container className={s.partnersContainer} id="partners">
-          <Row className={s.headerPadding}>
-            <Col>
-              <h1 className={s.blockCenter}>НАШИ ПАРТНЕРЫ</h1>
-
-              <hr/>
-            </Col>
-          </Row>
-          <Row>
-            <p>
-              Если ваша компания заинтересована в сотрудничестве с нами,
-              зарегистрируйтесь для дальнейших инструкций, или свяжитесь с нами:
-              team@edhunter.ru
-            </p>
-          </Row>
-          {/* <img*/}
-          {/* src="http://toplogos.ru/images/logo-rosevrobank.png"*/}
-          {/* style={{*/}
-          {/* filter: 'grayscale(1)',*/}
-          {/* width: '250px',*/}
-          {/* opacity: 0.5,*/}
-          {/* }}*/}
-          {/* />*/}
-          {/* <img*/}
-          {/* src="https://hsto.org/getpro/moikrug/uploads/company/830/016/812/logo/medium_db0b3701909fd9944e6e9a5310f023be.png"*/}
-          {/* style={{*/}
-          {/* filter: 'grayscale(1)',*/}
-          {/* width: '250px',*/}
-          {/* opacity: 0.5,*/}
-          {/* }}*/}
-          {/* />*/}
-          <div>
-            <Button
-              text="Стать партнером"
-              onClick={() => {
-                window.location.href = '/register/company';
-              }}
-              primary
-            />
-          </div>
-        </Container>
-
-        <div className={s.darkSection} id="courses">
-          <Container>
-            <Row className={s.headerPadding}>
-              <h1 className={s.blockCenter}>Курсы</h1>
-            </Row>
-          </Container>
-          <JavaCourse/>
-        </div>
-        <div className={s.whiteBlock} id="prices">
-          <Container className="text-center">
-            <Row className={s.headerPadding}>
-              <h1 className={s.blockCenter}>НАШИ ЦЕНЫ <span className={s.textBlue}>НА ПЕРВЫЙ НАБОР</span></h1>
-            </Row>
-          </Container>
-          <Container>
-            <Row className={s.priceContainer2}>
-              <Col className={s.priceRow2}>
-                <h1 className={s.priceName2}>Что вы получаете?</h1>
-                <Row>
-                  <Col>
-                    <Row className={s.priceTopics}>
-                      <div className='offset-md-3 col-sm-1'>
-                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
-                             xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 100 100">
-                          <path
-                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
-                          <path
-                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
-                        </svg>
-                      </div>
-                      <div className='col-sm-8'>
-                        <h3>
-                          Курс Core Java
-                        </h3>
-                      </div>
-                    </Row>
-                    <Row className={s.priceTopics}>
-                      <div className='offset-md-3 col-sm-1'>
-                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
-                             xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 100 100">
-                          <path
-                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
-                          <path
-                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
-                        </svg>
-                      </div>
-                      <div className='col-sm-8'>
-                        <h3>
-                          Курс Java enterprise
-                        </h3>
-                      </div>
-                    </Row>
-                    <Row className={s.priceTopics}>
-                      <div className='offset-md-3 col-sm-1'>
-                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
-                             xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 100 100">
-                          <path
-                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
-                          <path
-                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
-                        </svg>
-                      </div>
-                      <div className='col-sm-8'>
-                        <h3>
-                          Feedback по каждому ДЗ
-                        </h3>
-
-                      </div>
-                    </Row>
-                    <Row className={s.priceTopics}>
-                      <div className='offset-md-3 col-sm-1'>
-                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
-                             xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 100 100">
-                          <path
-                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
-                          <path
-                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
-                        </svg>
-                      </div>
-                      <div className='col-sm-8'>
-                        <h3>
-                          Помощь в составлении резюме
-                        </h3>
-                      </div>
-                    </Row>
-                    <Row className={s.priceTopics}>
-                      <div className='offset-md-3 col-sm-1'>
-                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
-                             xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 100 100">
-                          <path
-                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
-                          <path
-                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
-                        </svg>
-                      </div>
-                      <div className='col-sm-8'>
-                        <h3>
-                          Репетиция собеседования
-                        </h3>
-                      </div>
-                    </Row>
-                    <Row className={s.priceTopics}>
-                      <div className='offset-md-3 col-sm-1'>
-                        <svg style={{width: '35px', display: 'block'}} fill="rgb(255, 255, 255)"
-                             xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 100 100">
-                          <path
-                            d="M50.1 98.9c-26.7 0-48.5-21.8-48.5-48.5S23.4 1.9 50.1 1.9c8.9 0 17.5 2.4 25.1 7 .7.4.9 1.4.5 2.1-.4.7-1.4.9-2.1.5C66.5 7.2 58.4 5 50.1 5 25 4.9 4.6 25.3 4.6 50.4S25 95.9 50.1 95.9s45.5-20.4 45.5-45.5c0-3.2-.3-6.4-1-9.5-.2-.8.3-1.6 1.2-1.8.8-.2 1.6.3 1.8 1.2.7 3.3 1.1 6.7 1.1 10.1-.1 26.7-21.8 48.5-48.6 48.5z"></path>
-                          <path
-                            d="M50.1 63.9c-.4 0-.8-.2-1.1-.4L24.8 39.2c-.6-.6-.6-1.5 0-2.1.6-.6 1.5-.6 2.1 0l23.2 23.2 46.8-48c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-47.8 49c-.3.3-.7.5-1.1.5z"></path>
-                        </svg>
-                      </div>
-                      <div className='col-sm-8'>
-                        <h3>
-                          Возможность пройти собеседование у наших партнеров
-                        </h3>
-                      </div>
-                    </Row>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-            <Row>
-              <div className={`offset-md-1 col-sm-3 ${s.darkPrice}`}>
-                <h3>ЕЖЕМЕСЯЧНЫЙ</h3>
-                <span className={s.priceCount2}>8000</span>
-                <span className={s.rouble}>₽</span>
-                <br/>
-                <span style={{fontSize: '0.9rem'}}>ПРОЙДИ ТЕСТ ПОСЛЕ РЕГИСТРАЦИИ, ПОЛУЧИ СКИДКУ 20{"%"}</span>
-                <br/>
-                <BootstrapButton
-                  style={{marginTop: '10px'}}
-                  text="Зарегистрироваться"
-                  onClick={() => {
-                    window.location.href = '/register/student';
-                  }}
-                  primary
-                >Зарегистрироваться</BootstrapButton>
-              </div>
-              <div className={`col-sm-4 ${s.bluePrice}`}>
-                <h1>РАЗОВЫЙ</h1>
-                <span className={s.priceCount2}>30000</span>
-                <span className={s.rouble}>₽</span>
-                <br/>
-                <span style={{fontSize: '0.9rem'}}>ЗА 5 МЕСЯЦЕВ</span>
-                <br/>
-                <BootstrapButton
-                  style={{marginTop: '10px'}}
-                  text="Зарегистрироваться"
-                  onClick={() => {
-                    window.location.href = '/register/student';
-                  }}
-                  primary
-                >Зарегистрироваться</BootstrapButton>
-              </div>
-              <div className={`col-sm-3 ${s.purplePrice}`}>
-                <h3>БЕСПЛАТНОЕ ОБУЧЕНИЕ</h3>
-                <span className={s.priceCount2}>45000</span>
-                <span className={s.rouble}>₽</span>
-                <br/>
-                <span style={{fontSize: '0.9rem'}}>ОПЛАТА ПОСЛЕ ТРУДОУСТРОЙСТВА</span>
-                <br/>
-                <BootstrapButton
-                  style={{marginTop: '10px'}}
-                  text="Зарегистрироваться"
-                  onClick={() => {
-                    window.location.href = '/register/student';
-                  }}
-                  primary
-                >Зарегистрироваться</BootstrapButton>
-              </div>
-            </Row>
-          </Container>
-
-
-        </div>
-        <div className={s.darkSection}>
-          <Container fluid>
-            <Row>
-              <div className={`${s.firstBlock} col-sm-3`}>
-                <h1>20 / 08 / 2017</h1>
-                <p>Открыта запись на курс JAVA.</p>
-              </div>
-              <div className={`${s.secondBlock} col-sm-3`}>
-                <h1>01 / 10 / 2017</h1>
-                <p>День открытых дверей.</p>
-              </div>
-              <div className={`${s.thirdBlock} col-sm-3`}>
-                <h1>01 / 12 / 2017</h1>
-                <p>Презентация новых курсов JS и DevOps.</p>
-              </div>
-              <div className={`${s.foursBlock} col-sm-3`}>
-                <h1>01 / 03 / 2018</h1>
-                <p>Первый выпуск.</p>
-                <p>Поможем вам пройти первое профессиональное собеседование.</p>
-              </div>
-            </Row>
-          </Container>
-        </div>
         <Container>
           <Row className={s.headerPadding}>
             <h1 className={s.blockCenter}>НАС РЕКОМЕНДУЮТ</h1>
@@ -608,45 +446,6 @@ class Home extends React.Component {
             </Row>
           </Container>
         </div>
-        <Container>
-          <Row className={s.headerPadding}>
-            <h1 className={s.blockCenter}>ХОТИТЕ СТАТЬ ПАРТНЕРОМ ПРОЕКТА?</h1>
-          </Row>
-          <Row className="text-center">
-            <p>
-              {' '}Партнерская программа - это возможность в кратчайшие сроки
-              найти и прособеседовать лучших молодых специалистов с необходимыми
-              вашей компании компетенциями. Мы также готовы создать учебный курс
-              по вашему заказу и предлагаем вам воспользоваться опцией
-              “Таргетированный отбор”.
-            </p>
-            <h3 className={s.textBlue}>Закажи эксклюзивный курс под свои требования за половину стоимости до 1
-              октября.</h3>
-            <div className={s.blockCenter}>
-              <Button
-                text="Для компаний"
-                onClick={() => {
-                  window.location.href = '/register/company';
-                }}
-                primary
-              />
-            </div>
-          </Row>
-          <Row className={s.processVideoRow} id="company-video">
-            <Col className={s.textLeft}>
-              <h2 className={s.textBlue}>Работодателю</h2>
-            </Col>
-            <div className={s.videoWrapper}>
-              <iframe
-                width={560}
-                height={315}
-                src="https://www.youtube.com/embed/iDx3gu13tfE"
-                frameBorder={0}
-                allowFullScreen
-              />
-            </div>
-          </Row>
-        </Container>
         <div className={s.contactBlock} id="contacts">
           <Container>
             <Row className={s.headerPadding}>

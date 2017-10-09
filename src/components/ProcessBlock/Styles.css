@@ -8,10 +8,93 @@
  */
 @import '../variables.css';
 
-.processBlock {
-  height: 808px;
-  background: #202020 url(./processNew.png) no-repeat right center;
-  background-position: center 37.4669%;
-  background-size: cover;
-  color: white;
+.darkSection {
+  background: #f4f5f9;
+  height: 500px;
+  color: #4a4a4a;
+}
+
+.processName {
+  color: #3d95b6;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.firstBlock {
+  position: absolute;
+  width: calc(100%);
+  height: 300px;
+  padding-left: 1.5rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  z-index: 1;
+  box-shadow: 0 2px 7px 0 hsla(0, 0%, 4%, .05), 3px 27px 54px -34px rgba(0, 0, 0, .47);
+  background: #F7E2D3;
+}
+
+.secondBlock {
+  height: 300px;
+  background: #CCEFF2;
+
+  position: absolute;
+  width: calc(100%);
+  padding-left: 1.8rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  left: 0;
+  top: 50px;
+  box-shadow: 0 2px 7px 0 hsla(0, 0%, 4%, .05), 3px 27px 54px -34px rgba(0, 0, 0, .47);
+
+}
+
+.thirdBlock {
+  height: 300px;
+  background: #D4D7F6;
+  position: absolute;
+  width: calc(100%);
+  top: 25px;
+  padding-left: 1.5rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  z-index: 1;
+  box-shadow: 0 2px 7px 0 hsla(0, 0%, 4%, .05), 3px 27px 54px -34px rgba(0, 0, 0, .47);
+
+}
+
+.foursBlock {
+  height: 300px;
+  background: #EFFDEB;
+  position: absolute;
+  width: calc(100%);
+  padding-left: 1.8rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  left: 0;
+  top: 75px;
+  box-shadow: 0 2px 7px 0 hsla(0, 0%, 4%, .05), 3px 27px 54px -34px rgba(0, 0, 0, .47);
+}
+
+
+
+.helpLink {
+  font-family: 'Exo 2', sans-serif;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #4a4a4a;
+}
+
+.helpLink:hover {
+  color: #f8971d;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+
+.icon {
+  position: absolute;
+  right: 20px;
+  font-size: 30px;
+  bottom: 20px;
+  color: #F7E2D3
 }

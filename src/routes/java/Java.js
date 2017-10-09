@@ -356,7 +356,7 @@ class Java extends React.Component {
             </li>
           </ul>
         </Container>
-        <div className={s.javaTeacherContainer}>
+        <div className={s.javaTeacherContainer} id="homework">
           <Container>
             <Homework/>
           </Container>

@@ -1,32 +1,32 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 .root {
-  float: right;
+  right: 0;
   margin: 6px 0 0;
+  position: absolute;
 }
 
 .link {
   display: inline-block;
   padding: 3px 8px;
   text-decoration: none;
-  font-size: 1.125em; /* ~18px */
+  font-size: 21px;
 }
+
+.forCompany {
+  color: #3d95b6 !important;
+}
+
+
 
 .link,
 .link:active,
 .link:visited {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .link:hover {
   color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  border-bottom: 1px solid white;
 }
 
 .highlight {
@@ -43,4 +43,8 @@
 
 .spacer {
   color: rgba(255, 255, 255, 0.3);
+}
+
+.dropdown {
+  display: inline-block;
 }

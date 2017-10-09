@@ -8,10 +8,10 @@
  */
 
 import React from 'react';
-import cx from 'classnames';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Navigation.css';
 import Link from '../Link';
+import {UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 
 class Navigation extends React.Component {
 
@@ -19,7 +19,7 @@ class Navigation extends React.Component {
     fetch('/logout', {
       credentials: 'include',
     }).then(function (response) {
-      document.cookie = 'connect.sid' +  '=; Max-Age=0';
+      document.cookie = 'connect.sid' + '=; Max-Age=0';
       window.location.href = '/'
     }).catch(alert);
   }
@@ -28,24 +28,6 @@ class Navigation extends React.Component {
     const {profile} = this.props;
     return (
       <div className={s.root} role="navigation">
-        <Link className={s.link} to="/#team">
-          Команда
-        </Link>
-        <Link className={s.link} to="/#mission">
-          Миссия
-        </Link>
-        <Link className={s.link} to="/#partners">
-          Партнеры
-        </Link>
-        <Link className={s.link} to="/#courses">
-          Курсы
-        </Link>
-        <Link className={s.link} to="/#prices">
-          Цены
-        </Link>
-        <Link className={s.link} to="/#contacts">
-          Контакты
-        </Link>
         {profile
           ? <span><Link className={s.link} to="/profile">
               {profile}
@@ -54,14 +36,27 @@ class Navigation extends React.Component {
               <span className={s.link} onClick={() => this.logout()}>Выйти</span>
             </span>
           : <span>
-              {' '}<span className={s.spacer}> | </span>
+
+              <Link className={`${s.link} ${s.forCompany}`} to="/register/company">
+                ДЛЯ КОМПАНИЙ
+              </Link>
+               {' '}<span className={s.spacer}> | </span>
               <Link className={s.link} to="/login">
-                Войти
+                ВОЙТИ
               </Link>
-              <span className={s.spacer}>или</span>
-              <Link className={cx(s.link, s.highlight)} to="/register">
-                Регистрация
-              </Link>
+            {/*{' '}<span className={s.spacer}> | </span>*/}
+            {/*<UncontrolledDropdown className={s.dropdown}>*/}
+            {/*<DropdownToggle>*/}
+            {/*<i className="fa fa-bars" aria-hidden="true"></i>*/}
+            {/*</DropdownToggle>*/}
+            {/*<DropdownMenu>*/}
+              {/*<DropdownItem header>Header</DropdownItem>*/}
+              {/*<DropdownItem disabled>Action</DropdownItem>*/}
+              {/*<DropdownItem>Another Action</DropdownItem>*/}
+              {/*<DropdownItem divider/>*/}
+              {/*<DropdownItem>Another Action</DropdownItem>*/}
+            {/*</DropdownMenu>*/}
+          {/*</UncontrolledDropdown>*/}
             </span>}
       </div>
     );

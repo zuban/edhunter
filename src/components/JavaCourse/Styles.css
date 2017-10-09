@@ -18,6 +18,14 @@
   background: #f4f5f9;
 }
 
+.sellText {
+  font-weight: 300;
+}
+
+.whatWeDo {
+  color: #3d95b6;
+}
+
 .paddingContainer {
   margin-top: 2rem;
 }
@@ -67,7 +75,7 @@
   background-image: -o-linear-gradient(right, #D5F2F5, #47adb7);
   background-image: linear-gradient(to left, #D5F2F5, #c0e7ec);
   color: #4a4a4a;
-  height: 200px;
+  height: 300px;
 }
 
 .companyNamePadding {
@@ -206,7 +214,7 @@
   position: absolute;
   right: -10px;
   font-size: 20px;
-  top: 35px;
+  bottom: 80px;
   color: #ffffff;
   background: #ff948f;
   padding: 5px 15px 5px 15px;
@@ -223,7 +231,7 @@
   position: absolute;
   right: -10px;
   font-size: 20px;
-  top: 35px;
+  bottom: 80px;
   color: #ffffff;
   background: #C0E8DA;
   padding: 5px 15px 5px 15px;
