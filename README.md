@@ -1,64 +1,3 @@
-
-HOW TO
-docker build -t edhunter-web .
-docker run -p 3000:3000 edhunter-web
-
-
-$ docker exec -it <container-id> pm2 monit	Monitoring CPU/Usage of each process
-$ docker exec -it <container-id> pm2 list	Listing managed processes
-$ docker exec -it <container-id> pm2 show	Get more information about a process
-$ docker exec -it <container-id> pm2 reload all	0sec downtime reload all applications
-
-
-Import collection
-mongoimport -h ds115110.mlab.com:15110 -d heroku_v4vqslpf -c <collection> -u <user> -p <password> --file <input file>
-Export collection
-mongoexport -h ds115110.mlab.com:15110 -d heroku_v4vqslpf -c <collection> -u <user> -p <password> -o <output file>
-
-
-Import collection
-mongoimport -h ds115110.mlab.com:15110 -d heroku_v4vqslpf -c <collection> -u <user> -p <password> --file <input .csv file> --type csv --headerline
-Export collection
-mongoexport -h ds115110.mlab.com:15110 -d heroku_v4vqslpf -c <collection> -u <user> -p <password> -o <output .csv file> --csv -f <comma-separated list of field names>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## React Starter Kit — "[isomorphic](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)" web app boilerplate &nbsp; <a href="https://github.com/kriasoft/react-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/kriasoft/react-starter-kit.svg?style=social&label=Star&maxAge=3600" height="20"></a> <a href="https://twitter.com/ReactStarter"><img src="https://img.shields.io/twitter/follow/ReactStarter.svg?style=social&label=Follow&maxAge=3600" height="20"></a>
-
-[React Starter Kit](https://www.reactstarterkit.com) is an opinionated boilerplate for web
-development built on top of [Node.js](https://nodejs.org/),
-[Express](http://expressjs.com/), [GraphQL](http://graphql.org/) and
-[React](https://facebook.github.io/react/), containing modern web development
-tools such as [Webpack](http://webpack.github.io/), [Babel](http://babeljs.io/)
-and [Browsersync](http://www.browsersync.io/). Helping you to stay productive
-following the best practices. A solid starting point for both professionals
-and newcomers to the industry.
-
-**See** [getting started guide](./docs/getting-started.md), [demo][demo],
-[docs](https://github.com/kriasoft/react-starter-kit/tree/master/docs),
-[roadmap](https://github.com/kriasoft/react-starter-kit/projects/1) &nbsp;|&nbsp;
-**Join** [#react-starter-kit][chat] chat room on Gitter &nbsp;|&nbsp;
-**Visit our sponsors**:<br><br>
-
-<p align="center" align="top">
-  <a href="https://rollbar.com/?utm_source=reactstartkit(github)&amp;utm_medium=link&amp;utm_campaign=reactstartkit(github)"><img src="https://koistya.github.io/files/rollbar-362x72.png" height="36" align="top" /></a>
-  <a href="https://x-team.com/hire-react-developers/?utm_source=reactstarterkit&amp;utm_medium=github-link&amp;utm_campaign=reactstarterkit-june"><img src="https://koistya.github.io/files/xteam-255x72.png" height="36" align="top" /></a>
-  <sup><a href="https://x-team.com/join/?utm_source=reactstarterkit&utm_medium=github-link&utm_campaign=reactstarterkit-june">Hiring</a></sup>
-</p>
-
-
 ### Getting Started
 
   * Follow the [getting started guide](./docs/getting-started.md) to download and run the project
@@ -187,45 +126,6 @@ We love your feedback!
 </table>
 
 
-### Backers
-
-♥ React Starter Kit? Help us keep it alive by donating funds to cover project
-expenses via [OpenCollective](https://opencollective.com/react-starter-kit) or
-[Bountysource](https://salt.bountysource.com/teams/react-starter-kit)!
-
-<a href="http://www.nekst.me/" target="_blank" title="lehneres">
-  <img src="https://github.com/lehneres.png?size=64" width="64" height="64" alt="lehneres">
-</a>
-<a href="http://www.vidpanel.com/" target="_blank" title="Tarkan Anlar">
-  <img src="https://github.com/tarkanlar.png?size=64" width="64" height="64" alt="Tarkan Anlar">
-</a>
-<a href="https://morten.olsen.io/" target="_blank" title="Morten Olsen">
-  <img src="https://github.com/mortenolsendk.png?size=64" width="64" height="64" alt="Morten Olsen">
-</a>
-<a href="https://twitter.com/adamthomann" target="_blank" title="Adam">
-  <img src="https://github.com/athomann.png?size=64" width="64" height="64" alt="Adam">
-</a>
-<a href="http://dsernst.com/" target="_blank" title="David Ernst">
-  <img src="https://github.com/dsernst.png?size=64" width="64" height="64" alt="David Ernst">
-</a>
-<a href="http://zanehitchcox.com/" target="_blank" title="Zane Hitchcox">
-  <img src="https://github.com/zwhitchcox.png?size=64" width="64" height="64" alt="Zane Hitchcox">
-</a>
-<a href="https://opencollective.com/react-starter-kit" target="_blank">
-  <img src="https://opencollective.com/static/images/become_backer.svg" width="64" height="64" alt="">
-</a>
-
-
-### How to Contribute
-
-Anyone and everyone is welcome to [contribute](CONTRIBUTING.md) to this project. The best way to
-start is by checking our [open issues](https://github.com/kriasoft/react-starter-kit/issues),
-[submit a new issues](https://github.com/kriasoft/react-starter-kit/issues/new?labels=bug) or
-[feature request](https://github.com/kriasoft/react-starter-kit/issues/new?labels=enhancement),
-participate in discussions, upvote or downvote the issues you like or dislike, send [pull
-requests](CONTRIBUTING.md#pull-requests).
-
-
 ### Learn More
 
   * [Getting Started with React.js](http://facebook.github.io/react/)
@@ -245,27 +145,16 @@ requests](CONTRIBUTING.md#pull-requests).
   * [Membership Database](https://github.com/membership/membership.db) — SQL schema boilerplate for user accounts, profiles, roles, and auth claims
   * [Babel Starter Kit](https://github.com/kriasoft/babel-starter-kit) — Boilerplate for authoring JavaScript/React.js libraries
 
+### Docker 
 
-### Support
-
-  * [#react-starter-kit](http://stackoverflow.com/questions/tagged/react-starter-kit) on Stack Overflow — Questions and answers
-  * [#react-starter-kit](https://gitter.im/kriasoft/react-starter-kit) on Gitter — Watch announcements, share ideas and feedback
-  * [GitHub issues](https://github.com/kriasoft/react-starter-kit/issues), or [Scrum board](https://waffle.io/kriasoft/react-starter-kit) — File issues, send feature requests
-  * [appear.in/react](https://appear.in/react) — Open hours! Exchange ideas and experiences (React, GraphQL, startups and pet projects)
-  * [@koistya](https://twitter.com/koistya) on [Codementor](https://www.codementor.io/koistya), or [Skype](http://hatscripts.com/addskype?koistya) — Private consulting
+HOW TO
+docker build -t edhunter-web .
+docker run -p 3000:3000 edhunter-web
 
 
-### License
+$ docker exec -it <container-id> pm2 monit	Monitoring CPU/Usage of each process
+$ docker exec -it <container-id> pm2 list	Listing managed processes
+$ docker exec -it <container-id> pm2 show	Get more information about a process
+$ docker exec -it <container-id> pm2 reload all	0sec downtime reload all applications
 
-Copyright © 2014-present Kriasoft, LLC. This source code is licensed under the MIT
-license found in the [LICENSE.txt](https://github.com/kriasoft/react-starter-kit/blob/master/LICENSE.txt)
-file. The documentation to the project is licensed under the
-[CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/) license.
 
----
-Made with ♥ by Konstantin Tarkus ([@koistya](https://twitter.com/koistya)) and [contributors](https://github.com/kriasoft/react-starter-kit/graphs/contributors)
-
-[rsk]: https://www.reactstarterkit.com
-[demo]: http://demo.reactstarterkit.com
-[node]: https://nodejs.org
-[chat]: https://gitter.im/kriasoft/react-starter-kit
